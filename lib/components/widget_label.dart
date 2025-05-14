@@ -9,7 +9,7 @@ class WidgetLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.90,
+        width: MediaQuery.of(context).size.width * 0.95,
         height: MediaQuery.of(context).size.height * 0.07,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.onPrimary,

@@ -15,7 +15,7 @@ final ThemeData myTheme = ThemeData(
   ),
   textTheme: TextTheme(
     titleLarge: TextStyle(
-      fontSize: 18,
+      fontSize: 26,
       color: Color(0xff540F63),
       fontWeight: FontWeight.bold,
       fontFamily: 'ArsenalSC',

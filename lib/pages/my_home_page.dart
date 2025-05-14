@@ -1,7 +1,8 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/components/botao_basico_pop.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/minhaContaUm.dart';
+import 'package:estaciona_facil/pages/Fluxo_Pietro/minhaContaUm.dart';
 import 'package:estaciona_facil/pages/paginaum.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
             spacing: 15,
             children: [
               BotaoBasico(texto: 'Começar', pagina: PaginaUm()),
-
+              BotaoBasicoPop(texto: 'VOLTAR'),
               BotaoBasico(texto: 'Meu Perfil', pagina: Minhacontaum()),
               Text('Título 1', style: Theme.of(context).textTheme.titleLarge),
               Text('Título 2', style: Theme.of(context).textTheme.titleMedium),
