@@ -9,55 +9,51 @@ final ThemeData myTheme = ThemeData(
     error: Colors.red,
     onError: Colors.white,
     surface: Color(0xFFF4F4F4),
-    onSurface: Colors.black, 
+    onSurface: Colors.black,
     secondary: Color(0xff540F63),
-    onSecondary: Colors.white
+    onSecondary: Colors.white,
   ),
   textTheme: TextTheme(
-
     titleLarge: TextStyle(
-        fontSize: 18,
-        color: Color(0xff540F63),
-        fontWeight: FontWeight.bold
-    ),  
+      fontSize: 18,
+      color: Color(0xff540F63),
+      fontWeight: FontWeight.bold,
+      fontFamily: 'ArsenalSC',
+    ),
     titleMedium: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'ArsenalSC',
     ),
     bodyMedium: TextStyle(
-        color: Color.fromARGB(255, 0, 0, 0),
-        fontSize: 14,
+      color: Color.fromARGB(255, 0, 0, 0),
+      fontSize: 14,
+      fontFamily: 'Arsenal',
     ),
-    bodySmall: TextStyle(
-        fontSize: 14,
-    ),
+    bodySmall: TextStyle(fontSize: 14, fontFamily: 'Arsenal'),
   ),
-  iconTheme: const IconThemeData(
-    color: Colors.white,
-    size: 40
-  ),
+  iconTheme: const IconThemeData(color: Colors.white, size: 40),
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
       iconColor: WidgetStatePropertyAll(Color(0xff540F63)),
       iconSize: WidgetStatePropertyAll(30),
       padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(
-      EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      ),
     ),
-    )
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       foregroundColor: const Color.fromARGB(255, 255, 255, 255),
       backgroundColor: Color(0xff540F63),
-      padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 20),
       textStyle: TextStyle(
         fontWeight: FontWeight.bold, // isso já define como negrito
-        fontSize: 14,
+        fontSize: 28,
+        fontFamily: 'ArsenalSC',
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10))
-      )
-    )
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+    ),
   ),
-  
 );
