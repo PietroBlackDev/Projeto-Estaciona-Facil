@@ -1,5 +1,6 @@
 import 'package:estaciona_facil/components/modal_confirmacao.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_dois.dart';
 import 'package:flutter/material.dart';
 
 class Minhacontaum extends StatefulWidget {
@@ -45,7 +46,14 @@ class _MinhacontaumState extends State<Minhacontaum> {
                   ),
 
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MinhaContaDois(),
+                        ),
+                      );
+                    },
                     child: Row(
                       spacing: 5,
                       children: [
@@ -111,6 +119,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                               color: Colors.black,
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
+                              fontFamily: 'Arsenal',
                             ),
                           ),
 
@@ -120,6 +129,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                               color: Colors.black,
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
+                              fontFamily: 'Arsenal',
                             ),
                           ),
 
@@ -129,6 +139,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                               color: Colors.black,
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
+                              fontFamily: 'Arsenal',
                             ),
                           ),
 
@@ -148,8 +159,21 @@ class _MinhacontaumState extends State<Minhacontaum> {
               ),
               const SizedBox(height: 90),
               ModalConfirmacao(texto: 'Salvar'),
-              const SizedBox(height: 60),
-              Image.asset('assets/images/Logo.png', width: 120, height: 120),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.222,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/Logo.png',
+                      width: 120,
+                      height: 120,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
