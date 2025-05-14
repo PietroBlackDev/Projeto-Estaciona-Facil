@@ -1,10 +1,63 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+final ThemeData myTheme = ThemeData(
+  useMaterial3: true,
+  colorScheme: const ColorScheme(
+    brightness: Brightness.light,
+    primary: Color(0xffFFFFFF),
+    onPrimary: Color(0xff540F63),
+    error: Colors.red,
+    onError: Colors.white,
+    surface: Color(0xFFF4F4F4),
+    onSurface: Colors.black, 
+    secondary: Color(0xff540F63),
+    onSecondary: Colors.white
+  ),
+  textTheme: TextTheme(
 
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
+    titleLarge: TextStyle(
+        fontSize: 18,
+        color: Color(0xff540F63),
+        fontWeight: FontWeight.bold
+    ),  
+    titleMedium: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold
+    ),
+    bodyMedium: TextStyle(
+        color: Color.fromARGB(255, 0, 0, 0),
+        fontSize: 14,
+    ),
+    bodySmall: TextStyle(
+        fontSize: 14,
+    ),
+  ),
+  iconTheme: const IconThemeData(
+    color: Colors.white,
+    size: 40
+  ),
+  iconButtonTheme: IconButtonThemeData(
+    style: ButtonStyle(
+      iconColor: WidgetStatePropertyAll(Color(0xff540F63)),
+      iconSize: WidgetStatePropertyAll(30),
+      padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(
+      EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+    ),
+    )
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color(0xff540F63),
+      padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 20),
+      textStyle: TextStyle(
+        fontWeight: FontWeight.bold, // isso já define como negrito
+        fontSize: 14,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10))
+      )
+    )
+  ),
+  
+);
