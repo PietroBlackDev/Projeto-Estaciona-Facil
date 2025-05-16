@@ -1,6 +1,7 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/receber_email.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/receber_sms.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
 import 'package:flutter/material.dart';
 
 class RecuperarSenha extends StatefulWidget {
@@ -31,6 +32,7 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
                     child: Text('Escolha como deseja recuperar sua senha:', style: Theme.of(context).textTheme.bodyMedium,)),
                   BotaoBasico(texto: 'Receber SMS', pagina: ReceberSms()),
                   BotaoBasico(texto: 'Receber E-MAIL', pagina: ReceberEmail()),
+                  BotaoVoltar(texto: 'Cancelar')
                   // inserir botão de cancelar
                 ],
               ),

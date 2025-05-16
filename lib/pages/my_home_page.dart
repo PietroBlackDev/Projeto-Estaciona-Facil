@@ -2,6 +2,7 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/botao_basico_pop.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/recuperar_senha.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_um.dart';
 import 'package:estaciona_facil/pages/paginaum.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Text('Corpo', style: Theme.of(context).textTheme.bodyMedium),
               Input(visibilidade: false, label: 'Nome'),
               WidgetLabel(texto: 'Minha Conta'),
+              BotaoBasico(texto: 'Recuperar Senha',pagina: RecuperarSenha(),),
             ],
           ),
         ),
