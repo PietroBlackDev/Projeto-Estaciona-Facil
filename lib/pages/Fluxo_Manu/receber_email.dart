@@ -24,7 +24,7 @@ class _ReceberEmailState extends State<ReceberEmail> {
             children: [
               Text('Recuperação de Senha - Email', style: Theme.of(context).textTheme.titleLarge,),
               Column(
-                spacing: 10,
+                spacing: 20,
                 children: [
                   Input(visibilidade: false, label: 'Informe seu email cadastrado:'),
                   BotaoModal(textoBotao: 'Receber EMAIL', titulo: 'Email enviado para o endereço informado', texto: 'Caso o Email não chegue, verifique se inseriu o endereço corretamente.', textoBotaoModal: 'Voltar',),

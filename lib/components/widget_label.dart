@@ -16,7 +16,7 @@ class WidgetLabel extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             IconButton(
@@ -25,6 +25,7 @@ class WidgetLabel extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            SizedBox(width: 50),
             Text(
               texto,
               style: TextStyle(
@@ -33,16 +34,6 @@ class WidgetLabel extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontFamily: 'ArsenalSC',
               ),
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.cancel_outlined,
-                color: Colors.white,
-                size: 29,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
             ),
           ],
         ),

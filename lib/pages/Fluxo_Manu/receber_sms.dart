@@ -24,7 +24,7 @@ class _ReceberSmsState extends State<ReceberSms> {
             children: [
               Text('Recuperação de Senha - SMS', style: Theme.of(context).textTheme.titleLarge,),
               Column(
-                spacing: 10,
+                spacing: 20,
                 children: [
                   Input(visibilidade: false, label: 'Informe seu celular cadastrado:'),
                   BotaoModal(textoBotao: 'Receber SMS', titulo: 'SMS enviado para o número informado', texto: 'Caso o SMS não chegue, verifique se inseriu o número corretamente.', textoBotaoModal: 'Voltar',),

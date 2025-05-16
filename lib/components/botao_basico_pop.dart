@@ -12,7 +12,7 @@ class BotaoBasicoPop extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.07,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pop;
+          Navigator.pop(context);
         },
         child: Text(texto),
       ),

@@ -32,11 +32,11 @@ class _MinhacontaumState extends State<Minhacontaum> {
                     child: Row(
                       spacing: 4,
                       children: [
-                        Icon(Icons.person, color: Colors.black, size: 30),
+                        Icon(Icons.person, color: Color.fromARGB(255, 42, 42, 42), size: 30),
                         Text(
                           'Dados Gerais',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Color.fromARGB(255, 42, 42, 42),
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -57,11 +57,11 @@ class _MinhacontaumState extends State<Minhacontaum> {
                     child: Row(
                       spacing: 5,
                       children: [
-                        Icon(Icons.edit_square, color: Colors.black, size: 25),
+                        Icon(Icons.edit_square, color: Color.fromARGB(255, 42, 42, 42), size: 25),
                         Text(
                           'Alterar Senha',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Color.fromARGB(255, 42, 42, 42),
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -92,15 +92,15 @@ class _MinhacontaumState extends State<Minhacontaum> {
                       child: Column(
                         spacing: 15,
                         children: [
-                          Icon(Icons.person, color: Colors.black, size: 30),
+                          Icon(Icons.person, color: Color.fromARGB(255, 42, 42, 42), size: 30),
 
-                          Icon(Icons.email, color: Colors.black, size: 30),
+                          Icon(Icons.email, color: Color.fromARGB(255, 42, 42, 42), size: 30),
 
-                          Icon(Icons.call, color: Colors.black, size: 30),
+                          Icon(Icons.call, color: Color.fromARGB(255, 42, 42, 42), size: 30),
 
                           Icon(
                             Icons.contact_emergency,
-                            color: Colors.black,
+                            color: Color.fromARGB(255, 42, 42, 42),
                             size: 28,
                           ),
                         ],
@@ -116,7 +116,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                           Text(
                             'Nome do usuário',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
                               fontFamily: 'Arsenal',
@@ -126,7 +126,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                           Text(
                             'Email do usuário',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
                               fontFamily: 'Arsenal',
@@ -136,7 +136,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                           Text(
                             'Numero de telefone',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
                               fontFamily: 'Arsenal',
@@ -146,7 +146,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                           Text(
                             'CPF ou CNPJ',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
                             ),
