@@ -2,7 +2,11 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/botao_basico_pop.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+<<<<<<< Updated upstream
 import 'package:estaciona_facil/pages/Fluxo_Manu/recuperar_senha.dart';
+=======
+import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
+>>>>>>> Stashed changes
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_um.dart';
 import 'package:estaciona_facil/pages/paginaum.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
               BotaoBasico(texto: 'Começar', pagina: PaginaUm()),
               BotaoBasicoPop(texto: 'VOLTAR'),
               BotaoBasico(texto: 'Meu Perfil', pagina: Minhacontaum()),
+              BotaoBasico(texto: 'Cadastro', pagina: Cadastroum()),
               Text('Título 1', style: Theme.of(context).textTheme.titleLarge),
               Text('Título 2', style: Theme.of(context).textTheme.titleMedium),
               Text('Corpo', style: Theme.of(context).textTheme.bodyMedium),
