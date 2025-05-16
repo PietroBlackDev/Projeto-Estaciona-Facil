@@ -2,11 +2,8 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/botao_basico_pop.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-<<<<<<< Updated upstream
 import 'package:estaciona_facil/pages/Fluxo_Manu/recuperar_senha.dart';
-=======
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
->>>>>>> Stashed changes
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_um.dart';
 import 'package:estaciona_facil/pages/paginaum.dart';
 import 'package:flutter/material.dart';
