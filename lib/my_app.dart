@@ -1,3 +1,4 @@
+import 'package:estaciona_facil/pages/Fluxo_Henrique/tela_estacionamento_um.dart';
 import 'package:estaciona_facil/themes/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: myTheme,
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Estaciona Fácil'),
+      home: const TelaEstacionamentoUm(),
     );
   }
 }
