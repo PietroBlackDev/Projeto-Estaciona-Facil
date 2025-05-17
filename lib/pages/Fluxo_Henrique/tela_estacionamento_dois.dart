@@ -17,7 +17,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 60.0),
             child: Column(
               spacing: 30,
               children: [
@@ -74,7 +74,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
 
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.24,
+                  height: MediaQuery.of(context).size.height * 0.3,
                   child: Column(
                     spacing: 10,
                     children: [
@@ -82,8 +82,8 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                         "Selecione o tempo de estacionamento:",
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 25,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
                           fontFamily: 'Arsenal',
                         ),
                       ),
@@ -123,7 +123,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "1 Hora",
+                                  "2 Horas",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 25,
@@ -141,7 +141,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "1 Hora",
+                                  "3 Horas",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 25,
