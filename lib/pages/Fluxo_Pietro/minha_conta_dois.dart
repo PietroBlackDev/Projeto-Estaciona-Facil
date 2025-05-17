@@ -65,7 +65,7 @@ class _MinhaContaDoisState extends State<MinhaContaDois> {
                               decoration: InputDecoration(
                                 hintText: 'Senha atual',
                                 hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Color.fromARGB(255, 42, 42, 42),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w300,
                                   fontFamily: 'Arsenal',
@@ -103,7 +103,7 @@ class _MinhaContaDoisState extends State<MinhaContaDois> {
                               decoration: InputDecoration(
                                 hintText: 'Nova senha',
                                 hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Color.fromARGB(255, 42, 42, 42),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w300,
                                   fontFamily: 'Arsenal',
@@ -141,7 +141,7 @@ class _MinhaContaDoisState extends State<MinhaContaDois> {
                               decoration: InputDecoration(
                                 hintText: 'Confirme a nova senha',
                                 hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Color.fromARGB(255, 42, 42, 42),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w300,
                                   fontFamily: 'Arsenal',

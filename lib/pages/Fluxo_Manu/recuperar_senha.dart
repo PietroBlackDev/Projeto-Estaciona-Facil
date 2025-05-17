@@ -25,7 +25,7 @@ class _RecuperarSenhaState extends State<RecuperarSenha> {
             children: [
               Text('Recuperação de Senha', style: Theme.of(context).textTheme.titleLarge,),
               Column(
-                spacing: 10,
+                spacing: 20,
                 children: [
                   Align(
                     alignment: Alignment.bottomLeft,
