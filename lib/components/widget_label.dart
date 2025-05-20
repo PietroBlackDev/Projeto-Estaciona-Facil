@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WidgetLabel extends StatelessWidget {
   const WidgetLabel({super.key, required this.texto});
@@ -30,9 +31,9 @@ class WidgetLabel extends StatelessWidget {
               texto,
               style: TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
-                fontSize: 30,
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'ArsenalSC',
+                fontFamily: GoogleFonts.ubuntu().fontFamily,
               ),
             ),
           ],

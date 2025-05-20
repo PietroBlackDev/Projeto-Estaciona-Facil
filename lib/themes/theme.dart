@@ -54,7 +54,7 @@ final ThemeData myTheme = ThemeData(
       backgroundColor: Color(0xff540F63),
       textStyle: TextStyle(
         fontWeight: FontWeight.bold, // isso já define como negrito
-        fontSize: 28,
+        fontSize: 23,
         fontFamily: GoogleFonts.ubuntu().fontFamily,
       ),
       shape: RoundedRectangleBorder(
