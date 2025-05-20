@@ -68,7 +68,7 @@ class _EfetuarLoginState extends State<EfetuarLogin> {
                       size: 40,
                     ),
                     suffixIcon: InkWell(
-                      child: const Icon(Icons.remove_red_eye_outlined),
+                      child: const Icon(Icons.remove_red_eye_outlined, color: Color(0xff540F63),),
                       onTap: () {
                         obscureAtivo = !obscureAtivo;
                         setState(() {});
@@ -103,14 +103,30 @@ class _EfetuarLoginState extends State<EfetuarLogin> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 0),
-                  child: Text(
-                    'Ainda não possui um conta? Cadastre-se',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: GoogleFonts.ubuntu().fontFamily,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 5,
+                    children: [
+                      Text(
+                        'Ainda não possui uma conta?',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: GoogleFonts.ubuntu().fontFamily,
+                        ),
+                      ),
+                      Text(
+                        'Cadastre-se',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xff540F63),
+                          fontWeight: FontWeight.bold,
+                          fontFamily: GoogleFonts.ubuntu().fontFamily,
+                          decoration: TextDecoration.underline,
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
