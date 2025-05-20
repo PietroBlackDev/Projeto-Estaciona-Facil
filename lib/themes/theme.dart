@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final ThemeData myTheme = ThemeData(
   useMaterial3: true,
@@ -18,21 +19,24 @@ final ThemeData myTheme = ThemeData(
       fontSize: 26,
       color: Color(0xff540F63),
       fontWeight: FontWeight.bold,
-      fontFamily: 'ArsenalSC',
+      fontFamily: GoogleFonts.ubuntu().fontFamily,
     ),
     titleMedium: TextStyle(
       fontSize: 20,
       color: Color.fromARGB(255, 42, 42, 42),
       fontWeight: FontWeight.bold,
-      fontFamily: 'ArsenalSC',
+      fontFamily: GoogleFonts.ubuntu().fontFamily,
     ),
     bodyMedium: TextStyle(
       color: Color.fromARGB(255, 42, 42, 42),
       fontSize: 18,
       fontWeight: FontWeight.w500,
-      fontFamily: 'Arsenal',
+      fontFamily: GoogleFonts.ubuntu().fontFamily,
     ),
-    bodySmall: TextStyle(fontSize: 14, fontFamily: 'Arsenal'),
+    bodySmall: TextStyle(
+      fontSize: 14,
+      fontFamily: GoogleFonts.ubuntu().fontFamily,
+    ),
   ),
   iconTheme: const IconThemeData(color: Colors.white, size: 40),
   iconButtonTheme: IconButtonThemeData(
@@ -51,7 +55,7 @@ final ThemeData myTheme = ThemeData(
       textStyle: TextStyle(
         fontWeight: FontWeight.bold, // isso já define como negrito
         fontSize: 28,
-        fontFamily: 'ArsenalSC',
+        fontFamily: GoogleFonts.ubuntu().fontFamily,
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
