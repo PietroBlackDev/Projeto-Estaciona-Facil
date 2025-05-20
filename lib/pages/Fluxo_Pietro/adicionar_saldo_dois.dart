@@ -1,16 +1,15 @@
-import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/components/modal_confirmacao.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Pietro/adicionar_saldo_dois.dart';
 import 'package:flutter/material.dart';
 
-class AdicionarSaldoUm extends StatefulWidget {
-  const AdicionarSaldoUm({super.key});
+class AdicionarSaldoDois extends StatefulWidget {
+  const AdicionarSaldoDois({super.key});
 
   @override
-  State<AdicionarSaldoUm> createState() => _AdicionarSaldoUmState();
+  State<AdicionarSaldoDois> createState() => _AdicionarSaldoDoisState();
 }
 
-class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
+class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -208,7 +207,7 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 26),
-              BotaoBasico(texto: 'Avançar', pagina: AdicionarSaldoDois()),
+              ModalConfirmacao(texto: 'Avançar'),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.21,

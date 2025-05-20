@@ -15,7 +15,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 60),
+        padding: const EdgeInsets.only(top: 50),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +32,11 @@ class _MinhacontaumState extends State<Minhacontaum> {
                     child: Row(
                       spacing: 4,
                       children: [
-                        Icon(Icons.person, color: Color.fromARGB(255, 42, 42, 42), size: 30),
+                        Icon(
+                          Icons.person,
+                          color: Color.fromARGB(255, 42, 42, 42),
+                          size: 30,
+                        ),
                         Text(
                           'Dados Gerais',
                           style: TextStyle(
@@ -57,7 +61,11 @@ class _MinhacontaumState extends State<Minhacontaum> {
                     child: Row(
                       spacing: 5,
                       children: [
-                        Icon(Icons.edit_square, color: Color.fromARGB(255, 42, 42, 42), size: 25),
+                        Icon(
+                          Icons.edit_square,
+                          color: Color.fromARGB(255, 42, 42, 42),
+                          size: 25,
+                        ),
                         Text(
                           'Alterar Senha',
                           style: TextStyle(
@@ -92,11 +100,23 @@ class _MinhacontaumState extends State<Minhacontaum> {
                       child: Column(
                         spacing: 15,
                         children: [
-                          Icon(Icons.person, color: Color.fromARGB(255, 42, 42, 42), size: 30),
+                          Icon(
+                            Icons.person,
+                            color: Color.fromARGB(255, 42, 42, 42),
+                            size: 30,
+                          ),
 
-                          Icon(Icons.email, color: Color.fromARGB(255, 42, 42, 42), size: 30),
+                          Icon(
+                            Icons.email,
+                            color: Color.fromARGB(255, 42, 42, 42),
+                            size: 30,
+                          ),
 
-                          Icon(Icons.call, color: Color.fromARGB(255, 42, 42, 42), size: 30),
+                          Icon(
+                            Icons.call,
+                            color: Color.fromARGB(255, 42, 42, 42),
+                            size: 30,
+                          ),
 
                           Icon(
                             Icons.contact_emergency,
