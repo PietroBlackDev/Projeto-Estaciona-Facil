@@ -4,6 +4,7 @@ import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/tela_estacionamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/recuperar_senha.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Pietro/adicionar_saldo_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_um.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Column(
                   children: [
-                    Text('Fluxos por integrante', style: Theme.of(context).textTheme.titleLarge,),
+                    Text(
+                      'Fluxos por integrante',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                     Container(
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
@@ -46,26 +50,54 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child:
-                        Column(
-                          children: [
-                            Text('Pietro', style: Theme.of(context).textTheme.titleLarge),
-                            BotaoBasico(texto: 'Meu Perfil', pagina: Minhacontaum()),
-                            Text('João', style: Theme.of(context).textTheme.titleLarge),
-                            BotaoBasico(texto: 'Cadastro', pagina: Cadastroum()),
-                            Text('Manu', style: Theme.of(context).textTheme.titleLarge),
-                            BotaoBasico(texto: 'Recuperar Senha',pagina: RecuperarSenha(),),
-                            Text('Henrique', style: Theme.of(context).textTheme.titleLarge),
-                            BotaoBasico(texto: 'Pagamento',pagina: TelaEstacionamentoUm(),),
-                          ],
-                        ),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Pietro',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          BotaoBasico(
+                            texto: 'Meu Perfil',
+                            pagina: Minhacontaum(),
+                          ),
+                          SizedBox(height: 10),
+                          BotaoBasico(
+                            texto: 'Adicionar Saldo',
+                            pagina: AdicionarSaldoUm(),
+                          ),
+                          Text(
+                            'João',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          BotaoBasico(texto: 'Cadastro', pagina: Cadastroum()),
+                          Text(
+                            'Manu',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          BotaoBasico(
+                            texto: 'Recuperar Senha',
+                            pagina: RecuperarSenha(),
+                          ),
+                          Text(
+                            'Henrique',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          BotaoBasico(
+                            texto: 'Pagamento',
+                            pagina: TelaEstacionamentoUm(),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('Padrões dos componentes', style: Theme.of(context).textTheme.titleLarge,),
-                Container(
+                    Text(
+                      'Padrões dos componentes',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    Container(
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         border: Border.all(
@@ -74,20 +106,28 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child:
-                        Column(
-                          spacing: 10,
-                          children: [
-                            Text('Título 1', style: Theme.of(context).textTheme.titleLarge),
-                            Text('Título 2', style: Theme.of(context).textTheme.titleMedium),
-                            Text('Corpo', style: Theme.of(context).textTheme.bodyMedium),
-                            Input(visibilidade: false, label: 'Nome'),
-                            WidgetLabel(texto: 'Minha Conta'),
-                          ],
-                        ),
-                  ),
+                      child: Column(
+                        spacing: 10,
+                        children: [
+                          Text(
+                            'Título 1',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          Text(
+                            'Título 2',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          Text(
+                            'Corpo',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          Input(visibilidade: false, label: 'Nome'),
+                          WidgetLabel(texto: 'Minha Conta'),
+                        ],
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
