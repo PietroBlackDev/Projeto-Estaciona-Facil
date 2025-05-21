@@ -1,5 +1,9 @@
+import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_dois.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_check_box_rounded/flutter_check_box_rounded.dart';
 
 class PagamentoUm extends StatefulWidget {
   const PagamentoUm({super.key, required this.placa});
@@ -43,7 +47,6 @@ class _PagamentoUmState extends State<PagamentoUm> {
                     ),
                   ],
                 ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 10,
@@ -85,13 +88,14 @@ class _PagamentoUmState extends State<PagamentoUm> {
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 20,
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * 0.22,
                           height: MediaQuery.of(context).size.height * 0.1,
                           decoration: BoxDecoration(
-                            color: Colors.purple,
+                            color: Color(0xff540F63),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
@@ -112,12 +116,11 @@ class _PagamentoUmState extends State<PagamentoUm> {
                             ],
                           ),
                         ),
-
                         Container(
                           width: MediaQuery.of(context).size.width * 0.22,
                           height: MediaQuery.of(context).size.height * 0.1,
                           decoration: BoxDecoration(
-                            color: Colors.purple,
+                            color: Color(0xff540F63),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
@@ -138,12 +141,11 @@ class _PagamentoUmState extends State<PagamentoUm> {
                             ],
                           ),
                         ),
-
                         Container(
                           width: MediaQuery.of(context).size.width * 0.22,
                           height: MediaQuery.of(context).size.height * 0.1,
                           decoration: BoxDecoration(
-                            color: Colors.purple,
+                            color: Color(0xff540F63),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
@@ -151,7 +153,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                             children: [
                               Icon(Icons.paypal, color: Colors.white, size: 42),
                               Text(
-                                "BOLETO",
+                                "Boleto",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -165,6 +167,47 @@ class _PagamentoUmState extends State<PagamentoUm> {
                   ],
                 ),
               ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.3,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border(
+                  top: BorderSide(color: Colors.deepPurple, width: 2),
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Input(
+                        visibilidade: false, label: "Nome titular do cartão: "),
+                    Input(
+                        visibilidade: false,
+                        label: "Número crédito do cartão: "),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Input(visibilidade: false, label: "Validade(mm/aa):"),
+                        Input(visibilidade: false, label: "CVV: ")
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                CheckBoxRounded(
+                  onTap: (bool? value) {},
+                ),
+                Text("Salvar cartão")
+              ],
+            ),
+            BotaoBasico(
+              texto: "Avançar",
+              pagina: PagamentoDois(placa: "ABC 1A34"),
             ),
           ],
         ),

@@ -1,7 +1,8 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Henrique/pagamento_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_um.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_check_box_rounded/flutter_check_box_rounded.dart';
 
 class TelaEstacionamentoDois extends StatefulWidget {
   const TelaEstacionamentoDois({super.key});
@@ -26,7 +27,6 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                   texto: "Saldo: 0,00",
                   pagina: TelaEstacionamentoDois(),
                 ),
-
                 Text(
                   "Selecione a placa do veículo",
                   style: TextStyle(
@@ -36,7 +36,6 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                     fontFamily: 'Arsenal',
                   ),
                 ),
-
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.18,
@@ -69,9 +68,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                     ],
                   ),
                 ),
-
                 BotaoBasico(texto: "Trocar", pagina: TelaEstacionamentoDois()),
-
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.height * 0.3,
@@ -96,7 +93,6 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                           fontFamily: 'Arsenal',
                         ),
                       ),
-
                       SizedBox(
                         child: Column(
                           spacing: 10,
@@ -113,9 +109,8 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                     fontFamily: 'Arsenal',
                                   ),
                                 ),
-                                Icon(
-                                  Icons.circle_outlined,
-                                  color: Colors.purple,
+                                CheckBoxRounded(
+                                  onTap: (bool? value) {},
                                 ),
                               ],
                             ),
@@ -131,9 +126,8 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                     fontFamily: 'Arsenal',
                                   ),
                                 ),
-                                Icon(
-                                  Icons.circle_outlined,
-                                  color: Colors.purple,
+                                CheckBoxRounded(
+                                  onTap: (bool? value) {},
                                 ),
                               ],
                             ),
@@ -149,9 +143,8 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                     fontFamily: 'Arsenal',
                                   ),
                                 ),
-                                Icon(
-                                  Icons.circle_outlined,
-                                  color: Colors.purple,
+                                CheckBoxRounded(
+                                  onTap: (bool? value) {},
                                 ),
                               ],
                             ),
@@ -161,12 +154,10 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                     ],
                   ),
                 ),
-
                 BotaoBasico(
                   texto: "Avançar",
                   pagina: PagamentoUm(placa: "ABC 1A34"),
                 ),
-
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.222,
