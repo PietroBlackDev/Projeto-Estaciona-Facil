@@ -1,6 +1,6 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
-import 'package:estaciona_facil/pages/Fluxo_Manu/receber_email.dart';
-import 'package:estaciona_facil/pages/Fluxo_Manu/receber_sms.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_recuperar.dart/receber_email.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_recuperar.dart/receber_sms.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
 import 'package:flutter/material.dart';
 
