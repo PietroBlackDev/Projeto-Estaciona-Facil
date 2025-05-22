@@ -1,7 +1,7 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Henrique/tela_estacionamento_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/tela_estacionamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/efetuar_login.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/recuperar_senha.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';

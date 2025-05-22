@@ -20,65 +20,74 @@ class _PagamentoUmState extends State<PagamentoUm> {
     return Scaffold(
       body: Center(
         child: Column(
+          spacing: 20,
           children: [
             WidgetLabel(texto: "Confirmação"),
-            Column(
-              spacing: 20,
-              children: [
-                Text(
-                  "Descrição do carro ABC 1A34",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  spacing: 10,
-                  children: [
-                    Icon(
-                      Icons.access_time_filled,
-                      color: Colors.deepPurple,
-                      size: 40,
-                    ),
-                    Text(
-                      "Hora(s) Selecionada",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+            Center(
+              child: Column(
+                spacing: 20,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Descrição do carro ABC 1A34",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    spacing: 20,
+                    children: [
+                      Row(
+                        spacing: 10,
+                        children: [
+                          Icon(
+                            Icons.access_time_filled,
+                            color: Colors.deepPurple,
+                            size: 40,
+                          ),
+                          Text(
+                            "Hora(s) Selecionada",
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  spacing: 10,
-                  children: [
-                    Icon(
-                      Icons.attach_money,
-                      color: Colors.deepPurple,
-                      size: 40,
-                    ),
-                    Text(
-                      "Valor",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+
+                      Row(
+                        spacing: 10,
+                        children: [
+                          Icon(
+                            Icons.attach_money,
+                            color: Colors.deepPurple,
+                            size: 40,
+                          ),
+                          Text(
+                            "Valor",
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.2,
               decoration: BoxDecoration(
-                color: Colors.white,
                 border: Border(
                   top: BorderSide(color: Colors.deepPurple, width: 2),
                 ),
               ),
               child: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 20,
                   children: [
                     Text(
                       "Escolha uma forma de pagamento",
@@ -99,6 +108,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 5,
                             children: [
                               Icon(
@@ -124,6 +134,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 5,
                             children: [
                               Icon(
@@ -149,6 +160,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 5,
                             children: [
                               Icon(Icons.paypal, color: Colors.white, size: 42),
@@ -172,38 +184,49 @@ class _PagamentoUmState extends State<PagamentoUm> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.3,
               decoration: BoxDecoration(
-                color: Colors.white,
                 border: Border(
                   top: BorderSide(color: Colors.deepPurple, width: 2),
                 ),
               ),
               child: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  spacing: 90,
                   children: [
-                    Input(
-                        visibilidade: false, label: "Nome titular do cartão: "),
-                    Input(
-                        visibilidade: false,
-                        label: "Número crédito do cartão: "),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Input(visibilidade: false, label: "Validade(mm/aa):"),
-                        Input(visibilidade: false, label: "CVV: ")
+                        Input(
+                          visibilidade: false,
+                          label: 'Informe seu celular cadastrado:',
+                        ),
                       ],
                     ),
+                    // Row(
+                    //   children: [
+                    //     Input(
+                    //       visibilidade: false,
+                    //       label: "Número crédito do cartão: ",
+                    //     ),
+                    //   ],
+                    // ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Input(visibilidade: false, label: "Validade(mm/aa):"),
+                    //     Input(visibilidade: false, label: "CVV: "),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
             ),
-            Row(
-              children: [
-                CheckBoxRounded(
-                  onTap: (bool? value) {},
-                ),
-                Text("Salvar cartão")
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Row(
+                children: [
+                  CheckBoxRounded(onTap: (bool? value) {}),
+                  Text("Salvar cartão"),
+                ],
+              ),
             ),
             BotaoBasico(
               texto: "Avançar",

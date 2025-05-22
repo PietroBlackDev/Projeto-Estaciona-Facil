@@ -19,6 +19,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
     return Scaffold(
       body: Center(
         child: Column(
+          spacing: 20,
           children: [
             WidgetLabel(texto: "Confirmação"),
             Column(
@@ -68,16 +69,16 @@ class _PagamentoDoisState extends State<PagamentoDois> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.17,
               decoration: BoxDecoration(
-                color: Colors.white,
                 border: Border(
-                  top: BorderSide(color: Colors.deepPurple, width: 2),
+                  top: BorderSide(color: Colors.deepPurple, width: 3),
                 ),
               ),
               child: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 20,
                   children: [
                     Text(
                       "Escolha uma forma de pagamento",
@@ -98,6 +99,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 5,
                             children: [
                               Icon(
@@ -123,6 +125,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 5,
                             children: [
                               Icon(
@@ -148,6 +151,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 5,
                             children: [
                               Icon(Icons.paypal, color: Colors.white, size: 42),
@@ -169,26 +173,34 @@ class _PagamentoDoisState extends State<PagamentoDois> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.18,
               decoration: BoxDecoration(
-                color: Colors.white,
                 border: Border(
-                  top: BorderSide(color: Colors.deepPurple, width: 2),
+                  top: BorderSide(color: Colors.deepPurple, width: 3),
                 ),
               ),
               child: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      height: MediaQuery.of(context).size.height * 0.13,
                       decoration: BoxDecoration(
-                          color: Color(0xff540F63),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Text(
-                          "Para pagamentos via Pix ou Boleto, compre os créditos antes de realizar a ativação por meio da opção Adicionar Saldo no menu inicial."),
-                    )
+                        color: Color(0xff540F63),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12.0,
+                          vertical: 10,
+                        ),
+                        child: Text(
+                          "Para pagamentos via Pix ou Boleto, compre os créditos antes de realizar a ativação por meio da opção Adicionar Saldo no menu inicial.",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
