@@ -3,6 +3,7 @@ import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/tela_estacionamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/inicio.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_recuperar.dart/recuperar_senha.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/adicionar_saldo_um.dart';
@@ -79,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             texto: 'Recuperar Senha',
                             pagina: RecuperarSenha(),
                           ),
-                          BotaoBasico(texto: 'Login', pagina: EfetuarLogin()),
+                          BotaoBasico(texto: 'Login', pagina: Inicio()),
                           Text(
                             'Henrique',
                             style: Theme.of(context).textTheme.titleLarge,

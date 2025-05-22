@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class BotaoBasico extends StatelessWidget {
-  const BotaoBasico({super.key, required this.texto, required this.pagina});
+  const BotaoBasico({super.key, required this.texto, this.pagina});
 
   final String texto;
-  final Widget pagina;
+  final Widget? pagina;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class BotaoBasico extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => pagina),
+            MaterialPageRoute(builder: (context) => pagina!),
           );
         },
         child: Text(texto),

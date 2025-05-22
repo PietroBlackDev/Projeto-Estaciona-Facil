@@ -1,4 +1,5 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -97,7 +98,7 @@ class _EfetuarLoginState extends State<EfetuarLogin> {
               ),
               SizedBox(height: 30),
               Center(
-                child: BotaoBasico(texto: 'Entrar', pagina: EfetuarLogin()),
+                child: BotaoBasico(texto: 'Entrar', pagina: Home()),
               ),
 
               Center(
