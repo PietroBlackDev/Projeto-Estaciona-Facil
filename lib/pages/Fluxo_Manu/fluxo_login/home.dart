@@ -1,3 +1,4 @@
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/regularizar_aviso.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/appbar.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_inicio.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/container_valores.dart';
@@ -76,7 +77,7 @@ class _HomeState extends State<Home> {
                     spacing: 10,
                     children: [
                       BotaoInicio(icone: Icons.help, texto: 'Ajuda'),
-                      BotaoInicio(icone: Icons.build, texto: 'Regularizar'),
+                      BotaoInicio(icone: Icons.build, texto: 'Regularizar', pagina: RegularizarAviso(),),
                     ],
                   ),
                   Row(

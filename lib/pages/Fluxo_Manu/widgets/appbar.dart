@@ -17,16 +17,9 @@ class AppbarHome extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 30),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            SizedBox(width: 50),
             Text(
               texto,
               style: TextStyle(

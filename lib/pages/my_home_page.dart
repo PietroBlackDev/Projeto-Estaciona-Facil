@@ -80,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             texto: 'Recuperar Senha',
                             pagina: RecuperarSenha(),
                           ),
+                          SizedBox(height: 10),
                           BotaoBasico(texto: 'Login', pagina: Inicio()),
                           Text(
                             'Henrique',
