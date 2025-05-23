@@ -5,7 +5,7 @@ class BotaoModal extends StatelessWidget {
     super.key,
     required this.textoBotao,
     required this.titulo,
-    required this.texto, 
+    required this.texto,
     required this.textoBotaoModal,
   });
 
@@ -27,7 +27,7 @@ class BotaoModal extends StatelessWidget {
               return Container(
                 padding: EdgeInsets.all(20),
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.27,
+                height: MediaQuery.of(context).size.height * 0.29,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.onPrimary,
                   borderRadius: BorderRadius.only(

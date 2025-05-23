@@ -1,5 +1,4 @@
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_inicio.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/container_valores.dart';
 import 'package:flutter/material.dart';
 
