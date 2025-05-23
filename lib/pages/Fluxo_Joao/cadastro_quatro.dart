@@ -1,19 +1,19 @@
 
+import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/components/botao_basico_pop.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_dois.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/botao_basico.dart';
 
-class Cadastroum extends StatefulWidget {
-  const Cadastroum({super.key});
+class CadastroQuatro extends StatefulWidget {
+  const CadastroQuatro({super.key});
 
   @override
-  State<Cadastroum> createState() => _CadastroumState();
+  State<CadastroQuatro> createState() => _CadastroQuatroState();
 }
 
-class _CadastroumState extends State<Cadastroum> {
+class _CadastroQuatroState extends State<CadastroQuatro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,16 +36,15 @@ class _CadastroumState extends State<Cadastroum> {
                     color: Theme.of(context).colorScheme.onPrimary,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: 
-                  LinearProgressIndicator(
-                    value: 0.125,
+                  child: LinearProgressIndicator(
+                    value: 0.500,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                              '1 de 8',
+                              '4 de 8',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17,
@@ -75,14 +74,18 @@ class _CadastroumState extends State<Cadastroum> {
                   ),
                 ),
         
+                
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Input(visibilidade: false, label: 'Informe seu nome ou o nome da empresa:')
+                  child: Input(visibilidade: false, label: 'Informe seu CPF ou CNPJ: ')
                   ),
         
         
                 const SizedBox(height: 90),
-                BotaoBasico(texto: 'Avançar', pagina: CadastroDois()),
+                BotaoBasico(texto: 'Avançar', pagina: CadastroQuatro()),
+                const SizedBox(height: 20,),
+                BotaoBasicoPop(texto: 'Voltar'),
+        
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.222,
