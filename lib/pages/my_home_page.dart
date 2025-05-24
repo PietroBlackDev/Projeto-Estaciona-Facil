@@ -3,7 +3,6 @@ import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/tela_estacionamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
-import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/inicio.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_recuperar.dart/recuperar_senha.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
@@ -92,10 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             pagina: TelaEstacionamentoUm(),
                           ),
                           SizedBox(height: 10),
-                          BotaoBasico(
-                            texto: 'Veículos',
-                            pagina: VeiculosUm(),
-                          ),
+                          BotaoBasico(texto: 'Veículos', pagina: VeiculosUm()),
                         ],
                       ),
                     ),

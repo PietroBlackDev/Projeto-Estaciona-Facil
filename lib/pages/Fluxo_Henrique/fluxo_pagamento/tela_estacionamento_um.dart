@@ -1,6 +1,7 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/tela_estacionamento_dois.dart';
+import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
 import 'package:flutter/material.dart';
 
 class TelaEstacionamentoUm extends StatefulWidget {
@@ -22,10 +23,7 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
               spacing: 30,
               children: [
                 WidgetLabel(texto: "Estacionar Agora"),
-                BotaoBasico(
-                  texto: "Saldo: 0,00",
-                  pagina: TelaEstacionamentoUm(),
-                ),
+                BotaoBasico(texto: "Saldo: 0,00"),
                 Text(
                   "Selecione a placa do veículo",
                   style: TextStyle(
@@ -70,10 +68,10 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
                 Column(
                   spacing: 20,
                   children: [
-                    BotaoBasico(texto: "Trocar"),
+                    BotaoBasico(texto: "Trocar", pagina: VeiculosUm()),
                     BotaoBasico(
                       texto: "Avançar",
-                      pagina: TelaEstacionamentoDois(),
+                      pagina: TelaEstacionamentoDois(saldo: 5.00),
                     ),
                   ],
                 ),

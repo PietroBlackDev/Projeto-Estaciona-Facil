@@ -1,11 +1,14 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_check_box_rounded/flutter_check_box_rounded.dart';
 
 class TelaEstacionamentoDois extends StatefulWidget {
-  const TelaEstacionamentoDois({super.key});
+  const TelaEstacionamentoDois({super.key, required this.saldo});
+
+  final double saldo;
 
   @override
   State<TelaEstacionamentoDois> createState() => _TelaEstacionamentoDoisState();
@@ -23,18 +26,10 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
               spacing: 30,
               children: [
                 WidgetLabel(texto: "Estacionar Agora"),
-                BotaoBasico(
-                  texto: "Saldo: 0,00",
-                  pagina: TelaEstacionamentoDois(),
-                ),
+                BotaoBasico(texto: "Saldo: ${widget.saldo.toString()}"),
                 Text(
                   "Selecione a placa do veículo",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Arsenal',
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
@@ -49,12 +44,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                     children: [
                       Text(
                         "Descrição do Carro",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Arsenal',
-                        ),
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
                         "ABC 1A34",
@@ -68,7 +58,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                     ],
                   ),
                 ),
-                BotaoBasico(texto: "Trocar"),
+                BotaoBasico(texto: "Trocar", pagina: VeiculosUm()),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.height * 0.3,
@@ -86,12 +76,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                       ),
                       Text(
                         "MÁXIMA PERMANÊNCIA",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Arsenal',
-                        ),
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                       SizedBox(
                         child: Column(
@@ -109,8 +94,10 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                     fontFamily: 'Arsenal',
                                   ),
                                 ),
-                                CheckBoxRounded(
-                                  onTap: (bool? value) {},
+                                Radio(
+                                  value: "3 Horas",
+                                  groupValue: "Horas",
+                                  onChanged: (value) {},
                                 ),
                               ],
                             ),
@@ -126,8 +113,10 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                     fontFamily: 'Arsenal',
                                   ),
                                 ),
-                                CheckBoxRounded(
-                                  onTap: (bool? value) {},
+                                Radio(
+                                  value: "3 Horas",
+                                  groupValue: "Horas",
+                                  onChanged: (value) {},
                                 ),
                               ],
                             ),
@@ -143,8 +132,10 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                     fontFamily: 'Arsenal',
                                   ),
                                 ),
-                                CheckBoxRounded(
-                                  onTap: (bool? value) {},
+                                Radio(
+                                  value: "3 Horas",
+                                  groupValue: "Horas",
+                                  onChanged: (value) {},
                                 ),
                               ],
                             ),
@@ -156,7 +147,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                 ),
                 BotaoBasico(
                   texto: "Avançar",
-                  pagina: PagamentoUm(placa: "ABC 1A34"),
+                  pagina: PagamentoUm(placa: "ABC 1A34", saldo: widget.saldo),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
