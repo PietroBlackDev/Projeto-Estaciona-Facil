@@ -3,7 +3,6 @@ import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_dois.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_check_box_rounded/flutter_check_box_rounded.dart';
 
 class PagamentoUm extends StatefulWidget {
   const PagamentoUm({super.key, required this.placa, required this.saldo});
@@ -209,7 +208,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                   child: Column(
                     spacing: 10,
                     children: [
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
                         height: MediaQuery.of(context).size.height * 0.12,
                         child: Input(
@@ -217,7 +216,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                           label: 'Número titular do cartão:',
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
                         height: MediaQuery.of(context).size.height * 0.12,
                         child: Input(
@@ -229,17 +228,17 @@ class _PagamentoUmState extends State<PagamentoUm> {
                         spacing: 35,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width * 0.4,
-                            height: MediaQuery.of(context).size.height * 0.17,
+                            height: MediaQuery.of(context).size.height * 0.15,
                             child: Input(
                               visibilidade: false,
                               label: 'Validade (mm/aa):',
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width * 0.3,
-                            height: MediaQuery.of(context).size.height * 0.17,
+                            height: MediaQuery.of(context).size.height * 0.15,
                             child: Input(visibilidade: false, label: 'CVV:'),
                           ),
                         ],

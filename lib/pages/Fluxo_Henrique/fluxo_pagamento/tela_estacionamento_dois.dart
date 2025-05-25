@@ -3,7 +3,6 @@ import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_check_box_rounded/flutter_check_box_rounded.dart';
 
 class TelaEstacionamentoDois extends StatefulWidget {
   const TelaEstacionamentoDois({super.key, required this.saldo});
