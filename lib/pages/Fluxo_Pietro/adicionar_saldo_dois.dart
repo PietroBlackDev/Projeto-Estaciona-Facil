@@ -106,7 +106,9 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                               width: MediaQuery.of(context).size.width * 0.27,
                               height: MediaQuery.of(context).size.height * 0.05,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
                                 child: Text(
                                   'ALTERAR',
                                   style: TextStyle(
@@ -306,6 +308,29 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
+                                const SizedBox(height: 20),
+                                Center(
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    height:
+                                        MediaQuery.of(context).size.height *
+                                        0.07,
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor: WidgetStatePropertyAll(
+                                          Color(0xff932426),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        setState(() {
+                                          _clicado = false;
+                                        });
+                                      },
+                                      child: Text('Cancelar'),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           )
@@ -321,10 +346,6 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                               child: Text('Avançar'),
                             ),
                           ),
-
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                      ),
 
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
