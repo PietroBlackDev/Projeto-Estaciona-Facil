@@ -2,6 +2,7 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/adicionar_saldo_dois.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AdicionarSaldoUm extends StatefulWidget {
   const AdicionarSaldoUm({super.key});
@@ -11,6 +12,13 @@ class AdicionarSaldoUm extends StatefulWidget {
 }
 
 class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
+  double saldo = 0;
+  void atualizarSaldo(double valor) {
+    setState(() {
+      saldo += valor;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,12 +49,12 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                           ),
                           child: Center(
                             child: Text(
-                              'Saldo: RS 0,00',
+                              'Saldo: R\$ 0,00',
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontSize: 25,
                                 fontWeight: FontWeight.w600,
-                                fontFamily: 'Arsenal',
+                                fontFamily: GoogleFonts.ubuntu().fontFamily,
                               ),
                             ),
                           ),
@@ -79,14 +87,17 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                               color: Theme.of(context).colorScheme.onPrimary,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                atualizarSaldo(5.00);
+                              },
                               child: Text(
-                                'RS 5,00',
+                                'R\$ 5,00',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 23,
+                                  fontSize: 21,
                                   fontWeight: FontWeight.w600,
-                                  fontFamily: 'Arsenal',
+                                  fontFamily: GoogleFonts.ubuntu().fontFamily,
                                 ),
                               ),
                             ),
@@ -98,14 +109,17 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                               color: Theme.of(context).colorScheme.onPrimary,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                atualizarSaldo(10.00);
+                              },
                               child: Text(
-                                'RS 10,00',
+                                'R\$ 10,00',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 23,
+                                  fontSize: 21,
                                   fontWeight: FontWeight.w600,
-                                  fontFamily: 'Arsenal',
+                                  fontFamily: GoogleFonts.ubuntu().fontFamily,
                                 ),
                               ),
                             ),
@@ -118,14 +132,17 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                               color: Theme.of(context).colorScheme.onPrimary,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                atualizarSaldo(20.00);
+                              },
                               child: Text(
-                                'RS 20,00',
+                                'R\$ 20,00',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 23,
+                                  fontSize: 21,
                                   fontWeight: FontWeight.w600,
-                                  fontFamily: 'Arsenal',
+                                  fontFamily: GoogleFonts.ubuntu().fontFamily,
                                 ),
                               ),
                             ),
@@ -145,14 +162,17 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                               color: Theme.of(context).colorScheme.onPrimary,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                atualizarSaldo(50.00);
+                              },
                               child: Text(
-                                'RS 50,00',
+                                'R\$ 50,00',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 23,
+                                  fontSize: 21,
                                   fontWeight: FontWeight.w600,
-                                  fontFamily: 'Arsenal',
+                                  fontFamily: GoogleFonts.ubuntu().fontFamily,
                                 ),
                               ),
                             ),
@@ -164,14 +184,17 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                               color: Theme.of(context).colorScheme.onPrimary,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                atualizarSaldo(100.00);
+                              },
                               child: Text(
-                                'RS 100,00',
+                                'R\$ 100,00',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 23,
+                                  fontSize: 21,
                                   fontWeight: FontWeight.w600,
-                                  fontFamily: 'Arsenal',
+                                  fontFamily: GoogleFonts.ubuntu().fontFamily,
                                 ),
                               ),
                             ),
@@ -184,14 +207,17 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                               color: Theme.of(context).colorScheme.onPrimary,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                atualizarSaldo(200.00);
+                              },
                               child: Text(
-                                'RS 200,00',
+                                'R\$ 200,00',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 23,
+                                  fontSize: 21,
                                   fontWeight: FontWeight.w600,
-                                  fontFamily: 'Arsenal',
+                                  fontFamily: GoogleFonts.ubuntu().fontFamily,
                                 ),
                               ),
                             ),
@@ -204,11 +230,14 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
               ),
               SizedBox(height: 20),
               Text(
-                'Total: RS 0',
+                'Total: R\$ ${saldo.toStringAsFixed(2)}',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 26),
-              BotaoBasico(texto: 'Avançar', pagina: AdicionarSaldoDois()),
+              BotaoBasico(
+                texto: 'Avançar',
+                pagina: AdicionarSaldoDois(saldo: saldo),
+              ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.21,
