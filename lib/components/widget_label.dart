@@ -17,7 +17,7 @@ class WidgetLabel extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             IconButton(
@@ -26,11 +26,20 @@ class WidgetLabel extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-            SizedBox(width: 50),
             Text(
               texto,
               style: TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+                fontFamily: GoogleFonts.ubuntu().fontFamily,
+              ),
+            ),
+
+            Text(
+              'abc',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onPrimary,
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
                 fontFamily: GoogleFonts.ubuntu().fontFamily,
