@@ -1,14 +1,20 @@
-import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_dois.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PagamentoUm extends StatefulWidget {
-  const PagamentoUm({super.key, required this.placa, required this.saldo});
+  const PagamentoUm({
+    super.key,
+    required this.placa,
+    required this.saldo,
+    required this.horas,
+  });
 
   final String placa;
   final double saldo;
+  final String horas;
 
   @override
   State<PagamentoUm> createState() => _PagamentoUmState();
@@ -32,7 +38,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Descrição do carro ABC 1A34",
+                        "Descrição do carro ${widget.placa}",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -43,7 +49,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            spacing: 10,
+                            spacing: 20,
                             children: [
                               Column(
                                 spacing: 20,
@@ -65,7 +71,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                                 spacing: 20,
                                 children: [
                                   Text(
-                                    "Hora(s) Selecionada",
+                                    widget.horas,
                                     style: TextStyle(
                                       fontSize: 28,
                                       fontWeight: FontWeight.bold,
@@ -73,7 +79,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                                   ),
 
                                   Text(
-                                    widget.saldo.toString(),
+                                    widget.saldo.toStringAsFixed(2),
                                     style: TextStyle(
                                       fontSize: 28,
                                       fontWeight: FontWeight.bold,
@@ -110,84 +116,93 @@ class _PagamentoUmState extends State<PagamentoUm> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          spacing: 20,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          spacing: 8,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.22,
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              decoration: BoxDecoration(
-                                color: Color(0xff540F63),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 5,
-                                children: [
-                                  Icon(
-                                    Icons.payments,
-                                    color: Colors.white,
-                                    size: 42,
-                                  ),
-                                  Text(
-                                    "PIX",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  spacing: 2,
+                                  children: [
+                                    Icon(Icons.pix, size: 50),
+                                    Text(
+                                      'PIX',
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily:
+                                            GoogleFonts.ubuntu().fontFamily,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.22,
+
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              decoration: BoxDecoration(
-                                color: Color(0xff540F63),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 5,
-                                children: [
-                                  Icon(
-                                    Icons.payment,
-                                    color: Colors.white,
-                                    size: 42,
-                                  ),
-                                  Text(
-                                    "Cartão",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  spacing: 2,
+                                  children: [
+                                    Icon(Icons.credit_card_rounded, size: 50),
+                                    Text(
+                                      'Cartão',
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily:
+                                            GoogleFonts.ubuntu().fontFamily,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.22,
+
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              decoration: BoxDecoration(
-                                color: Color(0xff540F63),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 5,
-                                children: [
-                                  Icon(
-                                    Icons.paypal,
-                                    color: Colors.white,
-                                    size: 42,
-                                  ),
-                                  Text(
-                                    "Boleto",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  spacing: 2,
+                                  children: [
+                                    Icon(Icons.receipt, size: 50),
+                                    Text(
+                                      'Boleto',
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily:
+                                            GoogleFonts.ubuntu().fontFamily,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -198,7 +213,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.46,
+                  height: MediaQuery.of(context).size.height * 0.47,
                   padding: EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(
                     border: Border(
@@ -206,7 +221,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                     ),
                   ),
                   child: Column(
-                    spacing: 10,
+                    spacing: 5,
                     children: [
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
@@ -230,7 +245,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                         children: [
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.4,
-                            height: MediaQuery.of(context).size.height * 0.15,
+                            height: MediaQuery.of(context).size.height * 0.13,
                             child: Input(
                               visibilidade: false,
                               label: 'Validade (mm/aa):',
@@ -238,31 +253,62 @@ class _PagamentoUmState extends State<PagamentoUm> {
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.3,
-                            height: MediaQuery.of(context).size.height * 0.15,
+                            height: MediaQuery.of(context).size.height * 0.13,
                             child: Input(visibilidade: false, label: 'CVV:'),
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
-                  child: Row(
-                    spacing: 10,
-                    children: [
-                      Radio(
-                        value: "3 Horas",
-                        groupValue: "Horas",
-                        onChanged: (value) {},
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Row(
+                          spacing: 10,
+                          children: [
+                            Radio(
+                              value: "3 Horas",
+                              groupValue: "Horas",
+                              onChanged: (value) {},
+                            ),
+                            Text("Salvar cartão"),
+                          ],
+                        ),
                       ),
-                      Text("Salvar cartão"),
                     ],
                   ),
                 ),
-                BotaoBasico(
-                  texto: "Avançar",
-                  pagina: PagamentoDois(placa: "ABC 1A34", saldo: widget.saldo),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => PagamentoDois(
+                                placa: widget.placa,
+                                saldo: widget.saldo,
+                                horas: widget.horas,
+                              ),
+                        ),
+                      );
+                    },
+                    child: Text('Avançar'),
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.222,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/Logo.png',
+                        width: 120,
+                        height: 120,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

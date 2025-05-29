@@ -14,6 +14,9 @@ class TelaEstacionamentoDois extends StatefulWidget {
 }
 
 class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
+  String groupValue = 'Yes';
+  String groupValueDois = 'Yes';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +28,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
               spacing: 30,
               children: [
                 WidgetLabel(texto: "Estacionar Agora"),
-                BotaoBasico(texto: "Saldo: ${widget.saldo.toString()}"),
+                BotaoBasico(texto: "Saldo: ${widget.saldo.toStringAsFixed(2)}"),
                 Text(
                   "Selecione a placa do veículo",
                   style: Theme.of(context).textTheme.titleMedium,
@@ -60,7 +63,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                 BotaoBasico(texto: "Trocar", pagina: VeiculosUm()),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.28,
                   child: Column(
                     spacing: 10,
                     children: [
@@ -94,9 +97,15 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                   ),
                                 ),
                                 Radio(
-                                  value: "3 Horas",
-                                  groupValue: "Horas",
-                                  onChanged: (value) {},
+                                  value: "1 hora",
+                                  activeColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  groupValue: groupValue,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      groupValue = value!;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
@@ -113,9 +122,15 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                   ),
                                 ),
                                 Radio(
-                                  value: "3 Horas",
-                                  groupValue: "Horas",
-                                  onChanged: (value) {},
+                                  value: "2 horas",
+                                  activeColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  groupValue: groupValue,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      groupValue = value!;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
@@ -132,9 +147,15 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                   ),
                                 ),
                                 Radio(
-                                  value: "3 Horas",
-                                  groupValue: "Horas",
-                                  onChanged: (value) {},
+                                  value: "3 horas",
+                                  activeColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  groupValue: groupValue,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      groupValue = value!;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
@@ -146,7 +167,11 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                 ),
                 BotaoBasico(
                   texto: "Avançar",
-                  pagina: PagamentoUm(placa: "ABC 1A34", saldo: widget.saldo),
+                  pagina: PagamentoUm(
+                    placa: "ABC 1A34",
+                    saldo: widget.saldo,
+                    horas: groupValue,
+                  ),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,

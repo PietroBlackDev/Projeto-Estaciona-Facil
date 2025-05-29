@@ -2,12 +2,19 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PagamentoDois extends StatefulWidget {
-  const PagamentoDois({super.key, required this.placa, required this.saldo});
+  const PagamentoDois({
+    super.key,
+    required this.placa,
+    required this.saldo,
+    required this.horas,
+  });
 
   final String placa;
   final double saldo;
+  final String horas;
 
   @override
   State<PagamentoDois> createState() => _PagamentoDoisState();
@@ -29,7 +36,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                   spacing: 20,
                   children: [
                     Text(
-                      "Descrição do carro ABC 1A34",
+                      "Descrição do carro ${widget.placa}",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -40,7 +47,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          spacing: 10,
+                          spacing: 20,
                           children: [
                             Column(
                               spacing: 20,
@@ -62,7 +69,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                               spacing: 20,
                               children: [
                                 Text(
-                                  "Hora(s) Selecionada",
+                                  widget.horas,
                                   style: TextStyle(
                                     fontSize: 28,
                                     fontWeight: FontWeight.bold,
@@ -70,7 +77,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                                 ),
 
                                 Text(
-                                  widget.saldo.toString(),
+                                  widget.saldo.toStringAsFixed(2),
                                   style: TextStyle(
                                     fontSize: 28,
                                     fontWeight: FontWeight.bold,
@@ -106,84 +113,93 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          spacing: 20,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          spacing: 8,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.22,
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              decoration: BoxDecoration(
-                                color: Color(0xff540F63),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 5,
-                                children: [
-                                  Icon(
-                                    Icons.payments,
-                                    color: Colors.white,
-                                    size: 42,
-                                  ),
-                                  Text(
-                                    "PIX",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  spacing: 2,
+                                  children: [
+                                    Icon(Icons.pix, size: 50),
+                                    Text(
+                                      'PIX',
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily:
+                                            GoogleFonts.ubuntu().fontFamily,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.22,
+
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              decoration: BoxDecoration(
-                                color: Color(0xff540F63),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 5,
-                                children: [
-                                  Icon(
-                                    Icons.payment,
-                                    color: Colors.white,
-                                    size: 42,
-                                  ),
-                                  Text(
-                                    "Cartão",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  spacing: 2,
+                                  children: [
+                                    Icon(Icons.credit_card_rounded, size: 50),
+                                    Text(
+                                      'Cartão',
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily:
+                                            GoogleFonts.ubuntu().fontFamily,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.22,
+
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
                               height: MediaQuery.of(context).size.height * 0.1,
-                              decoration: BoxDecoration(
-                                color: Color(0xff540F63),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 5,
-                                children: [
-                                  Icon(
-                                    Icons.paypal,
-                                    color: Colors.white,
-                                    size: 42,
-                                  ),
-                                  Text(
-                                    "Boleto",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  spacing: 2,
+                                  children: [
+                                    Icon(Icons.receipt, size: 50),
+                                    Text(
+                                      'Boleto',
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily:
+                                            GoogleFonts.ubuntu().fontFamily,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -233,6 +249,21 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                   ),
                 ),
                 BotaoBasico(texto: "Avançar", pagina: VeiculosUm()),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.222,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/Logo.png',
+                        width: 120,
+                        height: 120,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
