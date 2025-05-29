@@ -44,10 +44,6 @@ class _VeiculosTresState extends State<VeiculosTres> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           spacing: 20,
                           children: [
-                            Text(
-                              "Categoria\nselecionada",
-                              style: Theme.of(context).textTheme.titleSmall,
-                            ),
                             Icon(
                               Icons.directions_car,
                               size: 50,
