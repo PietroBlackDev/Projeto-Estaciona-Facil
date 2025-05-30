@@ -77,7 +77,7 @@ class _CadastroSeisState extends State<CadastroSeis> {
                 
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Input(visibilidade: false, label: 'Informe seu CPF ou CNPJ: ')
+                  child: Input(visibilidade: true, label: 'Confirme a sua senha: ')
                   ),
         
         
