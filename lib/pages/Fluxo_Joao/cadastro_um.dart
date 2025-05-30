@@ -38,6 +38,7 @@ class _CadastroumState extends State<Cadastroum> {
                   ),
                   child: 
                   LinearProgressIndicator(
+                    borderRadius: BorderRadius.circular(10),
                     value: 0.125,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,

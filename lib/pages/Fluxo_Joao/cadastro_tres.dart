@@ -38,6 +38,7 @@ class _CadastroTresState extends State<CadastroTres> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: LinearProgressIndicator(
+                    borderRadius: BorderRadius.circular(10),
                     value: 0.375,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,

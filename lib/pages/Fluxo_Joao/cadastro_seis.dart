@@ -3,18 +3,16 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/botao_basico_pop.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_tres.dart';
 import 'package:flutter/material.dart';
 
-
-class CadastroDois extends StatefulWidget {
-  const CadastroDois({super.key});
+class CadastroSeis extends StatefulWidget {
+  const CadastroSeis({super.key});
 
   @override
-  State<CadastroDois> createState() => _CadastroDoisState();
+  State<CadastroSeis> createState() => _CadastroSeisState();
 }
 
-class _CadastroDoisState extends State<CadastroDois> {
+class _CadastroSeisState extends State<CadastroSeis> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,16 +35,16 @@ class _CadastroDoisState extends State<CadastroDois> {
                     color: Theme.of(context).colorScheme.onPrimary,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child:LinearProgressIndicator(
+                  child: LinearProgressIndicator(
                     borderRadius: BorderRadius.circular(10),
-                    value: 0.250,
+                    value: 0.750,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                              '2 de 8',
+                              '6 de 8',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17,
@@ -79,12 +77,12 @@ class _CadastroDoisState extends State<CadastroDois> {
                 
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Input(visibilidade: false, label: 'Informe seu e-mail: ')
+                  child: Input(visibilidade: false, label: 'Informe seu CPF ou CNPJ: ')
                   ),
         
         
                 const SizedBox(height: 90),
-                BotaoBasico(texto: 'Avançar', pagina: CadastroTres()),
+                BotaoBasico(texto: 'Avançar', pagina: CadastroSeis()),
                 const SizedBox(height: 20,),
                 BotaoBasicoPop(texto: 'Voltar'),
         

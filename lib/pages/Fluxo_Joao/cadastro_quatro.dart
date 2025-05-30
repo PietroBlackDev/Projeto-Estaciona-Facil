@@ -3,6 +3,7 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/botao_basico_pop.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_cinco.dart';
 import 'package:flutter/material.dart';
 
 
@@ -37,6 +38,7 @@ class _CadastroQuatroState extends State<CadastroQuatro> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: LinearProgressIndicator(
+                    borderRadius: BorderRadius.circular(10),
                     value: 0.500,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,
@@ -82,7 +84,7 @@ class _CadastroQuatroState extends State<CadastroQuatro> {
         
         
                 const SizedBox(height: 90),
-                BotaoBasico(texto: 'Avançar', pagina: CadastroQuatro()),
+                BotaoBasico(texto: 'Avançar', pagina: CadastroCinco()),
                 const SizedBox(height: 20,),
                 BotaoBasicoPop(texto: 'Voltar'),
         
