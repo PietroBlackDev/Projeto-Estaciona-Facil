@@ -27,7 +27,10 @@ class _VeiculosTresState extends State<VeiculosTres> {
                 padding: EdgeInsets.only(top: 20),
                 decoration: BoxDecoration(
                   border: Border(
-                    top: BorderSide(color: Colors.deepPurple, width: 5),
+                    top: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary,
+                      width: 5,
+                    ),
                   ),
                 ),
                 child: Column(
@@ -39,6 +42,7 @@ class _VeiculosTresState extends State<VeiculosTres> {
                         Text(
                           "1. Categoria do veículo: ",
                           style: Theme.of(context).textTheme.titleMedium,
+                          textAlign: TextAlign.left,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -68,6 +72,7 @@ class _VeiculosTresState extends State<VeiculosTres> {
                         Text(
                           "2. Qual é o padrão da placa do veículo?",
                           style: Theme.of(context).textTheme.titleMedium,
+                          textAlign: TextAlign.left,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -143,7 +148,10 @@ class _VeiculosTresState extends State<VeiculosTres> {
                 ),
               ),
 
-              BotaoBasico(texto: "Avançar", pagina: VeiculosQuatro()),
+              BotaoBasico(
+                texto: "Avançar",
+                pagina: VeiculosQuatro(caminhoImagem: ""),
+              ),
 
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
