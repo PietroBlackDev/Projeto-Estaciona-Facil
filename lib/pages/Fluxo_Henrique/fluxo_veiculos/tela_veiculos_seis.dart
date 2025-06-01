@@ -32,7 +32,10 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                   padding: EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(
                     border: Border(
-                      top: BorderSide(color: Colors.deepPurple, width: 5),
+                      top: BorderSide(
+                        color: Theme.of(context).colorScheme.secondary,
+                        width: 5,
+                      ),
                     ),
                   ),
                   child: Column(
@@ -185,7 +188,9 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => VeiculosQuatro(),
+                                      builder:
+                                          (context) =>
+                                              VeiculosQuatro(caminhoImagem: ""),
                                     ),
                                   );
                                 },

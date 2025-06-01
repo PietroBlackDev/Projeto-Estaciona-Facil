@@ -28,7 +28,10 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                   padding: EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(
                     border: Border(
-                      top: BorderSide(color: Colors.deepPurple, width: 5),
+                      top: BorderSide(
+                        color: Theme.of(context).colorScheme.secondary,
+                        width: 5,
+                      ),
                     ),
                   ),
                   child: Column(
@@ -37,6 +40,7 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                       Text(
                         "1. Qual categoria do veículo?",
                         style: Theme.of(context).textTheme.titleMedium,
+                        textAlign: TextAlign.left,
                       ),
 
                       Row(

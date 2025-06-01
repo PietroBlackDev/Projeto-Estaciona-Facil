@@ -4,9 +4,7 @@ import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_dois.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_seis.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_tres.dart';
-import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosCinco extends StatefulWidget {
   const VeiculosCinco({super.key});
@@ -33,7 +31,10 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                   padding: EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(
                     border: Border(
-                      top: BorderSide(color: Colors.deepPurple, width: 5),
+                      top: BorderSide(
+                        color: Theme.of(context).colorScheme.secondary,
+                        width: 5,
+                      ),
                     ),
                   ),
                   child: Column(
@@ -90,6 +91,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                           Text(
                             "2. Padrão da placa: ",
                             style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.left,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -165,6 +167,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                           Text(
                             "3. Placa:",
                             style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.left,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -205,6 +208,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                           Text(
                             "4. Qual é a descrição do veículo?",
                             style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.left,
                           ),
                           Text(
                             "Caso queira,informe uma descrição para identificar o veículo, por exemplo `FIAT ARGO`ou `CARRO AZUL` A descrição será exibida junto à placa quando você for estacionar.",
