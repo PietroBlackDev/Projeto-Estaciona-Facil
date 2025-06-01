@@ -4,6 +4,7 @@ import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_cinco.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_dois.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosQuatro extends StatefulWidget {
   const VeiculosQuatro({super.key});
@@ -55,6 +56,13 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
                               TextButton(
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
                                 onPressed: () {
                                   Navigator.pushReplacement(
                                     context,
@@ -65,7 +73,11 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                                 },
                                 child: Text(
                                   "ALTERAR",
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                                  ),
                                 ),
                               ),
                             ],
@@ -119,12 +131,23 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                                 ],
                               ),
                               TextButton(
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
                                 child: Text(
                                   "ALTERAR",
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                                  ),
                                 ),
                               ),
                             ],

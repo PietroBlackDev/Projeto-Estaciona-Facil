@@ -56,6 +56,13 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
                               TextButton(
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
                                 onPressed: () {
                                   Navigator.pushReplacement(
                                     context,
@@ -66,7 +73,11 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                                 },
                                 child: Text(
                                   "ALTERAR",
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                                  ),
                                 ),
                               ),
                             ],
@@ -119,6 +130,13 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                                 ],
                               ),
                               TextButton(
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
                                 onPressed: () {
                                   Navigator.pushReplacement(
                                     context,
@@ -129,7 +147,11 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                                 },
                                 child: Text(
                                   "ALTERAR",
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                                  ),
                                 ),
                               ),
                             ],
@@ -153,12 +175,23 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               TextButton(
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
                                 child: Text(
                                   "ALTERAR",
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                                  ),
                                 ),
                               ),
                             ],
