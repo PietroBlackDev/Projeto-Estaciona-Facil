@@ -11,6 +11,7 @@ import 'package:estaciona_facil/pages/Fluxo_Pietro/ajuda.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/alarmes.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/historico.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Pietro/termos_condicoes.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -78,6 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           BotaoBasico(
                             texto: 'Central de Ajuda',
                             pagina: Ajuda(),
+                          ),
+                          SizedBox(height: 10),
+                          BotaoBasico(
+                            texto: 'Termos e Condições',
+                            pagina: TermosCondicoes(),
                           ),
                           Text(
                             'João',
