@@ -7,6 +7,7 @@ import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/inicio.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_recuperar.dart/recuperar_senha.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/adicionar_saldo_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Pietro/ajuda.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/alarmes.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/historico.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_um.dart';
@@ -73,6 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           BotaoBasico(texto: 'Historico', pagina: Historico()),
                           SizedBox(height: 10),
                           BotaoBasico(texto: 'Alarmes', pagina: Alarmes()),
+                          SizedBox(height: 10),
+                          BotaoBasico(
+                            texto: 'Central de Ajuda',
+                            pagina: Ajuda(),
+                          ),
                           Text(
                             'João',
                             style: Theme.of(context).textTheme.titleLarge,

@@ -1,5 +1,6 @@
-import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Pietro/historico_dois.dart';
+import 'package:estaciona_facil/pages/Fluxo_Pietro/historico_tres.dart';
 import 'package:flutter/material.dart';
 
 class Historico extends StatefulWidget {
@@ -9,14 +10,29 @@ class Historico extends StatefulWidget {
   State<Historico> createState() => _HistoricoState();
 }
 
-bool _botaoAtivacao = false;
-bool _botaoCompra = false;
-bool _botaoTresDias = false;
-bool _botaoDozeDias = false;
-bool _botaoMesPassado = false;
-bool _botaoEsteMes = false;
-
 class _HistoricoState extends State<Historico> {
+  bool _botaoAtivacao = false;
+  bool _botaoCompra = false;
+  bool _botaoTresDias = false;
+  bool _botaoDozeDias = false;
+  bool _botaoMesPassado = false;
+  bool _botaoEsteMes = false;
+  String marcado = '';
+  String periodo = '';
+
+  @override
+  void initState() {
+    super.initState();
+    periodo = '';
+    marcado = '';
+    _botaoAtivacao = false;
+    _botaoCompra = false;
+    _botaoTresDias = false;
+    _botaoDozeDias = false;
+    _botaoMesPassado = false;
+    _botaoEsteMes = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +66,7 @@ class _HistoricoState extends State<Historico> {
                                   ? null
                                   : () {
                                     setState(() {
+                                      marcado = 'ativacao';
                                       _botaoAtivacao = true;
                                       _botaoCompra = false;
                                     });
@@ -73,6 +90,7 @@ class _HistoricoState extends State<Historico> {
                                   ? null
                                   : () {
                                     setState(() {
+                                      marcado = 'compra';
                                       _botaoCompra = true;
                                       _botaoAtivacao = false;
                                     });
@@ -110,6 +128,7 @@ class _HistoricoState extends State<Historico> {
                                       _botaoDozeDias = false;
                                       _botaoMesPassado = false;
                                       _botaoEsteMes = false;
+                                      periodo = 'Últimos 3 dias';
                                     });
                                   },
                           child: Text(
@@ -135,6 +154,7 @@ class _HistoricoState extends State<Historico> {
                                       _botaoDozeDias = false;
                                       _botaoMesPassado = false;
                                       _botaoEsteMes = true;
+                                      periodo = 'Este mês';
                                     });
                                   },
                           child: Text(
@@ -165,6 +185,7 @@ class _HistoricoState extends State<Historico> {
                                       _botaoDozeDias = false;
                                       _botaoMesPassado = true;
                                       _botaoEsteMes = false;
+                                      periodo = 'Mês passado';
                                     });
                                   },
                           child: Text(
@@ -190,6 +211,7 @@ class _HistoricoState extends State<Historico> {
                                       _botaoDozeDias = true;
                                       _botaoMesPassado = false;
                                       _botaoEsteMes = false;
+                                      periodo = 'Últimos 12 dias';
                                     });
                                   },
                           child: Text(
@@ -204,7 +226,79 @@ class _HistoricoState extends State<Historico> {
                     ],
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-                  BotaoBasico(texto: 'Ver Histórico', pagina: Historico()),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (marcado == 'ativacao' && periodo != '') {
+                          setState(() {
+                            marcado = '';
+                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => HistoricoDois(periodo: periodo),
+                            ),
+                          );
+                        } else if (marcado == 'compra' && periodo != '') {
+                          setState(() {
+                            marcado = '';
+                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => HistoricoTres(periodo: periodo),
+                            ),
+                          );
+                        } else {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (_) {
+                              return Container(
+                                padding: EdgeInsets.all(20),
+                                width: double.infinity,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.2,
+                                decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
+                                  ),
+                                ),
+                                child: Column(
+                                  spacing: 10,
+                                  children: [
+                                    Icon(
+                                      Icons.error_outline,
+                                      color:
+                                          Theme.of(context).colorScheme.surface,
+                                      size: 60,
+                                    ),
+                                    Text(
+                                      'Selecione o Tipo e o Período que deseja visualizar o histórico!',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        }
+                      },
+                      child: Text('Ver Histórico'),
+                    ),
+                  ),
                 ],
               ),
 
