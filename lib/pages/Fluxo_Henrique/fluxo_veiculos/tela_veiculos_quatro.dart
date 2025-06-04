@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosQuatro extends StatefulWidget {
-  const VeiculosQuatro({super.key});
+  const VeiculosQuatro({super.key, required String caminhoImagem});
 
   @override
   State<VeiculosQuatro> createState() => _VeiculosQuatroState();

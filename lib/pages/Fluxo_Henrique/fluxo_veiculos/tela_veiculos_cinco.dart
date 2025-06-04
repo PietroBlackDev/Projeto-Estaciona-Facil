@@ -5,6 +5,7 @@ import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculo
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_seis.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_tres.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosCinco extends StatefulWidget {
   const VeiculosCinco({super.key});
