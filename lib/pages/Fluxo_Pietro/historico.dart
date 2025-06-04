@@ -232,9 +232,6 @@ class _HistoricoState extends State<Historico> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (marcado == 'ativacao' && periodo != '') {
-                          setState(() {
-                            marcado = '';
-                          });
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -243,9 +240,6 @@ class _HistoricoState extends State<Historico> {
                             ),
                           );
                         } else if (marcado == 'compra' && periodo != '') {
-                          setState(() {
-                            marcado = '';
-                          });
                           Navigator.push(
                             context,
                             MaterialPageRoute(
