@@ -1,6 +1,6 @@
 
 import 'package:estaciona_facil/components/botao_basico.dart';
-import 'package:estaciona_facil/components/botao_basico_pop.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_quatro.dart';
@@ -38,6 +38,7 @@ class _CadastroTresState extends State<CadastroTres> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: LinearProgressIndicator(
+                    borderRadius: BorderRadius.circular(10),
                     value: 0.375,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,
@@ -85,7 +86,7 @@ class _CadastroTresState extends State<CadastroTres> {
                 const SizedBox(height: 90),
                 BotaoBasico(texto: 'Avançar', pagina: CadastroQuatro()),
                 const SizedBox(height: 20,),
-                BotaoBasicoPop(texto: 'Voltar'),
+                BotaoVoltar(texto: 'Voltar'),
         
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,

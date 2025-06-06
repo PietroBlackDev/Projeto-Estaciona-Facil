@@ -1,20 +1,17 @@
-
-import 'package:estaciona_facil/components/botao_basico.dart';
-import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
 import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_cinco.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/modal_recupera.dart';
 import 'package:flutter/material.dart';
 
-
-class CadastroQuatro extends StatefulWidget {
-  const CadastroQuatro({super.key});
+class CadastroCinco extends StatefulWidget {
+  const CadastroCinco({super.key});
 
   @override
-  State<CadastroQuatro> createState() => _CadastroQuatroState();
+  State<CadastroCinco> createState() => _CadastroCincoState();
 }
 
-class _CadastroQuatroState extends State<CadastroQuatro> {
+class _CadastroCincoState extends State<CadastroCinco> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,14 +36,14 @@ class _CadastroQuatroState extends State<CadastroQuatro> {
                   ),
                   child: LinearProgressIndicator(
                     borderRadius: BorderRadius.circular(10),
-                    value: 0.500,
+                    value: 0.625,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                              '4 de 8',
+                              '5 de 8',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17,
@@ -79,12 +76,17 @@ class _CadastroQuatroState extends State<CadastroQuatro> {
                 
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Input(visibilidade: false, label: 'Informe seu CPF ou CNPJ: ')
+                  child: Input(visibilidade: true, label: 'Informe sua Senha: ')
+                  ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Input(visibilidade: true, label: 'Confirme sua Senha: ')
                   ),
         
         
-                const SizedBox(height: 90),
-                BotaoBasico(texto: 'Avançar', pagina: CadastroCinco()),
+                const SizedBox(height: 70),
+                BotaoModal(textoBotao: 'Avançar', titulo: 'Suas SENHAS não Conferem', texto: 'As senhas precisam ser iguais para confirmação do cadastro.', textoBotaoModal: 'Voltar',),
                 const SizedBox(height: 20,),
                 BotaoVoltar(texto: 'Voltar'),
         
