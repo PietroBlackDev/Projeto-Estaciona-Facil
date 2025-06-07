@@ -15,6 +15,10 @@ class CadastroTres extends StatefulWidget {
 }
 
 class _CadastroTresState extends State<CadastroTres> {
+
+   var formKey = GlobalKey<FormState>();
+  var inputSenha = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,14 +81,107 @@ class _CadastroTresState extends State<CadastroTres> {
                 ),
         
                 
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Input(visibilidade: false, label: 'Informe seu celular com DDD: ')
-                  ),
+                Column(
+                      children: [
+                    
+                    Form(
+                      key: formKey,
+                      child: Center(
+                        child: Column(
+                        spacing: 10,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              'Informe o seu telefone com DDD: ',
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                    
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: TextFormField(
+                                keyboardType: TextInputType.number,
+                                cursorColor: Colors.black,
+                                validator: (value) {
+                                  if (value != null && value.isEmpty) {
+                                    return 'Por favor preencha seu Telefone!';
+                                  }
+                                  return null;
+                                },
+                                controller: inputSenha,
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).colorScheme.onPrimary, // mesma cor da borda ao focar
+                                      width: 2,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).colorScheme.onPrimary,
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            ),
+                    
+                          ],
+                        ),
+                      ),
+                    ),
+                    
+                    const SizedBox(height: 90),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Theme.of(context).colorScheme.secondary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () {
+                          if(formKey.currentState!.validate()){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => CadastroTres()),
+                          );
+                          }
+                        },
+                        child: Text(
+                          "Avançar",
+                          style: TextStyle(
+                            color: const Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    
+                    
+                      ],
+                ),
         
         
-                const SizedBox(height: 90),
-                BotaoBasico(texto: 'Avançar', pagina: CadastroQuatro()),
+
                 const SizedBox(height: 20,),
                 BotaoVoltar(texto: 'Voltar'),
         

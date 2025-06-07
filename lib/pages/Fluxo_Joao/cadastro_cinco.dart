@@ -1,7 +1,8 @@
-import 'package:estaciona_facil/components/input.dart';
+
 import 'package:estaciona_facil/components/widget_label.dart';
+
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
-import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/modal_recupera.dart';
+
 import 'package:flutter/material.dart';
 
 class CadastroCinco extends StatefulWidget {
@@ -12,6 +13,10 @@ class CadastroCinco extends StatefulWidget {
 }
 
 class _CadastroCincoState extends State<CadastroCinco> {
+  var formKey = GlobalKey<FormState>();
+  var inputSenha = TextEditingController();
+  var inputConfirmacao = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +30,7 @@ class _CadastroCincoState extends State<CadastroCinco> {
               children: [
                 WidgetLabel(texto: 'CADASTRO'),
                 const SizedBox(height: 20),
-        
+
                 const SizedBox(height: 15),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.9,
@@ -43,53 +48,227 @@ class _CadastroCincoState extends State<CadastroCinco> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                              '5 de 8',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: 'Arsenal',
-                              ),
-                            ),
+                  '5 de 8',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Arsenal',
+                  ),
+                ),
                 const SizedBox(height: 30),
                 Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
+
                     children: [
-                      
+
                       const SizedBox(width: 15),
                       Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           spacing: 20,
-                          children: [
-                            
-                          ],
+                          children: [],
                         ),
                       ),
                     ],
                   ),
                 ),
-        
-                
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Input(visibilidade: true, label: 'Informe sua Senha: ')
+
+                Form(
+                  key: formKey,
+                  child: Center(
+                    child: Column(
+                    spacing: 10,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          'Informe sua Senha',
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
+                      ),
+
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: TextFormField(
+                            cursorColor: Colors.black,
+                            validator: (value) {
+                              if (value != null && value.isEmpty) {
+                                return 'Por favor preencha a senha!';
+                              }
+                              return null;
+                            },
+                            controller: inputSenha,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                              filled: true,
+                              fillColor: Colors.white,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).colorScheme.onPrimary, // mesma cor da borda ao focar
+                                  width: 2,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).colorScheme.onPrimary,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+
+
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            'Confirme sua Senha',
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+
+
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: TextFormField(
+                            cursorColor: Colors.black,
+                            validator: (value) {
+                              if (value != null && value.isEmpty) {
+                                return 'Por favor confirme a senha!';
+                              } else if (value!= inputSenha.text){
+                                return 'As senhas não coincidem!';
+
+                              }
+                              return null;
+                            },
+                            controller: inputConfirmacao,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 15,
+                                horizontal: 20,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color:
+                                      Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary, // mesma cor da borda ao focar
+                                  width: 2,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).colorScheme.onPrimary,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                const SizedBox(height: 10),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Input(visibilidade: true, label: 'Confirme sua Senha: ')
-                  ),
-        
-        
+                ),
                 const SizedBox(height: 70),
-                BotaoModal(textoBotao: 'Avançar', titulo: 'Suas SENHAS não Conferem', texto: 'As senhas precisam ser iguais para confirmação do cadastro.', textoBotaoModal: 'Voltar',),
-                const SizedBox(height: 20,),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onPressed: () {
+                      if(formKey.currentState!.validate()){
+                        Navigator.of(context).pop();
+                      }else{
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (_) {
+                              return Container(
+                                padding: EdgeInsets.all(20),
+                                width: double.infinity,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.2,
+                                decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
+                                  ),
+                                ),
+                                child: Column(
+                                  spacing: 10,
+                                  children: [
+                                    Icon(
+                                      Icons.error_outline,
+                                      color:
+                                          Theme.of(context).colorScheme.surface,
+                                      size: 60,
+                                    ),
+                                    Text(
+                                      'As senhas devem coincidir!',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.primary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                      }
+                    },
+                    child: Text(
+                      "OK",
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
                 BotaoVoltar(texto: 'Voltar'),
-        
+
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.222,
