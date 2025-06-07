@@ -23,6 +23,13 @@ class VeiculosCinco extends StatefulWidget {
 }
 
 class _VeiculosCincoState extends State<VeiculosCinco> {
+  final TextEditingController _controller = TextEditingController();
+
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +68,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                             spacing: 50,
                             children: [
                               Icon(
-                                Icons.directions_car,
+                                widget.icone,
                                 size: 50,
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
@@ -106,40 +113,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 50,
                             children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 10,
-                                children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                        0.05,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.black),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "ABC 1A34",
-                                          style:
-                                              Theme.of(
-                                                context,
-                                              ).textTheme.bodySmall,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Text(
-                                    "Mercosul",
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ],
-                              ),
+                              Image.asset(widget.caminhoImagem, scale: 3),
                               TextButton(
                                 style: TextButton.styleFrom(
                                   backgroundColor:
@@ -176,7 +150,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                             spacing: 50,
                             children: [
                               Text(
-                                "Placa do veículo",
+                                widget.placa.toString(),
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               TextButton(
@@ -220,9 +194,41 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                           Container(
                             width: MediaQuery.of(context).size.width * 0.8,
                             height: MediaQuery.of(context).size.height * 0.13,
-                            child: Input(
-                              visibilidade: false,
-                              label: "Descrição do veículo (Ex: Fiat Argo)",
+                            child: Column(
+                              spacing: 40,
+                              children: [
+                                TextFormField(
+                                  controller: _controller,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 15,
+                                      horizontal: 20,
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color:
+                                            Theme.of(context)
+                                                .colorScheme
+                                                .onPrimary, // mesma cor da borda ao focar
+                                        width: 2,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.onPrimary,
+                                        width: 2,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -235,8 +241,8 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                   pagina: VeiculosSeis(
                     icone: widget.icone,
                     caminhoImagem: widget.caminhoImagem,
-                    placa: "",
-                    descricao: "",
+                    placa: widget.placa,
+                    descricao: _controller.text,
                   ),
                 ),
 

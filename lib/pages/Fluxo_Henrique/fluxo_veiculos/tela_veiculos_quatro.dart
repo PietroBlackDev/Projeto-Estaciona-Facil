@@ -21,7 +21,12 @@ class VeiculosQuatro extends StatefulWidget {
 }
 
 class _VeiculosQuatroState extends State<VeiculosQuatro> {
-  final String placa = "";
+  final TextEditingController _controller = TextEditingController();
+
+  void dispose() {
+    _controller.dispose(); // liberar o controller ao sair do widget
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +63,7 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                             spacing: 40,
                             children: [
                               Icon(
-                                Icons.directions_car,
+                                widget.icone,
                                 size: 50,
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
@@ -130,6 +135,7 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                       ),
 
                       Column(
+                        spacing: 30,
                         children: [
                           Text(
                             "3. Qual a placa do veículo?",
@@ -138,7 +144,41 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                           Container(
                             width: MediaQuery.of(context).size.width * 0.8,
                             height: MediaQuery.of(context).size.height * 0.13,
-                            child: Input(visibilidade: false, label: placa),
+                            child: Column(
+                              children: [
+                                TextFormField(
+                                  controller: _controller,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 15,
+                                      horizontal: 20,
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color:
+                                            Theme.of(context)
+                                                .colorScheme
+                                                .onPrimary, // mesma cor da borda ao focar
+                                        width: 2,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.onPrimary,
+                                        width: 2,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -150,7 +190,7 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                   pagina: VeiculosCinco(
                     icone: widget.icone,
                     caminhoImagem: widget.caminhoImagem,
-                    placa: "",
+                    placa: _controller.text,
                   ),
                 ),
 

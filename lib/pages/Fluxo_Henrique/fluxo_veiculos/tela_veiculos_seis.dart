@@ -62,7 +62,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                             spacing: 50,
                             children: [
                               Icon(
-                                Icons.directions_car,
+                                widget.icone,
                                 size: 50,
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
@@ -106,40 +106,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 50,
                             children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 10,
-                                children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                        0.05,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.black),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "ABC 1A34",
-                                          style:
-                                              Theme.of(
-                                                context,
-                                              ).textTheme.bodySmall,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Text(
-                                    "Mercosul",
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ],
-                              ),
+                              Image.asset(widget.caminhoImagem, scale: 3),
                               TextButton(
                                 style: TextButton.styleFrom(
                                   backgroundColor:
@@ -175,7 +142,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                             spacing: 50,
                             children: [
                               Text(
-                                "Placa do veículo",
+                                widget.placa.toString(),
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               TextButton(
@@ -224,7 +191,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                             spacing: 50,
                             children: [
                               Text(
-                                "Descrição do veículo",
+                                widget.descricao.toString(),
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               TextButton(
@@ -308,7 +275,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          "Descrição do Carro",
+                                          widget.descricao.toString(),
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 20,
@@ -317,7 +284,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                                           ),
                                         ),
                                         Text(
-                                          "ABC 1A34",
+                                          widget.placa.toString(),
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 50,
@@ -367,12 +334,13 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                                           ),
                                         ),
                                         onPressed: () {
-                                          Navigator.push(
+                                          Navigator.pushAndRemoveUntil(
                                             context,
                                             MaterialPageRoute(
                                               builder:
                                                   (context) => VeiculosUm(),
                                             ),
+                                            (route) => false,
                                           );
                                         },
                                         child: Text(
