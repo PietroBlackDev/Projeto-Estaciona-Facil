@@ -3,12 +3,20 @@ import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_dois.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_seis.dart';
-import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_tres.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosCinco extends StatefulWidget {
-  const VeiculosCinco({super.key});
+  const VeiculosCinco({
+    super.key,
+    required this.icone,
+    required this.caminhoImagem,
+    required this.placa,
+  });
+
+  final IconData icone;
+  final String caminhoImagem;
+  final String placa;
 
   @override
   State<VeiculosCinco> createState() => _VeiculosCincoState();
@@ -140,14 +148,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                onPressed: () {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => VeiculosTres(),
-                                    ),
-                                  );
-                                },
+                                onPressed: () {},
                                 child: Text(
                                   "ALTERAR",
                                   style: TextStyle(
@@ -229,7 +230,15 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                     ],
                   ),
                 ),
-                BotaoBasico(texto: "Avançar", pagina: VeiculosSeis()),
+                BotaoBasico(
+                  texto: "Avançar",
+                  pagina: VeiculosSeis(
+                    icone: widget.icone,
+                    caminhoImagem: widget.caminhoImagem,
+                    placa: "",
+                    descricao: "",
+                  ),
+                ),
 
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,

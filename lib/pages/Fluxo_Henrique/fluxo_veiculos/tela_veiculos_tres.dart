@@ -1,11 +1,12 @@
-import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_quatro.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosTres extends StatefulWidget {
-  const VeiculosTres({super.key});
+  const VeiculosTres({super.key, required this.icone});
+
+  final IconData icone;
 
   @override
   State<VeiculosTres> createState() => _VeiculosTresState();
@@ -50,7 +51,7 @@ class _VeiculosTresState extends State<VeiculosTres> {
                           spacing: 20,
                           children: [
                             Icon(
-                              Icons.directions_car,
+                              widget.icone,
                               size: 50,
                               color: Theme.of(context).colorScheme.secondary,
                             ),
@@ -89,68 +90,43 @@ class _VeiculosTresState extends State<VeiculosTres> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              spacing: 10,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.2,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.05,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => VeiculosQuatro(
+                                          icone: widget.icone,
+                                          caminhoImagem:
+                                              'assets/images/placa_brasileira.png',
+                                        ),
                                   ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "ABC-1234",
-                                        style:
-                                            Theme.of(
-                                              context,
-                                            ).textTheme.bodySmall,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Text(
-                                  "Brasileiro",
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                              ],
+                                );
+                              },
+                              child: Image.asset(
+                                'assets/images/placa_brasileira.png',
+                                scale: 2,
+                              ),
                             ),
-
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              spacing: 10,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.2,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.05,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => VeiculosQuatro(
+                                          icone: widget.icone,
+                                          caminhoImagem:
+                                              'assets/images/placa_mercosul.png',
+                                        ),
                                   ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "ABC 1A34",
-                                        style:
-                                            Theme.of(
-                                              context,
-                                            ).textTheme.bodySmall,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Text(
-                                  "Mercosul",
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                              ],
+                                );
+                              },
+                              child: Image.asset(
+                                'assets/images/placa_mercosul.png',
+                                scale: 2,
+                              ),
                             ),
                           ],
                         ),
@@ -160,11 +136,10 @@ class _VeiculosTresState extends State<VeiculosTres> {
                 ),
               ),
 
-              BotaoBasico(
-                texto: "Avançar",
-                pagina: VeiculosQuatro(caminhoImagem: ""),
-              ),
-
+              // BotaoBasico(
+              //   texto: "Avançar",
+              //   pagina: VeiculosQuatro(caminhoImagem: ""),
+              // ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.222,

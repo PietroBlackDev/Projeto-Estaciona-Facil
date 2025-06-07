@@ -7,7 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosQuatro extends StatefulWidget {
-  const VeiculosQuatro({super.key, required String caminhoImagem});
+  const VeiculosQuatro({
+    super.key,
+    required this.icone,
+    required this.caminhoImagem,
+  });
+
+  final IconData icone;
+  final String caminhoImagem;
 
   @override
   State<VeiculosQuatro> createState() => _VeiculosQuatroState();
@@ -96,40 +103,7 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             spacing: 40,
                             children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                spacing: 10,
-                                children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                        0.05,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.black),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "ABC 1A34",
-                                          style:
-                                              Theme.of(
-                                                context,
-                                              ).textTheme.bodySmall,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Text(
-                                    "Mercosul",
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ],
-                              ),
+                              Image.asset(widget.caminhoImagem, scale: 3),
                               TextButton(
                                 style: TextButton.styleFrom(
                                   backgroundColor:
@@ -171,7 +145,14 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                     ],
                   ),
                 ),
-                BotaoBasico(texto: "Avançar", pagina: VeiculosCinco()),
+                BotaoBasico(
+                  texto: "Avançar",
+                  pagina: VeiculosCinco(
+                    icone: widget.icone,
+                    caminhoImagem: widget.caminhoImagem,
+                    placa: "",
+                  ),
+                ),
 
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,

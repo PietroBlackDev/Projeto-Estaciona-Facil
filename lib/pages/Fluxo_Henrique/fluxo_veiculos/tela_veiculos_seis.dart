@@ -1,13 +1,23 @@
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_dois.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_quatro.dart';
-import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_tres.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VeiculosSeis extends StatefulWidget {
-  const VeiculosSeis({super.key});
+  const VeiculosSeis({
+    super.key,
+    required this.icone,
+    required this.caminhoImagem,
+    required this.placa,
+    required this.descricao,
+  });
+
+  final IconData icone;
+  final String caminhoImagem;
+  final String placa;
+  final String descricao;
 
   @override
   State<VeiculosSeis> createState() => _VeiculosSeisState();
@@ -138,14 +148,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                onPressed: () {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => VeiculosTres(),
-                                    ),
-                                  );
-                                },
+                                onPressed: () {},
                                 child: Text(
                                   "ALTERAR",
                                   style: TextStyle(
@@ -188,8 +191,10 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                                     context,
                                     MaterialPageRoute(
                                       builder:
-                                          (context) =>
-                                              VeiculosQuatro(caminhoImagem: ""),
+                                          (context) => VeiculosQuatro(
+                                            icone: widget.icone,
+                                            caminhoImagem: widget.caminhoImagem,
+                                          ),
                                     ),
                                   );
                                 },

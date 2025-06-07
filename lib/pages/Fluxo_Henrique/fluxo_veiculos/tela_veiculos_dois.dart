@@ -11,6 +11,7 @@ class VeiculosDois extends StatefulWidget {
 }
 
 class _VeiculosDoisState extends State<VeiculosDois> {
+  late final IconData valorIcone;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,7 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                 WidgetLabel(texto: "Novo Veículo"),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.22,
+                  height: MediaQuery.of(context).size.height * 0.45,
                   padding: EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(
                     border: Border(
@@ -45,11 +46,11 @@ class _VeiculosDoisState extends State<VeiculosDois> {
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 10,
+                        spacing: 30,
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.22,
-                            height: MediaQuery.of(context).size.height * 0.12,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.15,
                             padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: Color(0xff540F63),
@@ -58,15 +59,29 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.directions_car_rounded,
-                                  color: Colors.white,
-                                  size: 50,
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => VeiculosTres(
+                                              icone:
+                                                  Icons.directions_car_rounded,
+                                            ),
+                                      ),
+                                    );
+                                  },
+                                  icon: Icon(
+                                    Icons.directions_car_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  iconSize: 50,
                                 ),
                                 Text(
                                   "Automóveis",
                                   style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 15,
                                     color: Colors.white,
                                   ),
                                 ),
@@ -75,8 +90,8 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                           ),
 
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.22,
-                            height: MediaQuery.of(context).size.height * 0.12,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.15,
                             padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: Color(0xff540F63),
@@ -85,25 +100,44 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.motorcycle,
-                                  color: Colors.white,
-                                  size: 50,
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => VeiculosTres(
+                                              icone: Icons.motorcycle,
+                                            ),
+                                      ),
+                                    );
+                                  },
+                                  icon: Icon(
+                                    Icons.motorcycle,
+                                    color: Colors.white,
+                                    size: 50,
+                                  ),
                                 ),
                                 Text(
                                   "Motocicletas",
                                   style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 15,
                                     color: Colors.white,
                                   ),
                                 ),
                               ],
                             ),
                           ),
+                        ],
+                      ),
 
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 30,
+                        children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.22,
-                            height: MediaQuery.of(context).size.height * 0.12,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.15,
                             padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: Color(0xff540F63),
@@ -112,15 +146,28 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.fire_truck,
-                                  color: Colors.white,
-                                  size: 50,
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => VeiculosTres(
+                                              icone: Icons.fire_truck,
+                                            ),
+                                      ),
+                                    );
+                                  },
+                                  icon: Icon(
+                                    Icons.fire_truck,
+                                    color: Colors.white,
+                                    size: 50,
+                                  ),
                                 ),
                                 Text(
                                   "Fretes e\ncaminhões",
                                   style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 15,
                                     color: Colors.white,
                                   ),
                                   textAlign: TextAlign.center,
@@ -130,8 +177,8 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                           ),
 
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.22,
-                            height: MediaQuery.of(context).size.height * 0.12,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.15,
                             padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: Color(0xff540F63),
@@ -140,15 +187,29 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.directions_car_rounded,
-                                  color: Colors.white,
-                                  size: 50,
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => VeiculosTres(
+                                              icone:
+                                                  Icons.directions_car_rounded,
+                                            ),
+                                      ),
+                                    );
+                                  },
+                                  icon: Icon(
+                                    Icons.directions_car_rounded,
+                                    color: Colors.white,
+                                    size: 50,
+                                  ),
                                 ),
                                 Text(
                                   "Outros veículos",
                                   style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 15,
                                     color: Colors.white,
                                   ),
                                   textAlign: TextAlign.center,
@@ -161,7 +222,10 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                     ],
                   ),
                 ),
-                BotaoBasico(texto: 'Avançar', pagina: VeiculosTres()),
+                // BotaoBasico(
+                //   texto: 'Avançar',
+                //   pagina: VeiculosTres(icone: Icons.abc_outlined),
+                // ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.222,
