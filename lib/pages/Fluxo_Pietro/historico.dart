@@ -61,6 +61,14 @@ class _HistoricoState extends State<Historico> {
                         height: MediaQuery.of(context).size.height * 0.08,
                         width: MediaQuery.of(context).size.width * 0.46,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
                           onPressed:
                               _botaoAtivacao
                                   ? null
@@ -85,6 +93,14 @@ class _HistoricoState extends State<Historico> {
                         height: MediaQuery.of(context).size.height * 0.08,
                         width: MediaQuery.of(context).size.width * 0.46,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
                           onPressed:
                               _botaoCompra
                                   ? null
@@ -119,6 +135,14 @@ class _HistoricoState extends State<Historico> {
                         height: MediaQuery.of(context).size.height * 0.08,
                         width: MediaQuery.of(context).size.width * 0.46,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
                           onPressed:
                               _botaoTresDias
                                   ? null
@@ -145,6 +169,14 @@ class _HistoricoState extends State<Historico> {
                         height: MediaQuery.of(context).size.height * 0.08,
                         width: MediaQuery.of(context).size.width * 0.46,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
                           onPressed:
                               _botaoEsteMes
                                   ? null
@@ -176,6 +208,14 @@ class _HistoricoState extends State<Historico> {
                         height: MediaQuery.of(context).size.height * 0.08,
                         width: MediaQuery.of(context).size.width * 0.46,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
                           onPressed:
                               _botaoMesPassado
                                   ? null
@@ -202,6 +242,14 @@ class _HistoricoState extends State<Historico> {
                         height: MediaQuery.of(context).size.height * 0.08,
                         width: MediaQuery.of(context).size.width * 0.46,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
                           onPressed:
                               _botaoDozeDias
                                   ? null

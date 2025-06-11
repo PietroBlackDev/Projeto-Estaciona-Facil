@@ -48,7 +48,7 @@ class _AjudaState extends State<Ajuda> {
                   width: MediaQuery.of(context).size.width * 0.88,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     spacing: 2,
                     children: [
                       Text(

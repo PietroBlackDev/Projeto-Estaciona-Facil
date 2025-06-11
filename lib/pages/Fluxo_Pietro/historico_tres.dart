@@ -33,364 +33,416 @@ class _HistoricoTresState extends State<HistoricoTres> {
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Valor comprado:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'R\$ 17.35',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 10,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Valor comprado:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Forma de pagamento:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    '**** **** **** 9393',
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall,
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'R\$ 17.35',
                                       style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
+                                          Theme.of(context).textTheme.bodySmall,
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '16/05/2025',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Forma de pagamento:',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      '**** **** **** 9393',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '16/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                      SizedBox(height: 15),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Valor comprado:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'R\$ 2.00',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 20,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Valor comprado:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Forma de pagamento:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    '**** **** **** 9393',
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall,
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'R\$ 2.00',
                                       style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
+                                          Theme.of(context).textTheme.bodySmall,
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '16/05/2025',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Forma de pagamento:',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      '**** **** **** 9393',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '16/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                      SizedBox(height: 15),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Valor comprado:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'R\$ 39.00',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 20,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Valor comprado:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Forma de pagamento:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'PIX',
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall,
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'R\$ 39.00',
                                       style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
+                                          Theme.of(context).textTheme.bodySmall,
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '15/05/2025',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Forma de pagamento:',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'PIX',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '15/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                      SizedBox(height: 15),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Valor comprado:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'R\$ 10.00',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 20,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Valor comprado:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Forma de pagamento:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    '**** **** **** 5321',
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall,
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'R\$ 10.00',
                                       style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
+                                          Theme.of(context).textTheme.bodySmall,
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '13/05/2025',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Forma de pagamento:',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      '**** **** **** 5321',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '13/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                      SizedBox(height: 15),
 
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,

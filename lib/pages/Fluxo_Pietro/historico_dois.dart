@@ -34,684 +34,748 @@ class _HistoricoDoisState extends State<HistoricoDois> {
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Carro:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'Meu carro',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 10,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Carro:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Placa:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'DTS-324F',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'Meu carro',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Placa:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'DTS-324F',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'R\$:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '5.00',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'R\$:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Entrada:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '08:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '5.00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Entrada:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '08:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              spacing: 54,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '16/05/2025',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                spacing: 54,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Saída:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '09:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '16/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Saída:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '09:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Carro:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'Carro da minha Mulher',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 10,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Carro:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Placa:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    '123-GSAE',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'Carro da minha Mulher',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Placa:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      '123-GSAE',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'R\$:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '5.00',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'R\$:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Entrada:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '10:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '5.00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Entrada:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '10:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              spacing: 54,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '14/05/2025',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                spacing: 54,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Saída:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '12:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '14/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Saída:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '12:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Carro:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'Meu carro',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 10,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Carro:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Placa:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'DTS-324F',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'Meu carro',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Placa:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'DTS-324F',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'R\$:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '9.00',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'R\$:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Entrada:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '14:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '9.00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Entrada:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '14:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              spacing: 54,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '13/05/2025',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                spacing: 54,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Saída:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '19:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '13/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Saída:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '19:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 21, top: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 7,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Carro:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'Meu carro',
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 10,
+                          right: 21,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context).colorScheme.tertiary,
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 7,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Carro:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 05,
-                              children: [
-                                Text(
-                                  'Placa:',
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Text(
-                                    'DTS-324F',
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'Meu carro',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 05,
+                                children: [
+                                  Text(
+                                    'Placa:',
                                     style:
-                                        Theme.of(context).textTheme.bodySmall,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                ),
-                              ],
-                            ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3),
+                                    child: Text(
+                                      'DTS-324F',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              spacing: 120,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'R\$:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '5.00',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                spacing: 120,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'R\$:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Entrada:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '09:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '5.00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Entrada:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '09:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              spacing: 54,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'Data:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '13/05/2025',
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                spacing: 54,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'Data:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 05,
-                                  children: [
-                                    Text(
-                                      'H. Saída:',
-                                      style:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 3),
-                                      child: Text(
-                                        '10:00',
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '13/05/2025',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 05,
+                                    children: [
+                                      Text(
+                                        'H. Saída:',
                                         style:
                                             Theme.of(
                                               context,
-                                            ).textTheme.bodySmall,
+                                            ).textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 3),
+                                        child: Text(
+                                          '10:00',
+                                          style:
+                                              Theme.of(
+                                                context,
+                                              ).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.888,
-                        height: MediaQuery.of(context).size.height * 0.005,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
 
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,

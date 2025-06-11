@@ -7,6 +7,7 @@ final ThemeData myTheme = ThemeData(
     brightness: Brightness.light,
     primary: Color(0xffFFFFFF),
     onPrimary: Color(0xff540F63),
+    tertiary: Color.fromARGB(255, 201, 200, 200),
     error: Colors.red,
     onError: Colors.white,
     surface: Color(0xFFF4F4F4),

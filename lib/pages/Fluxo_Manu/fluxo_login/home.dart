@@ -1,4 +1,4 @@
-import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/regularizar_aviso.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/historico_regularizar.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/appbar.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_inicio.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/container_valores.dart';
@@ -39,11 +39,11 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset('assets/images/Logo.png', width: 90, height: 90),
-                  ContainerValores(nome: 'Saldo', valor: '0')
+                  ContainerValores(nome: 'Saldo', valor: '0'),
                 ],
               ),
-              Divider(thickness: 2,),
-        
+              Divider(thickness: 2),
+
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 spacing: 10,
@@ -52,8 +52,14 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 10,
                     children: [
-                      BotaoInicio(icone: Icons.local_parking, texto: 'Estacionar'),
-                      BotaoInicio(icone: Icons.directions_car, texto: 'Veículos'),
+                      BotaoInicio(
+                        icone: Icons.local_parking,
+                        texto: 'Estacionar',
+                      ),
+                      BotaoInicio(
+                        icone: Icons.directions_car,
+                        texto: 'Veículos',
+                      ),
                     ],
                   ),
                   Row(
@@ -61,7 +67,10 @@ class _HomeState extends State<Home> {
                     spacing: 10,
                     children: [
                       BotaoInicio(icone: Icons.person, texto: 'Perfil'),
-                      BotaoInicio(icone: Icons.account_balance_wallet, texto: 'Saldo'),
+                      BotaoInicio(
+                        icone: Icons.account_balance_wallet,
+                        texto: 'Saldo',
+                      ),
                     ],
                   ),
                   Row(
@@ -69,7 +78,10 @@ class _HomeState extends State<Home> {
                     spacing: 10,
                     children: [
                       BotaoInicio(icone: Icons.history, texto: 'Histórico'),
-                      BotaoInicio(icone: Icons.notifications_active, texto: 'Alarmes'),
+                      BotaoInicio(
+                        icone: Icons.notifications_active,
+                        texto: 'Alarmes',
+                      ),
                     ],
                   ),
                   Row(
@@ -77,7 +89,11 @@ class _HomeState extends State<Home> {
                     spacing: 10,
                     children: [
                       BotaoInicio(icone: Icons.help, texto: 'Ajuda'),
-                      BotaoInicio(icone: Icons.build, texto: 'Regularizar', pagina: RegularizarAviso(),),
+                      BotaoInicio(
+                        icone: Icons.build,
+                        texto: 'Regularizar',
+                        pagina: HistoricoRegularizar(),
+                      ),
                     ],
                   ),
                   Row(
@@ -89,7 +105,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

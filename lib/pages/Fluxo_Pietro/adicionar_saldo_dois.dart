@@ -132,7 +132,7 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        spacing: 8,
+                        spacing: 40,
                         children: [
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.25,
@@ -174,33 +174,6 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                                   Icon(Icons.credit_card_rounded, size: 50),
                                   Text(
                                     'Cartão',
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily:
-                                          GoogleFonts.ubuntu().fontFamily,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.25,
-                            height: MediaQuery.of(context).size.height * 0.1,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                spacing: 2,
-                                children: [
-                                  Icon(Icons.receipt, size: 50),
-                                  Text(
-                                    'Boleto',
                                     style: TextStyle(
                                       color:
                                           Theme.of(context).colorScheme.primary,
