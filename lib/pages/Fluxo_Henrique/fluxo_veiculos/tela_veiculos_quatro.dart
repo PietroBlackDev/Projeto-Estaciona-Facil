@@ -1,5 +1,4 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
-import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_cinco.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_dois.dart';
@@ -45,7 +44,10 @@ class _VeiculosQuatroState extends State<VeiculosQuatro> {
                   padding: EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(
                     border: Border(
-                      top: BorderSide(color: Colors.deepPurple, width: 5),
+                      top: BorderSide(
+                        color: Theme.of(context).colorScheme.secondary,
+                        width: 5,
+                      ),
                     ),
                   ),
                   child: Column(
