@@ -12,6 +12,7 @@ class TelaEstacionamentoUm extends StatefulWidget {
 }
 
 class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
+  double saldo = 5.00;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
               spacing: 30,
               children: [
                 WidgetLabel(texto: "Estacionar Agora"),
-                BotaoBasico(texto: "Saldo: 0,00"),
+                BotaoBasico(texto: "Saldo: ${saldo.toStringAsFixed(2)}"),
                 Text(
                   "Selecione a placa do veículo",
                   style: TextStyle(
