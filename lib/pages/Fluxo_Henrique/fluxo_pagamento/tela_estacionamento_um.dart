@@ -47,12 +47,7 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
                     children: [
                       Text(
                         "Descrição do Carro",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Arsenal',
-                        ),
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
                         "ABC 1A34",

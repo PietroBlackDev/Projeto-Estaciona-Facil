@@ -1,6 +1,6 @@
-import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_dois.dart';
+import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_tres.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,8 +21,20 @@ class PagamentoUm extends StatefulWidget {
 }
 
 class _PagamentoUmState extends State<PagamentoUm> {
-  bool _clicadoPix = false;
-  bool _clicadoCartao = false;
+  bool _botaoPix = false;
+  bool _botaoCartao = false;
+  String pagamento = '';
+  String marcado = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    marcado = '';
+    pagamento = '';
+    _botaoPix = false;
+    _botaoCartao = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +111,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.2,
+                  height: MediaQuery.of(context).size.height * 0.25,
                   decoration: BoxDecoration(
                     border: Border(
                       top: BorderSide(color: Colors.deepPurple, width: 2),
@@ -122,388 +134,171 @@ class _PagamentoUmState extends State<PagamentoUm> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           spacing: 8,
                           children: [
-                            _clicadoPix
-                                ? Padding(
-                                  padding: const EdgeInsets.only(
-                                    right: 41,
-                                    left: 41,
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                            1,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                            0.005,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Theme.of(
-                                                context,
-                                              ).colorScheme.onPrimary,
-                                          borderRadius: BorderRadius.circular(
-                                            10,
-                                          ),
-                                        ),
-                                      ),
-
-                                      const SizedBox(height: 26),
-                                      Text(
-                                        'PIX Copia e Cola:',
-                                        style:
-                                            Theme.of(
-                                              context,
-                                            ).textTheme.titleMedium,
-                                      ),
-                                      Text(
-                                        '00020101021126640014BR.GOV.BCB.PIX0114c2b0f8-3d1e-4a5b-9c6f-7d8e2f1a2b3c520400005303986540testesaoroqueKDJGW23testeFacyukdad2345523',
-                                        style:
-                                            Theme.of(
-                                              context,
-                                            ).textTheme.bodyMedium,
-                                      ),
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Código PIX copiado com sucesso!',
-                                              ),
-                                              duration: Duration(seconds: 2),
-                                            ),
-                                          );
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.12,
+                              width: MediaQuery.of(context).size.width * 0.3,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  disabledBackgroundColor:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                  disabledForegroundColor:
+                                      Theme.of(context).colorScheme.primary,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.tertiary,
+                                ),
+                                onPressed:
+                                    _botaoPix
+                                        ? null
+                                        : () {
+                                          setState(() {
+                                            marcado = 'pix';
+                                            _botaoPix = true;
+                                            _botaoCartao = false;
+                                            pagamento = 'PIX';
+                                          });
                                         },
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.copy, size: 20),
-                                            SizedBox(width: 5),
-                                            Text(
-                                              'Copiar',
-                                              style: TextStyle(
-                                                color:
-                                                    Theme.of(
-                                                      context,
-                                                    ).colorScheme.primary,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily:
-                                                    GoogleFonts.ubuntu()
-                                                        .fontFamily,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(height: 20),
-                                      Text(
-                                        'Código QR Code:',
-                                        style:
-                                            Theme.of(
-                                              context,
-                                            ).textTheme.titleMedium,
-                                      ),
-                                      SizedBox(height: 10),
-                                      Center(
-                                        child: Image.asset(
-                                          'assets/images/codigo_qr.png',
-                                          width: 200,
-                                          height: 200,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 26),
-
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                            1,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                            0.005,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Theme.of(
-                                                context,
-                                              ).colorScheme.onPrimary,
-                                          borderRadius: BorderRadius.circular(
-                                            10,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 20),
-                                      Center(
-                                        child: SizedBox(
-                                          width:
-                                              MediaQuery.of(
-                                                context,
-                                              ).size.width *
-                                              0.8,
-                                          height:
-                                              MediaQuery.of(
-                                                context,
-                                              ).size.height *
-                                              0.07,
-                                          child: ElevatedButton(
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                                  WidgetStatePropertyAll(
-                                                    Color(0xff932426),
-                                                  ),
-                                            ),
-                                            onPressed: () {
-                                              setState(() {
-                                                _clicadoPix = false;
-                                              });
-                                            },
-                                            child: Text('Cancelar'),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                                : SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.1,
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _clicadoPix = true;
-                                      });
-                                    },
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      spacing: 2,
-                                      children: [
-                                        Icon(Icons.pix, size: 50),
-                                        Text(
-                                          'PIX',
-                                          style: TextStyle(
-                                            color:
-                                                Theme.of(
-                                                  context,
-                                                ).colorScheme.primary,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w500,
-                                            fontFamily:
-                                                GoogleFonts.ubuntu().fontFamily,
-                                          ),
-                                        ),
-                                      ],
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 10,
+                                  children: [
+                                    Icon(
+                                      Icons.pix,
+                                      size: 50,
+                                      color: Colors.white,
                                     ),
-                                  ),
-                                ),
-
-                            _clicadoCartao
-                                ? Padding(
-                                  padding: const EdgeInsets.only(
-                                    right: 41,
-                                    left: 41,
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                            0.47,
-                                        padding: EdgeInsets.only(top: 20),
-                                        decoration: BoxDecoration(
-                                          border: Border(
-                                            top: BorderSide(
-                                              color: Colors.deepPurple,
-                                              width: 2,
-                                            ),
-                                          ),
-                                        ),
-                                        child: Column(
-                                          spacing: 5,
-                                          children: [
-                                            SizedBox(
-                                              width:
-                                                  MediaQuery.of(
-                                                    context,
-                                                  ).size.width *
-                                                  0.8,
-                                              height:
-                                                  MediaQuery.of(
-                                                    context,
-                                                  ).size.height *
-                                                  0.12,
-                                              child: Input(
-                                                visibilidade: false,
-                                                label:
-                                                    'Número titular do cartão:',
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width:
-                                                  MediaQuery.of(
-                                                    context,
-                                                  ).size.width *
-                                                  0.8,
-                                              height:
-                                                  MediaQuery.of(
-                                                    context,
-                                                  ).size.height *
-                                                  0.12,
-                                              child: Input(
-                                                visibilidade: false,
-                                                label:
-                                                    'Número cartão de crédito:',
-                                              ),
-                                            ),
-                                            Row(
-                                              spacing: 35,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                SizedBox(
-                                                  width:
-                                                      MediaQuery.of(
-                                                        context,
-                                                      ).size.width *
-                                                      0.4,
-                                                  height:
-                                                      MediaQuery.of(
-                                                        context,
-                                                      ).size.height *
-                                                      0.13,
-                                                  child: Input(
-                                                    visibilidade: false,
-                                                    label: 'Validade (mm/aa):',
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width:
-                                                      MediaQuery.of(
-                                                        context,
-                                                      ).size.width *
-                                                      0.3,
-                                                  height:
-                                                      MediaQuery.of(
-                                                        context,
-                                                      ).size.height *
-                                                      0.13,
-                                                  child: Input(
-                                                    visibilidade: false,
-                                                    label: 'CVV:',
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                left: 20.0,
-                                              ),
-                                              child: Row(
-                                                spacing: 10,
-                                                children: [
-                                                  Radio(
-                                                    value: "3 Horas",
-                                                    groupValue: "Horas",
-                                                    onChanged: (value) {},
-                                                  ),
-                                                  Text("Salvar cartão"),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                    Text(
+                                      'Pix',
+                                      style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w600,
                                       ),
-                                      const SizedBox(height: 20),
-                                      Center(
-                                        child: SizedBox(
-                                          width:
-                                              MediaQuery.of(
-                                                context,
-                                              ).size.width *
-                                              0.8,
-                                          height:
-                                              MediaQuery.of(
-                                                context,
-                                              ).size.height *
-                                              0.07,
-                                          child: ElevatedButton(
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                                  WidgetStatePropertyAll(
-                                                    Color(0xff932426),
-                                                  ),
-                                            ),
-                                            onPressed: () {
-                                              setState(() {
-                                                _clicadoCartao = false;
-                                              });
-                                            },
-                                            child: Text('Cancelar'),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                                : SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.1,
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _clicadoCartao = true;
-                                      });
-                                    },
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      spacing: 2,
-                                      children: [
-                                        Icon(
-                                          Icons.credit_card_rounded,
-                                          size: 50,
-                                        ),
-                                        Text(
-                                          'Cartão',
-                                          style: TextStyle(
-                                            color:
-                                                Theme.of(
-                                                  context,
-                                                ).colorScheme.primary,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w500,
-                                            fontFamily:
-                                                GoogleFonts.ubuntu().fontFamily,
-                                          ),
-                                        ),
-                                      ],
                                     ),
-                                  ),
+                                  ],
                                 ),
+                              ),
+                            ),
+
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.12,
+                              width: MediaQuery.of(context).size.width * 0.3,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  disabledBackgroundColor:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                  disabledForegroundColor:
+                                      Theme.of(context).colorScheme.primary,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.tertiary,
+                                ),
+                                onPressed:
+                                    _botaoCartao
+                                        ? null
+                                        : () {
+                                          setState(() {
+                                            marcado = 'cartão';
+                                            _botaoCartao = true;
+                                            _botaoPix = false;
+                                            pagamento = 'CARTÃO';
+                                          });
+                                        },
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 10,
+                                  children: [
+                                    Icon(
+                                      Icons.payment,
+                                      size: 50,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      'Cartão',
+                                      style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ],
                     ),
+                  ),
+                ),
+
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (marcado == 'pix' && pagamento != '') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => PagamentoTres(
+                                  placa: widget.placa,
+                                  saldo: widget.saldo,
+                                  horas: widget.horas,
+                                  pagamento: pagamento,
+                                ),
+                          ),
+                        );
+                      } else if (marcado == 'cartão' && pagamento != '') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => PagamentoDois(
+                                  placa: widget.placa,
+                                  saldo: widget.saldo,
+                                  horas: widget.horas,
+                                  pagamento: pagamento,
+                                ),
+                          ),
+                        );
+                      } else {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (_) {
+                            return Container(
+                              padding: EdgeInsets.all(20),
+                              width: double.infinity,
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                              child: Column(
+                                spacing: 10,
+                                children: [
+                                  Icon(
+                                    Icons.error_outline,
+                                    color:
+                                        Theme.of(context).colorScheme.surface,
+                                    size: 60,
+                                  ),
+                                  Text(
+                                    'Selecione a forma de pagamento!',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      }
+                    },
+                    child: Text('Avançar'),
                   ),
                 ),
 
