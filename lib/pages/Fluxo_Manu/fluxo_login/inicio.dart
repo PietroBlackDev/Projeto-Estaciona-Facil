@@ -1,4 +1,5 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class _InicioState extends State<Inicio> {
             Column(
               spacing: 10,
               children: [
-                BotaoBasico(texto: 'Cadastre-se'),
+                BotaoBasico(texto: 'Cadastre-se', pagina: Cadastroum(),),
                 Row(
                   children: [
                     Expanded(child: Divider(thickness: 2, )),

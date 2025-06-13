@@ -1,9 +1,7 @@
 
-import 'package:estaciona_facil/components/botao_basico.dart';
-import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
-import 'package:estaciona_facil/components/input.dart';
-import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_quatro.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/botao_voltar.dart';
+import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:flutter/material.dart';
 
 
@@ -43,14 +41,14 @@ class _CadastroTresState extends State<CadastroTres> {
                   ),
                   child: LinearProgressIndicator(
                     borderRadius: BorderRadius.circular(10),
-                    value: 0.375,
+                    value: 0.500,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                              '3 de 8',
+                              '3 de 6',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17,
@@ -114,8 +112,18 @@ class _CadastroTresState extends State<CadastroTres> {
                                   return null;
                                 },
                                 controller: inputSenha,
-                                obscureText: true,
+                                obscureText: false,
                                 decoration: InputDecoration(
+                                  errorBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color:
+                                              Theme.of(context)
+                                                  .colorScheme
+                                                  .onPrimary, // mesma cor da borda ao focar
+                                          width: 2,
+                                        ),
+                                      ),
                                   contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                                   filled: true,
                                   fillColor: Colors.white,
@@ -161,7 +169,7 @@ class _CadastroTresState extends State<CadastroTres> {
                           if(formKey.currentState!.validate()){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => CadastroTres()),
+                            MaterialPageRoute(builder: (context) => CadastroQuatro()),
                           );
                           }
                         },

@@ -1,6 +1,4 @@
 
-import 'package:estaciona_facil/components/botao_basico.dart';
-import 'package:estaciona_facil/components/input.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_tres.dart';
 import 'package:flutter/material.dart';
@@ -42,14 +40,14 @@ class _CadastroDoisState extends State<CadastroDois> {
                   ),
                   child:LinearProgressIndicator(
                     borderRadius: BorderRadius.circular(10),
-                    value: 0.250,
+                    value: 0.3332,
                     backgroundColor: Colors.grey[300],
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                              '2 de 8',
+                              '2 de 6',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17,
@@ -112,8 +110,18 @@ class _CadastroDoisState extends State<CadastroDois> {
                                   return null;
                                 },
                                 controller: inputSenha,
-                                obscureText: true,
+                                obscureText: false,
                                 decoration: InputDecoration(
+                                  errorBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color:
+                                              Theme.of(context)
+                                                  .colorScheme
+                                                  .onPrimary, // mesma cor da borda ao focar
+                                          width: 2,
+                                        ),
+                                      ),
                                   contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                                   filled: true,
                                   fillColor: Colors.white,
