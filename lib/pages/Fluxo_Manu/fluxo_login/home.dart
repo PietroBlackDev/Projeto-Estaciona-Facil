@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                     Divider(thickness: 2),
-      
+
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 10,
