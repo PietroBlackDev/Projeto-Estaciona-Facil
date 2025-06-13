@@ -94,7 +94,7 @@ class _CadastroTresState extends State<CadastroTres> {
                             child: Text(
                               'Informe o seu telefone com DDD: ',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),

@@ -89,7 +89,7 @@ class _CadastroCincoState extends State<CadastroCinco> {
                           child: Text(
                             'Informe sua Senha',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: Colors.grey,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -154,7 +154,7 @@ class _CadastroCincoState extends State<CadastroCinco> {
                           child: Text(
                             'Confirme sua Senha',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: Colors.grey,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),

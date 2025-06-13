@@ -94,7 +94,7 @@ class _CadastroQuatroState extends State<CadastroQuatro> {
                             child: Text(
                               'Informe o seu CPF ou CNPJ: ',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),

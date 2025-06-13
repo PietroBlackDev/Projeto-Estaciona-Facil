@@ -94,7 +94,7 @@ class _CadastroumState extends State<Cadastroum> {
                             child: Text(
                               'Informe o nome completo ou nome da empresa: ',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
