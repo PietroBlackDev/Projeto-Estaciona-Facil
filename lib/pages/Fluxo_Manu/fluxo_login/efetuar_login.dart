@@ -1,5 +1,7 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/home.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_recuperar.dart/recuperar_senha.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -84,13 +86,20 @@ class _EfetuarLoginState extends State<EfetuarLogin> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      'Esqueceu a senha?',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: GoogleFonts.ubuntu().fontFamily,
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(context, 
+                          MaterialPageRoute(builder: (context) => RecuperarSenha()),);
+                        },
+                      child: Text(
+                        'Esqueceu a senha?',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Color(0xff540F63),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: GoogleFonts.ubuntu().fontFamily,
+                            decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                   ],
@@ -117,14 +126,20 @@ class _EfetuarLoginState extends State<EfetuarLogin> {
                           fontFamily: GoogleFonts.ubuntu().fontFamily,
                         ),
                       ),
-                      Text(
-                        'Cadastre-se',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xff540F63),
-                          fontWeight: FontWeight.bold,
-                          fontFamily: GoogleFonts.ubuntu().fontFamily,
-                          decoration: TextDecoration.underline,
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(context, 
+                          MaterialPageRoute(builder: (context) => Cadastroum()),);
+                        },
+                        child: Text(
+                          'Cadastre-se',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Color(0xff540F63),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: GoogleFonts.ubuntu().fontFamily,
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       )
                     ],

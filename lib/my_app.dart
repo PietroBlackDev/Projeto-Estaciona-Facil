@@ -1,7 +1,8 @@
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/inicio.dart';
 import 'package:estaciona_facil/themes/theme.dart';
 import 'package:flutter/material.dart';
 
-import 'pages/my_home_page.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: myTheme,
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(title: 'Home'),
+      home: Inicio(),
     );
   }
 }
