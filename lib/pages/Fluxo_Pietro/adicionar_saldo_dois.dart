@@ -1,6 +1,12 @@
+import 'package:estaciona_facil/components/input.dart';
+
 import 'package:estaciona_facil/components/widget_label.dart';
+
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/home.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class AdicionarSaldoDois extends StatefulWidget {
   final double saldo;
@@ -165,7 +171,251 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                             width: MediaQuery.of(context).size.width * 0.25,
                             height: MediaQuery.of(context).size.height * 0.1,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  _clicado = false;
+                                });
+
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      insetPadding: EdgeInsets.all(15),
+                                      backgroundColor: Colors.white,
+                                      title: Center(
+                                        child: Text('Informações do cartão'),
+                                      ),
+                                      actions: [
+                                        Container(
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          height:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.height *
+                                              0.58,
+                                          padding: EdgeInsets.only(top: 20),
+                                          decoration: BoxDecoration(
+                                            border: Border(
+                                              top: BorderSide(
+                                                color:
+                                                    Theme.of(
+                                                      context,
+                                                    ).colorScheme.secondary,
+                                                width: 2,
+                                              ),
+                                            ),
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              SizedBox(
+                                                width:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.width *
+                                                    0.8,
+                                                height:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.height *
+                                                    0.12,
+                                                child: Input(
+                                                  visibilidade: false,
+                                                  label:
+                                                      'Número titular do cartão:',
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.width *
+                                                    0.8,
+                                                height:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.height *
+                                                    0.12,
+                                                child: Input(
+                                                  visibilidade: false,
+                                                  label:
+                                                      'Número cartão de crédito:',
+                                                ),
+                                              ),
+                                              Row(
+                                                spacing: 35,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  SizedBox(
+                                                    width:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.4,
+                                                    height:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.height *
+                                                        0.13,
+                                                    child: Input(
+                                                      visibilidade: false,
+                                                      label:
+                                                          'Validade (mm/aa):',
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.3,
+                                                    height:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.height *
+                                                        0.13,
+                                                    child: Input(
+                                                      visibilidade: false,
+                                                      label: 'CVV:',
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: 25),
+                                              SizedBox(
+                                                width:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.width *
+                                                    0.8,
+                                                height:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.height *
+                                                    0.07,
+                                                child: ElevatedButton(
+                                                  onPressed: () {
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return AlertDialog(
+                                                          backgroundColor:
+                                                              Colors.white,
+                                                          title: Center(
+                                                            child: Text(
+                                                              'Alterações salvas com\n            sucesso!',
+                                                            ),
+                                                          ),
+                                                          content: Lottie.asset(
+                                                            'assets/lottie/confirmado.json',
+                                                          ),
+                                                          actions: [
+                                                            Container(
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                    context,
+                                                                  ).size.width *
+                                                                  0.9,
+                                                              height:
+                                                                  MediaQuery.of(
+                                                                        context,
+                                                                      )
+                                                                      .size
+                                                                      .height *
+                                                                  0.05,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                          0,
+                                                                        ),
+                                                                  ),
+                                                              child: ElevatedButton(
+                                                                style: ElevatedButton.styleFrom(
+                                                                  backgroundColor:
+                                                                      Theme.of(
+                                                                        context,
+                                                                      ).colorScheme.secondary,
+                                                                  shape: RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                          10,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                onPressed: () {
+                                                                  Navigator.push(
+                                                                    context,
+                                                                    MaterialPageRoute(
+                                                                      builder:
+                                                                          (
+                                                                            context,
+                                                                          ) =>
+                                                                              Home(),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                                child: Text(
+                                                                  "OK",
+                                                                  style: TextStyle(
+                                                                    color:
+                                                                        const Color.fromARGB(
+                                                                          255,
+                                                                          255,
+                                                                          255,
+                                                                          255,
+                                                                        ),
+                                                                    fontSize:
+                                                                        18,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Text('Avançar'),
+                                                ),
+                                              ),
+                                              SizedBox(height: 10),
+                                              SizedBox(
+                                                width:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.width *
+                                                    0.8,
+                                                height:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.height *
+                                                    0.07,
+                                                child: ElevatedButton(
+                                                  style: ButtonStyle(
+                                                    backgroundColor:
+                                                        WidgetStatePropertyAll(
+                                                          Color(0xff932426),
+                                                        ),
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text('Cancelar'),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
