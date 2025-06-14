@@ -84,12 +84,14 @@ class _CadastroSeisState extends State<CadastroSeis> {
                   child: const Text('Aceite os Termos e condições de uso selecionando o quadrado abaixo: '),
                 ),
 
+                const SizedBox(height: 5),
+
                 Container(
-                  padding: const EdgeInsets.all(15),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Transform.scale(
-                        scale: 1.5,
+                        scale: 1.2,
                         child: Checkbox(
                           activeColor: Theme.of(context).colorScheme.secondary,
                           hoverColor: Theme.of(context).colorScheme.secondary,

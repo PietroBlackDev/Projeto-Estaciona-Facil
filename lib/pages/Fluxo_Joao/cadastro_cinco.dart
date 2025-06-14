@@ -115,6 +115,15 @@ class _CadastroCincoState extends State<CadastroCinco> {
                                   width: 2,
                                 ),
                               ),
+
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).colorScheme.onPrimary,
+                                  width: 2,
+                                ),
+                              ),
+                              
                               contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                               filled: true,
                               fillColor: Colors.white,
@@ -176,6 +185,7 @@ class _CadastroCincoState extends State<CadastroCinco> {
                             controller: inputConfirmacao,
                             obscureText: _obscureConfirmPassword,
                             decoration: InputDecoration(
+
                               errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide: BorderSide(
@@ -183,6 +193,15 @@ class _CadastroCincoState extends State<CadastroCinco> {
                                   width: 2,
                                 ),
                               ),
+                        
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).colorScheme.onPrimary,
+                                  width: 2,
+                                ),
+                              ),
+
                               labelStyle: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 18,

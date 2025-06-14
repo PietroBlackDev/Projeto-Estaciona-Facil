@@ -125,6 +125,14 @@ class _CadastroumState extends State<Cadastroum> {
                                           width: 2,
                                         ),
                                       ),
+
+                                      focusedErrorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Theme.of(context).colorScheme.onPrimary,
+                                        width: 2,
+                                      ),
+                                    ),
                                   contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                                   filled: true,
                                   fillColor: Colors.white,

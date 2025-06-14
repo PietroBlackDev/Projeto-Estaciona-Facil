@@ -15,7 +15,7 @@ class ConfirmationAlertDialogContent extends StatelessWidget {
       backgroundColor: Colors.white,
       title: const Center(
         child: Text(
-          'Cadastro efetuado com\n           sucesso!',
+          'Cadastro efetuado com sucesso!',
           textAlign: TextAlign.center, // Centraliza o texto no título
         ),
       ),
