@@ -1,8 +1,10 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
+import 'package:estaciona_facil/components/modal_confirmacao.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/tela_estacionamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_dois.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class VeiculosUm extends StatefulWidget {
   const VeiculosUm({super.key});
@@ -151,25 +153,92 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                   ),
                                   Column(
                                     children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                            0.15,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                            0.09,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            10,
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                backgroundColor: Colors.white,
+                                                title: Center(
+                                                  child: Text(
+                                                    'Veículo excluído com\nsucesso!',
+                                                  ),
+                                                ),
+                                                content: Lottie.asset(
+                                                  'assets/lottie/confirmado.json',
+                                                ),
+                                                actions: [
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.9,
+                                                    height:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.height *
+                                                        0.05,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            0,
+                                                          ),
+                                                    ),
+                                                    child: ElevatedButton(
+                                                      style: ElevatedButton.styleFrom(
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                10,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      onPressed: () {
+                                                        Navigator.of(
+                                                          context,
+                                                        ).pop();
+                                                      },
+                                                      child: Text(
+                                                        "OK",
+                                                        style: TextStyle(
+                                                          color:
+                                                              const Color.fromARGB(
+                                                                255,
+                                                                255,
+                                                                255,
+                                                                255,
+                                                              ),
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                        child: SizedBox(
+                                          width:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.width *
+                                              0.1,
+                                          height:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.height *
+                                              0.09,
+
+                                          child: Icon(
+                                            Icons.delete,
+                                            color: Color(0xff932426),
+                                            size: 45,
                                           ),
-                                          border: Border.all(
-                                            color: Color(0xff540F63),
-                                          ),
-                                        ),
-                                        child: Icon(
-                                          Icons.delete,
-                                          color: Color(0xff932426),
-                                          size: 45,
                                         ),
                                       ),
                                     ],
@@ -278,25 +347,92 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                   ),
                                   Column(
                                     children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                            0.15,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                            0.09,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            10,
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                backgroundColor: Colors.white,
+                                                title: Center(
+                                                  child: Text(
+                                                    'Veículo excluído com\nsucesso!',
+                                                  ),
+                                                ),
+                                                content: Lottie.asset(
+                                                  'assets/lottie/confirmado.json',
+                                                ),
+                                                actions: [
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.9,
+                                                    height:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.height *
+                                                        0.05,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            0,
+                                                          ),
+                                                    ),
+                                                    child: ElevatedButton(
+                                                      style: ElevatedButton.styleFrom(
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                10,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      onPressed: () {
+                                                        Navigator.of(
+                                                          context,
+                                                        ).pop();
+                                                      },
+                                                      child: Text(
+                                                        "OK",
+                                                        style: TextStyle(
+                                                          color:
+                                                              const Color.fromARGB(
+                                                                255,
+                                                                255,
+                                                                255,
+                                                                255,
+                                                              ),
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                        child: SizedBox(
+                                          width:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.width *
+                                              0.1,
+                                          height:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.height *
+                                              0.09,
+
+                                          child: Icon(
+                                            Icons.delete,
+                                            color: Color(0xff932426),
+                                            size: 45,
                                           ),
-                                          border: Border.all(
-                                            color: Color(0xff540F63),
-                                          ),
-                                        ),
-                                        child: Icon(
-                                          Icons.delete,
-                                          color: Color(0xff932426),
-                                          size: 45,
                                         ),
                                       ),
                                     ],
@@ -405,25 +541,92 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                   ),
                                   Column(
                                     children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                            0.15,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                            0.09,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            10,
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                backgroundColor: Colors.white,
+                                                title: Center(
+                                                  child: Text(
+                                                    'Veículo excluído com\nsucesso!',
+                                                  ),
+                                                ),
+                                                content: Lottie.asset(
+                                                  'assets/lottie/confirmado.json',
+                                                ),
+                                                actions: [
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.9,
+                                                    height:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.height *
+                                                        0.05,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            0,
+                                                          ),
+                                                    ),
+                                                    child: ElevatedButton(
+                                                      style: ElevatedButton.styleFrom(
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                10,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      onPressed: () {
+                                                        Navigator.of(
+                                                          context,
+                                                        ).pop();
+                                                      },
+                                                      child: Text(
+                                                        "OK",
+                                                        style: TextStyle(
+                                                          color:
+                                                              const Color.fromARGB(
+                                                                255,
+                                                                255,
+                                                                255,
+                                                                255,
+                                                              ),
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                        child: SizedBox(
+                                          width:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.width *
+                                              0.1,
+                                          height:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.height *
+                                              0.09,
+
+                                          child: Icon(
+                                            Icons.delete,
+                                            color: Color(0xff932426),
+                                            size: 45,
                                           ),
-                                          border: Border.all(
-                                            color: Color(0xff540F63),
-                                          ),
-                                        ),
-                                        child: Icon(
-                                          Icons.delete,
-                                          color: Color(0xff932426),
-                                          size: 45,
                                         ),
                                       ),
                                     ],
@@ -532,25 +735,92 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                   ),
                                   Column(
                                     children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                            0.15,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                            0.09,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            10,
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                backgroundColor: Colors.white,
+                                                title: Center(
+                                                  child: Text(
+                                                    'Veículo excluído com\nsucesso!',
+                                                  ),
+                                                ),
+                                                content: Lottie.asset(
+                                                  'assets/lottie/confirmado.json',
+                                                ),
+                                                actions: [
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.9,
+                                                    height:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.height *
+                                                        0.05,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            0,
+                                                          ),
+                                                    ),
+                                                    child: ElevatedButton(
+                                                      style: ElevatedButton.styleFrom(
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                10,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      onPressed: () {
+                                                        Navigator.of(
+                                                          context,
+                                                        ).pop();
+                                                      },
+                                                      child: Text(
+                                                        "OK",
+                                                        style: TextStyle(
+                                                          color:
+                                                              const Color.fromARGB(
+                                                                255,
+                                                                255,
+                                                                255,
+                                                                255,
+                                                              ),
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                        child: SizedBox(
+                                          width:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.width *
+                                              0.10,
+                                          height:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.height *
+                                              0.09,
+
+                                          child: Icon(
+                                            Icons.delete,
+                                            color: Color(0xff932426),
+                                            size: 40,
                                           ),
-                                          border: Border.all(
-                                            color: Color(0xff540F63),
-                                          ),
-                                        ),
-                                        child: Icon(
-                                          Icons.delete,
-                                          color: Color(0xff932426),
-                                          size: 45,
                                         ),
                                       ),
                                     ],

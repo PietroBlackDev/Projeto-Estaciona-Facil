@@ -202,7 +202,7 @@ class _VeiculosCincoState extends State<VeiculosCinco> {
                               textAlign: TextAlign.left,
                             ),
                             Text(
-                              "Caso queira, informe uma descrição para identificar o veículo, por exemplo `FIAT ARGO`ou `CARRO AZUL` A descrição será exibida junto à placa quando você for estacionar.",
+                              "[OPCIONAL] Informe uma descrição para identificar o veículo, por exemplo `FIAT ARGO`ou `CARRO AZUL` A descrição será exibida junto à placa quando você for estacionar.",
                               style: Theme.of(context).textTheme.bodyMedium,
                               textAlign: TextAlign.center,
                             ),

@@ -279,6 +279,7 @@ class _VeiculosSeisState extends State<VeiculosSeis> {
                                                   GoogleFonts.ubuntu()
                                                       .fontFamily,
                                             ),
+                                            textAlign: TextAlign.justify,
                                           ),
 
                                           Container(
