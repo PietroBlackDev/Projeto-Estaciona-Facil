@@ -17,22 +17,36 @@ class _ReceberEmailState extends State<ReceberEmail> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(40),
-          child: Column(
-            spacing: 20,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Recuperação de Senha - Email', style: Theme.of(context).textTheme.titleLarge,),
-              Column(
-                spacing: 20,
-                children: [
-                  Input(visibilidade: false, label: 'Informe seu email cadastrado:'),
-                  BotaoModal(textoBotao: 'Receber EMAIL', titulo: 'Email enviado para o endereço informado', texto: 'Caso o Email não chegue, verifique se inseriu o endereço corretamente.', textoBotaoModal: 'Voltar',),
-                  BotaoVoltar(texto: 'Voltar')
-                  // inserir botão de cancelar
-                ],
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              spacing: 20,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Recuperação de Senha - Email',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                Column(
+                  spacing: 20,
+                  children: [
+                    Input(
+                      visibilidade: false,
+                      label: 'Informe seu email cadastrado:',
+                    ),
+                    BotaoModal(
+                      textoBotao: 'Receber EMAIL',
+                      titulo: 'Email enviado para o endereço informado',
+                      texto:
+                          'Caso o Email não chegue, verifique se inseriu o endereço corretamente.',
+                      textoBotaoModal: 'Voltar',
+                    ),
+                    BotaoVoltar(texto: 'Voltar'),
+                    // inserir botão de cancelar
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

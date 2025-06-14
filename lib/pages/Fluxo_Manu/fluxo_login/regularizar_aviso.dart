@@ -25,17 +25,34 @@ class _RegularizarAvisoState extends State<RegularizarAviso> {
               Column(
                 spacing: 20,
                 children: [
-                  Text('Placas com aviso regularizado:', style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text(
+                    'Placas com aviso regularizado:',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Theme.of(context).colorScheme.onPrimary),
-                      borderRadius: BorderRadius.circular(10)
+                      border: Border.all(
+                        width: 1,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Column(
                       children: [
-                        Text('Descrição do carro', style: TextStyle(fontWeight: FontWeight.bold),),
-                        Text('ABC 1A34', style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),),
+                        Text(
+                          "Descrição do Carro",
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        Text(
+                          "ABC 1A34",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 65,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Arsenal',
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -44,13 +61,15 @@ class _RegularizarAvisoState extends State<RegularizarAviso> {
               Column(
                 spacing: 20,
                 children: [
-                  BotaoBasico(texto: 'Regularizar', pagina: RegularizarAvisoDois()),
-                  BotaoBasicoPop(texto: 'Voltar',),
+                  BotaoBasico(
+                    texto: 'Regularizar',
+                    pagina: RegularizarAvisoDois(),
+                  ),
+                  BotaoBasicoPop(texto: 'Voltar'),
                 ],
               ),
 
               Image.asset('assets/images/Logo.png', width: 120, height: 120),
-              
             ],
           ),
         ),

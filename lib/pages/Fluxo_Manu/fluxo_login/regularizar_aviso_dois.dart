@@ -1,6 +1,10 @@
+import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/regularizar_aviso_quatro.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/regularizar_aviso_tres.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/container_valores.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RegularizarAvisoDois extends StatefulWidget {
   const RegularizarAvisoDois({super.key});
@@ -10,6 +14,21 @@ class RegularizarAvisoDois extends StatefulWidget {
 }
 
 class _RegularizarAvisoDoisState extends State<RegularizarAvisoDois> {
+  bool _botaoPix = false;
+  bool _botaoCartao = false;
+  String pagamento = '';
+  String marcado = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    marcado = '';
+    pagamento = '';
+    _botaoPix = false;
+    _botaoCartao = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,72 +44,160 @@ class _RegularizarAvisoDoisState extends State<RegularizarAvisoDois> {
                 children: [
                   ContainerValores(nome: 'Valor', valor: '20'),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 40,
                     children: [
-                      BotaoPagamento(icone: Icons.money, texto: 'PIX'),
-                      BotaoPagamento(icone: Icons.money, texto: 'Cartão'),
-                      BotaoPagamento(icone: Icons.money, texto: 'Boleto'),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.12,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
+                          onPressed:
+                              _botaoPix
+                                  ? null
+                                  : () {
+                                    setState(() {
+                                      marcado = 'pix';
+                                      _botaoPix = true;
+                                      _botaoCartao = false;
+                                      pagamento = 'PIX';
+                                    });
+                                  },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            spacing: 10,
+                            children: [
+                              Icon(Icons.pix, size: 50, color: Colors.white),
+                              Text(
+                                'Pix',
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.12,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            disabledForegroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                          ),
+                          onPressed:
+                              _botaoCartao
+                                  ? null
+                                  : () {
+                                    setState(() {
+                                      marcado = 'cartão';
+                                      _botaoCartao = true;
+                                      _botaoPix = false;
+                                      pagamento = 'CARTÃO';
+                                    });
+                                  },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            spacing: 10,
+                            children: [
+                              Icon(
+                                Icons.payment,
+                                size: 50,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'Cartão',
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],
               ),
-              Divider(thickness: 2),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'PIX Copia e Cola:',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                  Text(
-                    '00020126360014BR.GOV.BCB.PIX0114+55159999999995204000053039865802BR5905teste6009sao roque62180514testeFaculdade63042218',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.45,
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
-                  onPressed: () {},
-                  child: Row(
-                    spacing: 5,
-                    children: [
-                      Icon(Icons.copy, size: 20),
-                      Text('Copiar Código', style: TextStyle(fontSize: 15)),
-                    ],
-                  ),
+                  onPressed: () {
+                    if (marcado == 'pix' && pagamento != '') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  RegularizarAvisoTres(pagamento: pagamento),
+                        ),
+                      );
+                    } else if (marcado == 'cartão' && pagamento != '') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  RegularizarAvisoQuatro(pagamento: pagamento),
+                        ),
+                      );
+                    } else {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (_) {
+                          return Container(
+                            padding: EdgeInsets.all(20),
+                            width: double.infinity,
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.onPrimary,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            child: Column(
+                              spacing: 10,
+                              children: [
+                                Icon(
+                                  Icons.error_outline,
+                                  color: Theme.of(context).colorScheme.surface,
+                                  size: 60,
+                                ),
+                                Text(
+                                  'Selecione a forma de pagamento!',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    }
+                  },
+                  child: Text('Avançar'),
                 ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Código QR:',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage('assets/images/codigo_qr.png'))
-                    ),
-                  ),
-                ],
-              ),
-              Divider(thickness: 2),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(onPressed: () {}, child: Text('Já paguei')),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text('Cancelar'),
-                  ),
-                ],
               ),
 
               Image.asset('assets/images/Logo.png', width: 120, height: 120),
