@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
+import 'package:estaciona_facil/models/usuario_model.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/tela_estacionamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/historico_regularizar.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/inicio.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/appbar.dart';
@@ -11,6 +14,7 @@ import 'package:estaciona_facil/pages/Fluxo_Pietro/alarmes.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/historico.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/termos_condicoes.dart';
+import 'package:estaciona_facil/pages/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -21,6 +25,60 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String idUsuario = box.read('id_usuario');
+
+  List<UsuarioModel> dadosUsuario = [];
+
+  
+
+  void consultaUsuario(String idUsuario) async {
+  final token = box.read('token');
+  try {
+    Loading.show(context, mensagem: 'Consultando Testes...');
+    dadosUsuario.clear();
+
+    String url =
+        "http://192.168.100.79/Projeto-Estaciona-Facil-API/usuarios/$idUsuario";
+
+    Dio dio = Dio(
+      BaseOptions(
+        connectTimeout: const Duration(seconds: 20),
+        receiveTimeout: const Duration(seconds: 30),
+        validateStatus: (status) => status! < 500,
+        headers: {
+          "Authorization": "Bearer $token",  
+        },
+      ),
+    );
+
+    print('ID USUARIO: $idUsuario');
+    print('TOKEN: $token');
+
+    final response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      dadosUsuario = [UsuarioModel.fromJson(response.data)];
+      setState(() {});
+    }
+
+    print("Usuario: $dadosUsuario");
+
+    Loading.hide();
+  } catch (e) {
+    Loading.hide();
+    print("Erro ao consultar usuário: $e");
+  }
+}
+
+  
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      consultaUsuario(idUsuario);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +97,7 @@ class _HomeState extends State<Home> {
                       children: [
                         Text('Olá, ', style: TextStyle(fontSize: 30)),
                         Text(
-                          'Nome do Usuário',
+                          '',
                           style: TextStyle(
                             fontSize: 30,
                             color: Theme.of(context).colorScheme.onPrimary,
