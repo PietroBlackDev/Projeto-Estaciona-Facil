@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegularizarAvisoTres extends StatefulWidget {
-  const RegularizarAvisoTres({super.key, required this.pagamento});
+  const RegularizarAvisoTres({super.key, required this.pagamento, this.valor, this.placaCarro});
 
   final String pagamento;
+  final valor;
+  final placaCarro;
 
   @override
   State<RegularizarAvisoTres> createState() => _RegularizarAvisoTresState();
@@ -46,7 +48,7 @@ class _RegularizarAvisoTresState extends State<RegularizarAvisoTres> {
                     child: Column(
                       spacing: 20,
                       children: [
-                        ContainerValores(nome: 'Valor', valor: '20'),
+                        ContainerValores(nome: 'Valor', valor: widget.valor),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,7 +157,7 @@ class _RegularizarAvisoTresState extends State<RegularizarAvisoTres> {
                         ),
                         BotaoBasico(
                           texto: "Já Paguei",
-                          pagina: RegularizarAviso(),
+                          pagina: RegularizarAviso(placaCarro: widget.placaCarro),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.8,

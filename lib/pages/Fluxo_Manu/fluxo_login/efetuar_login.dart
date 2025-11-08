@@ -4,7 +4,6 @@ import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/home.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_recuperar.dart/recuperar_senha.dart';
 import 'package:estaciona_facil/pages/shared/loading.dart';
 import 'package:estaciona_facil/pages/shared/modal.dart';
-import 'package:estaciona_facil/services/UserService.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,7 +52,7 @@ class _EfetuarLoginState extends State<EfetuarLogin> {
       });
 
       final response = await dio.post(
-        'http://192.168.100.79/Projeto-Estaciona-Facil-API/usuarios/login',
+        'http://192.168.68.121/Projeto-Estaciona-Facil-API/usuarios/login',
         data: formData,
       );
 

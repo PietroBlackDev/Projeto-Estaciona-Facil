@@ -5,14 +5,15 @@ import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/regularizar_aviso_d
 import 'package:flutter/material.dart';
 
 class RegularizarAviso extends StatefulWidget {
-  const RegularizarAviso({super.key});
+  const RegularizarAviso({super.key, this.placaCarro});
+
+  final placaCarro;
 
   @override
   State<RegularizarAviso> createState() => _RegularizarAvisoState();
 }
 
 class _RegularizarAvisoState extends State<RegularizarAviso> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -45,7 +46,7 @@ class _RegularizarAvisoState extends State<RegularizarAviso> {
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                         Text(
-                          "ABC 1A34",
+                          widget.placaCarro ?? 'Placa Carro',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 65,

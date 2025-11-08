@@ -6,9 +6,15 @@ import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/container_valores.dart'
 import 'package:flutter/material.dart';
 
 class RegularizarAvisoQuatro extends StatefulWidget {
-  const RegularizarAvisoQuatro({super.key, required this.pagamento});
+  const RegularizarAvisoQuatro({
+    super.key,
+    required this.pagamento,
+    this.valor, this.placaCarro,
+  });
 
   final String pagamento;
+  final valor;
+  final placaCarro;
 
   @override
   State<RegularizarAvisoQuatro> createState() => _RegularizarAvisoQuatroState();
@@ -46,7 +52,7 @@ class _RegularizarAvisoQuatroState extends State<RegularizarAvisoQuatro> {
                     child: Column(
                       spacing: 20,
                       children: [
-                        ContainerValores(nome: 'Valor', valor: '20'),
+                        ContainerValores(nome: 'Valor', valor: widget.valor),
                         Container(
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height * 0.6,
@@ -148,7 +154,9 @@ class _RegularizarAvisoQuatroState extends State<RegularizarAvisoQuatro> {
                         ),
                         BotaoBasico(
                           texto: "Início",
-                          pagina: RegularizarAviso(),
+                          pagina: RegularizarAviso(
+                            placaCarro: widget.placaCarro,
+                          ),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.8,

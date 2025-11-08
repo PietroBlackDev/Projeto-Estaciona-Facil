@@ -1,23 +1,4 @@
 class UsuarioModel {
-  UsuRio? usuRio;
-
-  UsuarioModel({this.usuRio});
-
-  UsuarioModel.fromJson(Map<String, dynamic> json) {
-    usuRio =
-        json['Usuário'] != null ? new UsuRio.fromJson(json['Usuário']) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.usuRio != null) {
-      data['Usuário'] = this.usuRio!.toJson();
-    }
-    return data;
-  }
-}
-
-class UsuRio {
   String? id;
   String? nome;
   String? email;
@@ -27,7 +8,7 @@ class UsuRio {
   String? formaPagamento;
   String? saldo;
 
-  UsuRio(
+  UsuarioModel(
       {this.id,
       this.nome,
       this.email,
@@ -37,7 +18,7 @@ class UsuRio {
       this.formaPagamento,
       this.saldo});
 
-  UsuRio.fromJson(Map<String, dynamic> json) {
+  UsuarioModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     nome = json['nome'];
     email = json['email'];

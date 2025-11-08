@@ -1,13 +1,14 @@
-import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/regularizar_aviso_quatro.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/regularizar_aviso_tres.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/widgets/container_valores.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class RegularizarAvisoDois extends StatefulWidget {
-  const RegularizarAvisoDois({super.key});
+  const RegularizarAvisoDois({super.key, this.valor, this.placaCarro});
+
+  final valor;
+  final placaCarro;
 
   @override
   State<RegularizarAvisoDois> createState() => _RegularizarAvisoDoisState();
@@ -42,7 +43,7 @@ class _RegularizarAvisoDoisState extends State<RegularizarAvisoDois> {
               Column(
                 spacing: 20,
                 children: [
-                  ContainerValores(nome: 'Valor', valor: '20'),
+                  ContainerValores(nome: 'Valor', valor: widget.valor),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 40,
@@ -145,8 +146,11 @@ class _RegularizarAvisoDoisState extends State<RegularizarAvisoDois> {
                         context,
                         MaterialPageRoute(
                           builder:
-                              (context) =>
-                                  RegularizarAvisoTres(pagamento: pagamento),
+                              (context) => RegularizarAvisoTres(
+                                pagamento: pagamento,
+                                valor: widget.valor,
+                                placaCarro: widget.placaCarro,
+                              ),
                         ),
                       );
                     } else if (marcado == 'cartão' && pagamento != '') {
@@ -154,8 +158,10 @@ class _RegularizarAvisoDoisState extends State<RegularizarAvisoDois> {
                         context,
                         MaterialPageRoute(
                           builder:
-                              (context) =>
-                                  RegularizarAvisoQuatro(pagamento: pagamento),
+                              (context) => RegularizarAvisoQuatro(
+                                pagamento: pagamento,
+                                valor: widget.valor,
+                              ),
                         ),
                       );
                     } else {
