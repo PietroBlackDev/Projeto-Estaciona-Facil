@@ -1,5 +1,6 @@
 import 'package:estaciona_facil/components/modal_confirmacao.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/minha_conta_dois.dart';
 import 'package:flutter/material.dart';
 
@@ -134,7 +135,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                         spacing: 20,
                         children: [
                           Text(
-                            'Nome do usuário',
+                            box.read('nome'),
                             style: TextStyle(
                               color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
@@ -144,7 +145,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                           ),
 
                           Text(
-                            'Email do usuário',
+                            box.read('email'),
                             style: TextStyle(
                               color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
@@ -154,7 +155,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                           ),
 
                           Text(
-                            'Numero de telefone',
+                            box.read('telefone'),
                             style: TextStyle(
                               color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
@@ -164,7 +165,7 @@ class _MinhacontaumState extends State<Minhacontaum> {
                           ),
 
                           Text(
-                            'CPF ou CNPJ',
+                            box.read('cpf'),
                             style: TextStyle(
                               color: Color.fromARGB(255, 42, 42, 42),
                               fontSize: 17,
@@ -178,7 +179,6 @@ class _MinhacontaumState extends State<Minhacontaum> {
                 ),
               ),
               const SizedBox(height: 90),
-              ModalConfirmacao(texto: 'Salvar'),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.222,
