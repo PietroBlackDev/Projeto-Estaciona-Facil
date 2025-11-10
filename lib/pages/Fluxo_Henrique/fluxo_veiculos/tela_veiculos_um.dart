@@ -25,13 +25,44 @@ class _VeiculosUmState extends State<VeiculosUm> {
   VeiculoModel? veiculoModel;
   List<VeiculoModel> listaVeiculos = [];
 
+  Future deletaVeiculo(String? idVeiculo) async {
+    final token = box.read('token');
+    try {
+      Loading.show(context, mensagem: 'Consultando Veículos...');
+
+      String url =
+          "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/${idVeiculo!}";
+
+      Dio dio = Dio(
+        BaseOptions(
+          connectTimeout: const Duration(seconds: 20),
+          receiveTimeout: const Duration(seconds: 30),
+          validateStatus: (status) => status! < 500,
+          headers: {"Authorization": "Bearer $token"},
+        ),
+      );
+
+      final response = await dio.delete(url);
+
+      var data = response.data;
+
+      if (response.statusCode == 202) {
+        Loading.hide();
+        setState(() {});
+      }
+    } catch (e) {
+      print("Erro ao deletar veículo: $e");
+    }
+  }
+
   void consultaVeiculos() async {
     final token = box.read('token');
 
     try {
       Loading.show(context, mensagem: 'Consultando Veículos...');
 
-      String url = "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/2";
+      String url =
+          "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/$idUsuario";
 
       Dio dio = Dio(
         BaseOptions(
@@ -54,7 +85,12 @@ class _VeiculosUmState extends State<VeiculosUm> {
           print(dataMap);
         } else if (data is Map<String, dynamic>) {
           final dataMap = data;
-          listaVeiculos = veiculoModel?.fromJson(dataMap);
+          // veiculoModel = VeiculoModel.fromJson(dataMap["usuario"]);
+          listaVeiculos =
+              (data["usuario"] as List)
+                  .map((item) => VeiculoModel.fromJson(item))
+                  .toList();
+          print(listaVeiculos);
           setState(() {});
         } else if (data is List) {
           print('API retornou como List');
@@ -89,42 +125,49 @@ class _VeiculosUmState extends State<VeiculosUm> {
               const WidgetLabel(texto: "Meus Veículos"),
               Expanded(
                 child: SingleChildScrollView(
-                  child: SizedBox(
-                    child: Column(
-                      spacing: 20,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 0.65,
-                          padding: EdgeInsets.only(top: 20),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              top: BorderSide(
-                                color: Theme.of(context).colorScheme.secondary,
-                                width: 5,
-                              ),
+                  child: Column(
+                    spacing: 20,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: MediaQuery.of(context).size.height * 0.65,
+                        padding: EdgeInsets.only(top: 20),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                              color: Theme.of(context).colorScheme.secondary,
+                              width: 5,
                             ),
                           ),
-                          child: Column(
-                            spacing: 30,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                child: Text(
-                                  "A placa com a estrela dourada será automaticamente carregada quando você for estacionar.",
-                                ),
+                        ),
+                        child: Column(
+                          spacing: 30,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.9,
+                              child: Text(
+                                "A placa com a estrela dourada será automaticamente carregada quando você for estacionar.",
                               ),
-                              (listaVeiculos.isEmpty)
-                                  ? Text("Nenhum veiculo cadastrado!")
-                                  : ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    itemCount: listaVeiculos.length,
-                                    itemBuilder: (context, index) {
-                                      return Row(
+                            ),
+                            (listaVeiculos.isEmpty)
+                                ? Text("Nenhum veiculo cadastrado!")
+                                : ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount: listaVeiculos.length,
+                                  itemBuilder: (context, index) {
+                                    return Container(
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 10,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.all(5),
@@ -138,12 +181,12 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                             child: Column(
                                               children: [
                                                 Row(
-                                                  spacing: 10,
+                                                  spacing: 20,
+
                                                   children: [
                                                     Column(
                                                       children: [
                                                         Row(
-                                                          spacing: 5,
                                                           children: [
                                                             Icon(
                                                               Icons.star,
@@ -152,14 +195,7 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                                                 0xff540F63,
                                                               ),
                                                             ),
-                                                            Icon(
-                                                              Icons
-                                                                  .car_rental_rounded,
-                                                              size: 50,
-                                                              color: Color(
-                                                                0xff540F63,
-                                                              ),
-                                                            ),
+
                                                             Column(
                                                               spacing: 10,
                                                               children: [
@@ -241,6 +277,10 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                             children: [
                                               ElevatedButton(
                                                 onPressed: () {
+                                                  deletaVeiculo(
+                                                    listaVeiculos[index].id!,
+                                                  );
+                                                  listaVeiculos.removeAt(index);
                                                   showDialog(
                                                     context: context,
                                                     builder: (context) {
@@ -325,7 +365,7 @@ class _VeiculosUmState extends State<VeiculosUm> {
 
                                                   child: Icon(
                                                     Icons.delete,
-                                                    color: Color(0xff932426),
+                                                    color: Colors.white,
                                                     size: 45,
                                                   ),
                                                 ),
@@ -333,19 +373,19 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                             ],
                                           ),
                                         ],
-                                      );
-                                    },
-                                  ),
-                            ],
-                          ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                          ],
                         ),
+                      ),
 
-                        BotaoBasico(
-                          texto: "Cadastrar Novo Veículo",
-                          pagina: VeiculosDois(),
-                        ),
-                      ],
-                    ),
+                      BotaoBasico(
+                        texto: "Cadastrar Novo Veículo",
+                        pagina: VeiculosDois(),
+                      ),
+                    ],
                   ),
                 ),
               ),
