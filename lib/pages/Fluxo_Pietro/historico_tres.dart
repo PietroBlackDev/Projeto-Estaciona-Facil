@@ -40,7 +40,7 @@ class _HistoricoTresState extends State<HistoricoTres> {
 
   Future<List<HistoricoPagamento>> _fetchPagamentos() async {
     try {
-      final res = await _dio.get('pagamentos/$idUsuario');
+      final res = await _dio.get('historicoCompra/$idUsuario');
       final data = res.data;
 
       if (data is Map) {
