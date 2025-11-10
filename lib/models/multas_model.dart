@@ -24,7 +24,7 @@ class MultasModel {
 class Multas {
   String? nomeCarro;
   String? placa;
-  String? valor;
+  int? valor;
   String? dtCriacao;
   String? regularizacao;
   String? status;

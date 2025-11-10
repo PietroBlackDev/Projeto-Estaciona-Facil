@@ -1,22 +1,23 @@
 class UsuarioModel {
-  String? id;
+  int? id;
   String? nome;
   String? email;
   String? telefone;
   String? cPF;
   String? senha;
   String? formaPagamento;
-  String? saldo;
+  int? saldo;
 
-  UsuarioModel(
-      {this.id,
-      this.nome,
-      this.email,
-      this.telefone,
-      this.cPF,
-      this.senha,
-      this.formaPagamento,
-      this.saldo});
+  UsuarioModel({
+    this.id,
+    this.nome,
+    this.email,
+    this.telefone,
+    this.cPF,
+    this.senha,
+    this.formaPagamento,
+    this.saldo,
+  });
 
   UsuarioModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

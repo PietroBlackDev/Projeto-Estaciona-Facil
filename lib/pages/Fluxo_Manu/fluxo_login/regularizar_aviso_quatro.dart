@@ -9,7 +9,8 @@ class RegularizarAvisoQuatro extends StatefulWidget {
   const RegularizarAvisoQuatro({
     super.key,
     required this.pagamento,
-    this.valor, this.placaCarro,
+    this.valor,
+    this.placaCarro,
   });
 
   final String pagamento;
@@ -21,8 +22,6 @@ class RegularizarAvisoQuatro extends StatefulWidget {
 }
 
 class _RegularizarAvisoQuatroState extends State<RegularizarAvisoQuatro> {
-  bool _botaoPix = false;
-  bool _botaoCartao = false;
   String pagamento = '';
   String marcado = '';
 
@@ -32,8 +31,6 @@ class _RegularizarAvisoQuatroState extends State<RegularizarAvisoQuatro> {
 
     marcado = '';
     pagamento = '';
-    _botaoPix = false;
-    _botaoCartao = false;
   }
 
   @override
@@ -52,7 +49,10 @@ class _RegularizarAvisoQuatroState extends State<RegularizarAvisoQuatro> {
                     child: Column(
                       spacing: 20,
                       children: [
-                        ContainerValores(nome: 'Valor', valor: widget.valor),
+                        ContainerValores(
+                          nome: 'Valor',
+                          valor: widget.valor.toString(),
+                        ),
                         Container(
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height * 0.6,

@@ -43,7 +43,10 @@ class _RegularizarAvisoDoisState extends State<RegularizarAvisoDois> {
               Column(
                 spacing: 20,
                 children: [
-                  ContainerValores(nome: 'Valor', valor: widget.valor),
+                  ContainerValores(
+                    nome: 'Valor',
+                    valor: widget.valor.toString(),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 40,

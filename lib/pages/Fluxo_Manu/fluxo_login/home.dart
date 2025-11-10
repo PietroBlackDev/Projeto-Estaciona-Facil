@@ -25,7 +25,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String idUsuario = box.read('id_usuario');
+  String idUsuario = box.read('id_usuario').toString();
 
   UsuarioModel? usuario;
 
@@ -35,16 +35,14 @@ class _HomeState extends State<Home> {
       Loading.show(context, mensagem: 'Carregando dados...');
 
       String url =
-          "http://192.168.68.121/Projeto-Estaciona-Facil-API/usuarios/$idUsuario";
+          "http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/usuarios/$idUsuario";
 
       Dio dio = Dio(
         BaseOptions(
           connectTimeout: const Duration(seconds: 20),
           receiveTimeout: const Duration(seconds: 30),
           validateStatus: (status) => status! < 500,
-          headers: {
-            "Authorization": "Bearer $token",  
-          },
+          headers: {"Authorization": "Bearer $token"},
         ),
       );
 
@@ -61,16 +59,15 @@ class _HomeState extends State<Home> {
         box.write('cpf', usuario!.cPF);
         box.write('forma_pagamento', usuario!.formaPagamento);
         box.write('saldo', usuario!.saldo);
-
       }
 
-    Loading.hide();
-  } catch (e) {
-    Loading.hide();
-    print("Erro ao consultar usuário: $e");
+      Loading.hide();
+    } catch (e) {
+      Loading.hide();
+      print("Erro ao consultar usuário: $e");
+    }
   }
-}
-  
+
   @override
   void initState() {
     super.initState();
@@ -81,7 +78,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
@@ -96,7 +92,10 @@ class _HomeState extends State<Home> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Olá, ${usuario?.nome ?? ''}', style: TextStyle(fontSize: 30)),
+                        Text(
+                          'Olá, ${usuario?.nome ?? ''}',
+                          style: TextStyle(fontSize: 30),
+                        ),
                         Text(
                           '',
                           style: TextStyle(
@@ -114,7 +113,10 @@ class _HomeState extends State<Home> {
                           width: 90,
                           height: 90,
                         ),
-                        ContainerValores(nome: 'Saldo', valor: usuario?.saldo ?? '0'),
+                        ContainerValores(
+                          nome: 'Saldo',
+                          valor: usuario?.saldo.toString() ?? '0',
+                        ),
                       ],
                     ),
                     Divider(thickness: 2),
