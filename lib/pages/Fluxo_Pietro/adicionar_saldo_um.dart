@@ -1,5 +1,6 @@
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:estaciona_facil/pages/Fluxo_Pietro/adicionar_saldo_dois.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,7 +55,7 @@ class _AdicionarSaldoUmState extends State<AdicionarSaldoUm> {
                             ),
                             child: Center(
                               child: Text(
-                                'Saldo: R\$ 0,00',
+                                'Saldo: R\$ ${box.read('saldo') ?? '0.00'}',
                                 style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
                                   fontSize: 25,

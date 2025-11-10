@@ -1,9 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:estaciona_facil/components/input.dart';
-
 import 'package:estaciona_facil/components/widget_label.dart';
-
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/home.dart';
-
+import 'package:estaciona_facil/pages/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -19,6 +19,44 @@ class AdicionarSaldoDois extends StatefulWidget {
 
 class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
   bool _clicado = false;
+  final dio = Dio();
+
+  String emailUsuario = box.read('email');
+
+  void adicionarSaldo(String emailUsuario) async {
+    final token = box.read('token');
+    try {
+      Loading.show(context, mensagem: 'Carregando dados...');
+
+      Dio dio = Dio(
+        BaseOptions(
+          connectTimeout: Duration(seconds: 20),
+          receiveTimeout: Duration(seconds: 30),
+          validateStatus: (status) {
+            return status! < 500;
+            
+          },
+          headers: {"Authorization": "Bearer $token"},
+        ),
+      );
+
+      final formData = FormData.fromMap({'Valor_Saldo': widget.saldo});
+
+      final response = await dio.post(
+        'http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/usuario/saldo/$emailUsuario',
+        data: formData,
+      );
+
+      if (response.statusCode == 201) {
+        print('Saldo adicionado com sucesso!');
+      }
+
+      Loading.hide();
+    } catch (e) {
+      Loading.hide();
+      print("Erro ao consultar usuário: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +97,7 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      'Saldo: R\$ 0,00',
+                                      'Saldo: R\$ ${box.read('saldo') ?? '0.00'}',
                                       style: TextStyle(
                                         color:
                                             Theme.of(
@@ -296,6 +334,9 @@ class _AdicionarSaldoDoisState extends State<AdicionarSaldoDois> {
                                                     0.07,
                                                 child: ElevatedButton(
                                                   onPressed: () {
+                                                    adicionarSaldo(
+                                                      emailUsuario,
+                                                    );
                                                     showDialog(
                                                       context: context,
                                                       builder: (context) {
