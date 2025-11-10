@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_tres.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
+import 'package:estaciona_facil/pages/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class VeiculosDois extends StatefulWidget {
@@ -11,6 +13,52 @@ class VeiculosDois extends StatefulWidget {
 
 class _VeiculosDoisState extends State<VeiculosDois> {
   late final IconData valorIcone;
+  final TextEditingController _controllerCategoria = TextEditingController();
+  final TextEditingController _controllerPadraoPlaca = TextEditingController();
+  final TextEditingController _controllerPlaca = TextEditingController();
+  final TextEditingController _controllerDescricao = TextEditingController();
+  late String padraoPlaca = '';
+  final _formKey = GlobalKey<FormState>();
+
+  void cadastrarVeiculo() async {
+    try {
+      final token = box.read('token');
+      Loading.show(context, mensagem: 'Cadastrando...');
+
+      Dio dio = Dio(
+        BaseOptions(
+          connectTimeout: Duration(seconds: 10),
+          receiveTimeout: Duration(seconds: 10),
+          validateStatus: (status) => status! < 500,
+          headers: {"Authorization": "Bearer $token"},
+        ),
+      );
+
+      final dados = FormData.fromMap({
+        'categoria': _controllerCategoria.text,
+        'padrao_placa': _controllerPadraoPlaca.text,
+        'placa': _controllerPlaca.text,
+        'nome_carro': _controllerDescricao.text,
+        'id_usuario': box.read('id_usuario'),
+      });
+
+      final response = await dio.post(
+        'http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos',
+        data: dados,
+      );
+
+      if (response.statusCode == 201) {
+        Loading.hide();
+        Navigator.pop(context, true);
+        setState(() {});
+      } else {
+        Loading.hide();
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,208 +71,111 @@ class _VeiculosDoisState extends State<VeiculosDois> {
               const WidgetLabel(texto: "Novo Veículo"),
               Expanded(
                 child: SingleChildScrollView(
-                  child: SizedBox(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.7,
-                      padding: EdgeInsets.only(top: 20),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(
-                            color: Theme.of(context).colorScheme.secondary,
-                            width: 5,
-                          ),
-                        ),
-                      ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    child: Form(
+                      key: _formKey,
                       child: Column(
                         spacing: 30,
                         children: [
                           Text(
-                            "1. Qual categoria do veículo?",
+                            "1. Categoria do Veículo",
                             style: Theme.of(context).textTheme.titleMedium,
                             textAlign: TextAlign.left,
                           ),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            spacing: 30,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  color: Color(0xff540F63),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder:
-                                                (context) => VeiculosTres(
-                                                  icone:
-                                                      Icons
-                                                          .directions_car_rounded,
-                                                ),
-                                          ),
-                                        );
-                                      },
-                                      icon: Icon(
-                                        Icons.directions_car_rounded,
-                                        color: Colors.white,
-                                      ),
-                                      iconSize: 50,
-                                    ),
-                                    Text(
-                                      "Automóveis",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                          TextFormField(
+                            controller: _controllerCategoria,
+                            decoration: InputDecoration(
+                              labelText: '(ex: Automóvel, Motocicleta)',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
-
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  color: Color(0xff540F63),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder:
-                                                (context) => VeiculosTres(
-                                                  icone: Icons.motorcycle,
-                                                ),
-                                          ),
-                                        );
-                                      },
-                                      icon: Icon(
-                                        Icons.motorcycle,
-                                        color: Colors.white,
-                                        size: 50,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Motocicletas",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor, insira a categoria do veículo';
+                              }
+                              return null;
+                            },
                           ),
 
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            spacing: 30,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  color: Color(0xff540F63),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder:
-                                                (context) => VeiculosTres(
-                                                  icone: Icons.fire_truck,
-                                                ),
-                                          ),
-                                        );
-                                      },
-                                      icon: Icon(
-                                        Icons.fire_truck,
-                                        color: Colors.white,
-                                        size: 50,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Fretes e\ncaminhões",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
+                          Text(
+                            "2. Padrão da placa do veículo",
+                            style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.left,
+                          ),
+                          TextFormField(
+                            controller: _controllerPadraoPlaca,
+                            decoration: InputDecoration(
+                              labelText: '(ex: Mercosul, Antigo)',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor, insira o padrão da placa do veículo';
+                              }
+                              return null;
+                            },
+                          ),
 
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  color: Color(0xff540F63),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder:
-                                                (context) => VeiculosTres(
-                                                  icone:
-                                                      Icons
-                                                          .directions_car_rounded,
-                                                ),
-                                          ),
-                                        );
-                                      },
-                                      icon: Icon(
-                                        Icons.directions_car_rounded,
-                                        color: Colors.white,
-                                        size: 50,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Outros veículos",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
+                          Text(
+                            "3. Placa do veículo",
+                            style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.left,
+                          ),
+                          TextFormField(
+                            controller: _controllerPlaca,
+                            decoration: InputDecoration(
+                              labelText: '(ex: ABC1D23)',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                            ],
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor, insira a placa do veículo';
+                              }
+                              return null;
+                            },
+                          ),
+
+                          Text(
+                            "4. Descrição do veículo",
+                            style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.left,
+                          ),
+                          TextFormField(
+                            controller: _controllerDescricao,
+                            decoration: InputDecoration(
+                              labelText: '(ex: Fiat Branco)',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor, insira a descrição do veículo';
+                              }
+                              return null;
+                            },
+                          ),
+
+                          ElevatedButton(
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                cadastrarVeiculo();
+                              }
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 20,
+                                horizontal: 50,
+                              ),
+                              child: Text("Cadastrar Veículo"),
+                            ),
                           ),
 
                           SizedBox(
