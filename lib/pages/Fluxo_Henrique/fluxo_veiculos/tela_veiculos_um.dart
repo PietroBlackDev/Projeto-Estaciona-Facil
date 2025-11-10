@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/modal_confirmacao.dart';
@@ -18,18 +20,18 @@ class VeiculosUm extends StatefulWidget {
 }
 
 class _VeiculosUmState extends State<VeiculosUm> {
-  String idVeiculo = box.read('id_usuario');
+  String idUsuario = box.read('id_usuario');
 
   VeiculoModel? veiculoModel;
+  List<VeiculoModel> listaVeiculos = [];
 
-  void consultaVeiculos(String idUsuario) async {
+  void consultaVeiculos() async {
     final token = box.read('token');
 
     try {
       Loading.show(context, mensagem: 'Consultando Veículos...');
 
-      String url =
-          "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/$idUsuario";
+      String url = "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/2";
 
       Dio dio = Dio(
         BaseOptions(
@@ -42,13 +44,26 @@ class _VeiculosUmState extends State<VeiculosUm> {
 
       final response = await dio.get(url);
 
-      if (response.statusCode == 200) {
-        veiculoModel = VeiculoModel.fromJson(response.data);
+      var data = response.data;
 
+      if (response.statusCode == 200) {
+        if (data is String) {
+          final jsonData = jsonDecode(data);
+          final dataMap = jsonData as Map<String, dynamic>;
+
+          print(dataMap);
+        } else if (data is Map<String, dynamic>) {
+          final dataMap = data;
+          listaVeiculos = veiculoModel?.fromJson(dataMap);
+          setState(() {});
+        } else if (data is List) {
+          print('API retornou como List');
+        }
+        Loading.hide();
         setState(() {});
       }
     } catch (e) {
-      print("Erro ao consultar multas: $e");
+      print("Erro ao consultar veículos: $e");
     } finally {
       Loading.hide();
     }
@@ -58,7 +73,7 @@ class _VeiculosUmState extends State<VeiculosUm> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      consultaVeiculos(idVeiculo);
+      consultaVeiculos();
     });
   }
 
@@ -100,213 +115,226 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                   "A placa com a estrela dourada será automaticamente carregada quando você for estacionar.",
                                 ),
                               ),
-                              (veiculoModel == null ||
-                                      veiculoModel!.nomeCarro == null ||
-                                      veiculoModel!.nomeCarro!.isEmpty)
+                              (listaVeiculos.isEmpty)
                                   ? Text("Nenhum veiculo cadastrado!")
-                                  : Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: Color(0xff540F63),
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            10,
-                                          ),
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              spacing: 10,
+                                  : ListView.builder(
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemCount: listaVeiculos.length,
+                                    itemBuilder: (context, index) {
+                                      return Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.all(5),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Color(0xff540F63),
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: Column(
                                               children: [
-                                                Column(
+                                                Row(
+                                                  spacing: 10,
                                                   children: [
-                                                    Row(
-                                                      spacing: 5,
+                                                    Column(
                                                       children: [
-                                                        Icon(
-                                                          Icons.star,
-                                                          size: 50,
-                                                          color: Color(
-                                                            0xff540F63,
-                                                          ),
-                                                        ),
-                                                        Icon(
-                                                          Icons
-                                                              .car_rental_rounded,
-                                                          size: 50,
-                                                          color: Color(
-                                                            0xff540F63,
-                                                          ),
-                                                        ),
-                                                        Column(
-                                                          spacing: 10,
+                                                        Row(
+                                                          spacing: 5,
                                                           children: [
-                                                            Text(
-                                                              "Carro tal",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
+                                                            Icon(
+                                                              Icons.star,
+                                                              size: 50,
+                                                              color: Color(
+                                                                0xff540F63,
                                                               ),
                                                             ),
-                                                            Text(
-                                                              "Placa tal",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
+                                                            Icon(
+                                                              Icons
+                                                                  .car_rental_rounded,
+                                                              size: 50,
+                                                              color: Color(
+                                                                0xff540F63,
                                                               ),
+                                                            ),
+                                                            Column(
+                                                              spacing: 10,
+                                                              children: [
+                                                                Text(
+                                                                  listaVeiculos[index]
+                                                                      .nomeCarro!,
+                                                                  style:
+                                                                      TextStyle(
+                                                                        fontSize:
+                                                                            14,
+                                                                      ),
+                                                                ),
+                                                                Text(
+                                                                  listaVeiculos[index]
+                                                                      .placa!,
+                                                                  style:
+                                                                      TextStyle(
+                                                                        fontSize:
+                                                                            14,
+                                                                      ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ],
                                                         ),
                                                       ],
                                                     ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  children: [
-                                                    Container(
-                                                      height:
-                                                          MediaQuery.of(
-                                                            context,
-                                                          ).size.height *
-                                                          0.08,
-                                                      width:
-                                                          MediaQuery.of(
-                                                            context,
-                                                          ).size.width *
-                                                          0.26,
-                                                      decoration: BoxDecoration(
-                                                        color: Color(
-                                                          0xff540F63,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                              5,
+                                                    Column(
+                                                      children: [
+                                                        Container(
+                                                          height:
+                                                              MediaQuery.of(
+                                                                context,
+                                                              ).size.height *
+                                                              0.08,
+                                                          width:
+                                                              MediaQuery.of(
+                                                                context,
+                                                              ).size.width *
+                                                              0.26,
+                                                          decoration: BoxDecoration(
+                                                            color: Color(
+                                                              0xff540F63,
                                                             ),
-                                                      ),
-                                                      child: TextButton(
-                                                        onPressed: () {
-                                                          Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                              builder:
-                                                                  (context) =>
-                                                                      TelaEstacionamentoUm(),
+                                                            borderRadius:
+                                                                BorderRadius.circular(
+                                                                  5,
+                                                                ),
+                                                          ),
+                                                          child: TextButton(
+                                                            onPressed: () {
+                                                              Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                  builder:
+                                                                      (
+                                                                        context,
+                                                                      ) =>
+                                                                          TelaEstacionamentoUm(),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              "Estacionar",
+                                                              style: TextStyle(
+                                                                fontSize: 16,
+                                                              ),
                                                             ),
-                                                          );
-                                                        },
-                                                        child: Text(
-                                                          "Estacionar",
-                                                          style: TextStyle(
-                                                            fontSize: 16,
                                                           ),
                                                         ),
-                                                      ),
+                                                      ],
                                                     ),
                                                   ],
                                                 ),
                                               ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Column(
-                                        children: [
-                                          ElevatedButton(
-                                            onPressed: () {
-                                              showDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return AlertDialog(
-                                                    backgroundColor:
-                                                        Colors.white,
-                                                    title: Center(
-                                                      child: Text(
-                                                        'Veículo excluído com\nsucesso!',
-                                                      ),
-                                                    ),
-                                                    content: Lottie.asset(
-                                                      'assets/lottie/confirmado.json',
-                                                    ),
-                                                    actions: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.of(
-                                                              context,
-                                                            ).size.width *
-                                                            0.9,
-                                                        height:
-                                                            MediaQuery.of(
-                                                              context,
-                                                            ).size.height *
-                                                            0.05,
-                                                        decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.circular(
-                                                                0,
-                                                              ),
-                                                        ),
-                                                        child: ElevatedButton(
-                                                          style: ElevatedButton.styleFrom(
-                                                            shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius.circular(
-                                                                    10,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          onPressed: () {
-                                                            Navigator.of(
-                                                              context,
-                                                            ).pop();
-                                                          },
+                                          ),
+                                          Column(
+                                            children: [
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  showDialog(
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return AlertDialog(
+                                                        backgroundColor:
+                                                            Colors.white,
+                                                        title: Center(
                                                           child: Text(
-                                                            "OK",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  const Color.fromARGB(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                  ),
-                                                              fontSize: 18,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
+                                                            'Veículo excluído com\nsucesso!',
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                        content: Lottie.asset(
+                                                          'assets/lottie/confirmado.json',
+                                                        ),
+                                                        actions: [
+                                                          Container(
+                                                            width:
+                                                                MediaQuery.of(
+                                                                  context,
+                                                                ).size.width *
+                                                                0.9,
+                                                            height:
+                                                                MediaQuery.of(
+                                                                  context,
+                                                                ).size.height *
+                                                                0.05,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                  borderRadius:
+                                                                      BorderRadius.circular(
+                                                                        0,
+                                                                      ),
+                                                                ),
+                                                            child: ElevatedButton(
+                                                              style: ElevatedButton.styleFrom(
+                                                                shape: RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius.circular(
+                                                                        10,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                  context,
+                                                                ).pop();
+                                                              },
+                                                              child: Text(
+                                                                "OK",
+                                                                style: TextStyle(
+                                                                  color:
+                                                                      const Color.fromARGB(
+                                                                        255,
+                                                                        255,
+                                                                        255,
+                                                                        255,
+                                                                      ),
+                                                                  fontSize: 18,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
                                                   );
                                                 },
-                                              );
-                                            },
-                                            child: SizedBox(
-                                              width:
-                                                  MediaQuery.of(
-                                                    context,
-                                                  ).size.width *
-                                                  0.1,
-                                              height:
-                                                  MediaQuery.of(
-                                                    context,
-                                                  ).size.height *
-                                                  0.09,
+                                                child: SizedBox(
+                                                  width:
+                                                      MediaQuery.of(
+                                                        context,
+                                                      ).size.width *
+                                                      0.1,
+                                                  height:
+                                                      MediaQuery.of(
+                                                        context,
+                                                      ).size.height *
+                                                      0.09,
 
-                                              child: Icon(
-                                                Icons.delete,
-                                                color: Color(0xff932426),
-                                                size: 45,
+                                                  child: Icon(
+                                                    Icons.delete,
+                                                    color: Color(0xff932426),
+                                                    size: 45,
+                                                  ),
+                                                ),
                                               ),
-                                            ),
+                                            ],
                                           ),
                                         ],
-                                      ),
-                                    ],
+                                      );
+                                    },
                                   ),
                             ],
                           ),
