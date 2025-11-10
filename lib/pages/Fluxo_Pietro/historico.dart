@@ -11,12 +11,9 @@ class Historico extends StatefulWidget {
 }
 
 class _HistoricoState extends State<Historico> {
+  
   bool _botaoAtivacao = false;
   bool _botaoCompra = false;
-  bool _botaoTresDias = false;
-  bool _botaoDozeDias = false;
-  bool _botaoMesPassado = false;
-  bool _botaoEsteMes = false;
   String marcado = '';
   String periodo = '';
 
@@ -27,10 +24,6 @@ class _HistoricoState extends State<Historico> {
     marcado = '';
     _botaoAtivacao = false;
     _botaoCompra = false;
-    _botaoTresDias = false;
-    _botaoDozeDias = false;
-    _botaoMesPassado = false;
-    _botaoEsteMes = false;
   }
 
   @override
@@ -122,177 +115,26 @@ class _HistoricoState extends State<Historico> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 40),
-                  Text(
-                    'Escolha o período:',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  SizedBox(height: 22),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.08,
-                        width: MediaQuery.of(context).size.width * 0.46,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            disabledBackgroundColor:
-                                Theme.of(context).colorScheme.onPrimary,
-                            disabledForegroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            backgroundColor:
-                                Theme.of(context).colorScheme.tertiary,
-                          ),
-                          onPressed:
-                              _botaoTresDias
-                                  ? null
-                                  : () {
-                                    setState(() {
-                                      _botaoTresDias = true;
-                                      _botaoDozeDias = false;
-                                      _botaoMesPassado = false;
-                                      _botaoEsteMes = false;
-                                      periodo = 'Últimos 3 dias';
-                                    });
-                                  },
-                          child: Text(
-                            'Últimos 3 dias',
-                            style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.08,
-                        width: MediaQuery.of(context).size.width * 0.46,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            disabledBackgroundColor:
-                                Theme.of(context).colorScheme.onPrimary,
-                            disabledForegroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            backgroundColor:
-                                Theme.of(context).colorScheme.tertiary,
-                          ),
-                          onPressed:
-                              _botaoEsteMes
-                                  ? null
-                                  : () {
-                                    setState(() {
-                                      _botaoTresDias = false;
-                                      _botaoDozeDias = false;
-                                      _botaoMesPassado = false;
-                                      _botaoEsteMes = true;
-                                      periodo = 'Este mês';
-                                    });
-                                  },
-                          child: Text(
-                            'Este mês',
-                            style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.08,
-                        width: MediaQuery.of(context).size.width * 0.46,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            disabledBackgroundColor:
-                                Theme.of(context).colorScheme.onPrimary,
-                            disabledForegroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            backgroundColor:
-                                Theme.of(context).colorScheme.tertiary,
-                          ),
-                          onPressed:
-                              _botaoMesPassado
-                                  ? null
-                                  : () {
-                                    setState(() {
-                                      _botaoTresDias = false;
-                                      _botaoDozeDias = false;
-                                      _botaoMesPassado = true;
-                                      _botaoEsteMes = false;
-                                      periodo = 'Mês passado';
-                                    });
-                                  },
-                          child: Text(
-                            'Mês passado',
-                            style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.08,
-                        width: MediaQuery.of(context).size.width * 0.46,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            disabledBackgroundColor:
-                                Theme.of(context).colorScheme.onPrimary,
-                            disabledForegroundColor:
-                                Theme.of(context).colorScheme.primary,
-                            backgroundColor:
-                                Theme.of(context).colorScheme.tertiary,
-                          ),
-                          onPressed:
-                              _botaoDozeDias
-                                  ? null
-                                  : () {
-                                    setState(() {
-                                      _botaoTresDias = false;
-                                      _botaoDozeDias = true;
-                                      _botaoMesPassado = false;
-                                      _botaoEsteMes = false;
-                                      periodo = 'Últimos 12 dias';
-                                    });
-                                  },
-                          child: Text(
-                            'Últimos 12 dias',
-                            style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.35),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: MediaQuery.of(context).size.height * 0.07,
                     child: ElevatedButton(
                       onPressed: () {
-                        if (marcado == 'ativacao' && periodo != '') {
+                        if (marcado == 'ativacao') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder:
-                                  (context) => HistoricoDois(periodo: periodo),
+                                  (context) => HistoricoDois(),
                             ),
                           );
-                        } else if (marcado == 'compra' && periodo != '') {
+                        } else if (marcado == 'compra') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder:
-                                  (context) => HistoricoTres(periodo: periodo),
+                                  (context) => HistoricoTres(),
                             ),
                           );
                         } else {
@@ -322,7 +164,7 @@ class _HistoricoState extends State<Historico> {
                                       size: 60,
                                     ),
                                     Text(
-                                      'Selecione o Tipo e o Período que deseja visualizar o histórico!',
+                                      'Selecione o Tipo que deseja visualizar o histórico!',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         color:
