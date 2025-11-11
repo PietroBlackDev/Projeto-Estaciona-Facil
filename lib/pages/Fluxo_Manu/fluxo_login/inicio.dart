@@ -24,7 +24,7 @@ class _InicioState extends State<Inicio> {
             Column(
               spacing: 10,
               children: [
-                BotaoBasico(texto: 'Cadastre-se', pagina: Cadastroum(),),
+                BotaoBasico(texto: 'Cadastre-se', pagina: CadastroPage(),),
                 Row(
                   children: [
                     Expanded(child: Divider(thickness: 2, )),

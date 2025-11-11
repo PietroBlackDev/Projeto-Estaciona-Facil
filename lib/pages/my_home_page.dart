@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             'João',
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
-                          BotaoBasico(texto: 'Cadastro', pagina: Cadastroum()),
+                          BotaoBasico(texto: 'Cadastro', pagina: CadastroPage()),
                           Text(
                             'Manu',
                             style: Theme.of(context).textTheme.titleLarge,

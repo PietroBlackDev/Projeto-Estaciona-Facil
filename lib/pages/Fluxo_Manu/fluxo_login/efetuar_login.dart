@@ -261,7 +261,7 @@ class _EfetuarLoginState extends State<EfetuarLogin> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Cadastroum(),
+                                builder: (context) => CadastroPage(),
                               ),
                             );
                           },

@@ -48,7 +48,7 @@ class _CadastroSeisState extends State<CadastroSeis> {
                 ),
                 const SizedBox(height: 10),
                 const Text( // Adicionado 'const' aqui
-                  '6 de 6',
+                  '2 de 2',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 17,

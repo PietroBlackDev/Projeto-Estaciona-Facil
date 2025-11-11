@@ -1,219 +1,271 @@
-import 'package:estaciona_facil/components/widget_label.dart';
-import 'package:estaciona_facil/pages/Fluxo_Joao/cadastro_dois.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:estaciona_facil/models/usuario_model.dart'; 
 
-
-class Cadastroum extends StatefulWidget {
-  const Cadastroum({super.key});
+class CadastroPage extends StatefulWidget {
+  const CadastroPage({super.key});
 
   @override
-  State<Cadastroum> createState() => _CadastroumState();
+  State<CadastroPage> createState() => _CadastroPageState();
 }
 
-class _CadastroumState extends State<Cadastroum> {
+class _CadastroPageState extends State<CadastroPage> {
+  final _formKey = GlobalKey<FormState>();
 
-  var formKey = GlobalKey<FormState>();
-  var inputSenha = TextEditingController();
+
+  final _nomeController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _telefoneController = TextEditingController();
+  final _cpfController = TextEditingController();
+  final _formaPagamentoController = TextEditingController();
+  final _senhaController = TextEditingController();
+  final _confirmaSenhaController = TextEditingController();
+
+  final Dio _dio = Dio();
+  bool _isLoading = false;
+  bool _obscureSenha = true;
+  bool _obscureConfirmaSenha = true;
+
+  @override
+  void dispose() {
+    _nomeController.dispose();
+    _emailController.dispose();
+    _telefoneController.dispose();
+    _cpfController.dispose();
+    _formaPagamentoController.dispose();
+    _senhaController.dispose();
+    _confirmaSenhaController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _submitForm() async {
+    if (!(_formKey.currentState?.validate() ?? false)) {
+      return;
+    }
+
+    setState(() => _isLoading = true);
+
+    //UsuarioModel
+    
+
+    final formData = FormData.fromMap({
+        'Nome': _nomeController.text,
+        'Email': _emailController.text,
+        'Telefone': _telefoneController.text,
+        'CPF': _cpfController.text,
+        'Senha': _senhaController.text,
+        'FormaPagamento': _formaPagamentoController.text,
+      });
+
+    try {
+      final response = await _dio.post(
+        'http://192.168.100.8/Projeto-Estaciona-F-cil-API/usuarios',
+
+        data: formData,
+      );
+
+      if (response.statusCode == 201) { // 201 (Created)
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.green,
+            content: Text('Usuário cadastrado com sucesso!'),
+          ),
+          
+        );
+        Navigator.pop(context);
+
+      } else {
+        _showError('Erro no servidor: ${response.statusCode}');
+      }
+    } on DioException catch (e) {
+      String errorMessage = 'Não foi possível completar o cadastro.';
+      
+
+      if (e.response?.statusCode == 400) {
+
+        errorMessage = e.response?.data['message'] ?? 'Usuário já existente.';
+      } 
+
+      else if (e.response?.statusCode == 406) {
+        errorMessage = e.response?.data['message'] ?? 'Dados inválidos.';
+      }
+      else if (e.type == DioExceptionType.connectionTimeout || e.type == DioExceptionType.connectionError) {
+        errorMessage = 'Erro de conexão. Verifique sua internet.';
+      }
+      _showError(errorMessage);
+    } catch (e) {
+      _showError('Ocorreu um erro inesperado: $e');
+    } finally {
+      setState(() => _isLoading = false);
+    }
+  }
+
+  void _showError(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.red,
+        content: Text(message),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Criar Conta'),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 60),
-          child: Center(
+          padding: const EdgeInsets.all(20.0),
+          child: Form(
+            key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                WidgetLabel(texto: 'CADASTRO'),
-                const SizedBox(height: 20),
-        
-                Column(
-                  children: [
-                    const SizedBox(height: 15),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.025,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: 
-                      LinearProgressIndicator(
-                        borderRadius: BorderRadius.circular(10),
-                        value: 0.1666,
-                        backgroundColor: Colors.grey[300],
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                                  '1 de 6',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: 'Arsenal',
-                                  ),
-                                ),
-                    const SizedBox(height: 30),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          
-                          const SizedBox(width: 15),
-                          Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              spacing: 20,
-                              children: [
-                                
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                            
-                    Column(
-                      children: [
-                    
-                    Form(
-                      key: formKey,
-                      child: Center(
-                        child: Column(
-                        spacing: 10,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              'Informe o nome completo ou nome da empresa: ',
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                    
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              child: TextFormField(
-                                
-                                cursorColor: Colors.black,
-                                validator: (value) {
-                                  if (value != null && value.isEmpty) {
-                                    return 'Por favor preencha seu nome!';
-                                  }
-                                  return null;
-                                },
-                                controller: inputSenha,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  errorBorder:
-                                  OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(
-                                          color:
-                                              Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimary, // mesma cor da borda ao focar
-                                          width: 2,
-                                        ),
-                                      ),
+                // --- CAMPO NOME ---
+                TextFormField(
+                  controller: _nomeController,
+                  decoration: const InputDecoration(
+                    labelText: 'Nome Completo',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.person),
+                  ),
+                  validator: (value) { /* ... (validação do nome) ... */ },
+                ),
+                const SizedBox(height: 16),
 
-                                      focusedErrorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Theme.of(context).colorScheme.onPrimary,
-                                        width: 2,
-                                      ),
-                                    ),
-                                  contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                                  filled: true,
-                                  fillColor: Colors.white,
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).colorScheme.onPrimary, // mesma cor da borda ao focar
-                                      width: 2,
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).colorScheme.onPrimary,
-                                      width: 2,
-                                    ),
-                                  ),
-                                ),
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ),
-                    
-                          ],
-                        ),
-                      ),
+                // --- CAMPO E-MAIL ---
+                TextFormField(
+                  controller: _emailController,
+                  decoration: const InputDecoration(
+                    labelText: 'E-mail',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.email),
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (value) { /* ... (validação do email) ... */ },
+                ),
+                const SizedBox(height: 16),
+
+                // --- CAMPO TELEFONE ---
+                TextFormField(
+                  controller: _telefoneController,
+                  decoration: const InputDecoration(
+                    labelText: 'Telefone (com DDD)',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.phone),
+                  ),
+                  keyboardType: TextInputType.phone,
+                  validator: (value) { /* ... (validação do telefone) ... */ },
+                ),
+                const SizedBox(height: 16),
+
+                // --- CAMPO CPF ---
+                TextFormField(
+                  controller: _cpfController,
+                  decoration: const InputDecoration(
+                    labelText: 'CPF (só números)',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.badge),
+                  ),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'O CPF é obrigatório';
+                    }
+                    if (value.length != 11) { // Validação da sua API
+                      return 'O cpf deve possuir 11 dígitos';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                TextFormField(
+                  controller: _formaPagamentoController,
+                  decoration: const InputDecoration(
+                    labelText: 'Forma de Pagamento (ex: PIX)',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.payment),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      // Validação da sua API
+                      return 'O campo de formas de pagamento é obrigatório!';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                // --- CAMPO SENHA ---
+                TextFormField(
+                  controller: _senhaController,
+                  obscureText: _obscureSenha,
+                  decoration: InputDecoration(
+                    labelText: 'Senha',
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureSenha ? Icons.visibility_off : Icons.visibility),
+                      onPressed: () => setState(() => _obscureSenha = !_obscureSenha),
                     ),
-                    
-                    const SizedBox(height: 90),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.07,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(0),
-                      ),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Theme.of(context).colorScheme.secondary,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'A senha é obrigatória';
+                    }
+                    if (value.length < 3) { // Validação API
+                      return 'Insira uma senha com pelo menos três caracteres';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                //CONFIRMAR SENHA
+                TextFormField(
+                  controller: _confirmaSenhaController,
+                  obscureText: _obscureConfirmaSenha,
+                  decoration: InputDecoration(
+                    labelText: 'Confirmar Senha',
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureConfirmaSenha ? Icons.visibility_off : Icons.visibility),
+                      onPressed: () => setState(() => _obscureConfirmaSenha = !_obscureConfirmaSenha),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value != _senhaController.text) {
+                      return 'As senhas não coincidem';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 30),
+
+                // --- BOTÃO CADASTRAR (com loading) ---
+                ElevatedButton(
+                  onPressed: _isLoading ? null : _submitForm,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: _isLoading
+                      ? const SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 3,
                           ),
-                        ),
-                        onPressed: () {
-                          if(formKey.currentState!.validate()){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => CadastroDois()),
-                          );
-                          }
-                        },
-                        child: Text(
-                          "Avançar",
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    
-                    
-                      ],
-                    ),
-                    
-                    
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.222,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/images/Logo.png',
-                            width: 120,
-                            height: 120,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                        )
+                      : const Text('Cadastrar', style: TextStyle(fontSize: 18)),
                 ),
               ],
             ),
