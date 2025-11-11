@@ -2,6 +2,7 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/tela_estacionamento_dois.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:flutter/material.dart';
 
 class TelaEstacionamentoUm extends StatefulWidget {
@@ -12,7 +13,12 @@ class TelaEstacionamentoUm extends StatefulWidget {
 }
 
 class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
-  double saldo = 5.00;
+  @override
+  void initState() {
+    super.initState();
+    print(box.read('placa_veiculo'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +36,7 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
                     child: Column(
                       spacing: 30,
                       children: [
-                        BotaoBasico(
-                          texto: "Saldo: ${saldo.toStringAsFixed(2)}",
-                        ),
+                        BotaoBasico(texto: "Saldo: ${box.read('saldo')}"),
                         Text(
                           "Selecione a placa do veículo",
                           style: TextStyle(
@@ -58,7 +62,7 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                               Text(
-                                "ABC 1A34",
+                                box.read('placa_veiculo'),
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 65,

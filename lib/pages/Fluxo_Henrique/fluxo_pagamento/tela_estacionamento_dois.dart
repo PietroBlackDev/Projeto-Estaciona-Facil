@@ -2,6 +2,7 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:flutter/material.dart';
 
 class TelaEstacionamentoDois extends StatefulWidget {
@@ -34,7 +35,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                       spacing: 30,
                       children: [
                         BotaoBasico(
-                          texto: "Saldo: ${widget.saldo.toStringAsFixed(2)}",
+                          texto: "Saldo: ${box.read('saldo').toString()}",
                         ),
                         Text(
                           "Selecione a placa do veículo",
@@ -61,7 +62,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                               Text(
-                                "ABC 1A34",
+                                box.read('placa_veiculo'),
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 65,

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:estaciona_facil/components/botao_basico.dart';
-import 'package:estaciona_facil/components/modal_confirmacao.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:estaciona_facil/models/veiculo_model.dart';
@@ -44,8 +43,6 @@ class _VeiculosUmState extends State<VeiculosUm> {
 
       final response = await dio.delete(url);
 
-      var data = response.data;
-
       if (response.statusCode == 202) {
         Loading.hide();
         setState(() {});
@@ -84,8 +81,6 @@ class _VeiculosUmState extends State<VeiculosUm> {
 
           print(dataMap);
         } else if (data is Map<String, dynamic>) {
-          final dataMap = data;
-          // veiculoModel = VeiculoModel.fromJson(dataMap["usuario"]);
           listaVeiculos =
               (data["usuario"] as List)
                   .map((item) => VeiculoModel.fromJson(item))
@@ -247,6 +242,11 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                                           ),
                                                           child: TextButton(
                                                             onPressed: () {
+                                                              box.write(
+                                                                'placa_veiculo',
+                                                                listaVeiculos[index]
+                                                                    .placa!,
+                                                              );
                                                               Navigator.push(
                                                                 context,
                                                                 MaterialPageRoute(
