@@ -19,32 +19,28 @@ class UsuarioModel {
     this.saldo,
   });
 
-
   UsuarioModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    nome = json['Nome'];
-    email = json['Email'];
-    telefone = json['Telefone'];
+    nome = json['nome'];
+    email = json['email'];
+    telefone = json['telefone'];
     cPF = json['CPF'];
-    senha = json['Senha'];
-    formaPagamento = json['FormaPagamento'];
+    senha = json['senha'];
+    formaPagamento = json['forma_pagamento'];
     saldo = json['saldo'];
   }
 
-
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-
-
-    data['Nome'] = this.nome;
-    data['Email'] = this.email;
-    data['Telefone'] = this.telefone;
-    data['CPF'] = this.cPF; // 
-    data['Senha'] = this.senha;
-    data['FormaPagamento'] = this.formaPagamento;
-
+    data['id'] = this.id;
+    data['nome'] = this.nome;
+    data['email'] = this.email;
+    data['telefone'] = this.telefone;
+    data['CPF'] = this.cPF;
+    data['senha'] = this.senha;
+    data['forma_pagamento'] = this.formaPagamento;
+    data['saldo'] = this.saldo;
 
     return data;
   }
-
 }
