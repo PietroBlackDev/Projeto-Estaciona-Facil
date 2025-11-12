@@ -139,12 +139,6 @@ class _VeiculosUmState extends State<VeiculosUm> {
                           spacing: 30,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              child: Text(
-                                "A placa com a estrela dourada será automaticamente carregada quando você for estacionar.",
-                              ),
-                            ),
                             (listaVeiculos.isEmpty)
                                 ? Text("Nenhum veiculo cadastrado!")
                                 : ListView.builder(
@@ -165,6 +159,11 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
+                                            width:
+                                                MediaQuery.of(
+                                                  context,
+                                                ).size.width *
+                                                0.65,
                                             padding: EdgeInsets.all(5),
                                             decoration: BoxDecoration(
                                               border: Border.all(
@@ -176,47 +175,35 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                             child: Column(
                                               children: [
                                                 Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   spacing: 20,
-
                                                   children: [
-                                                    Column(
-                                                      children: [
-                                                        Row(
-                                                          children: [
-                                                            Icon(
-                                                              Icons.star,
-                                                              size: 50,
-                                                              color: Color(
-                                                                0xff540F63,
-                                                              ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                            left: 15.0,
+                                                          ),
+                                                      child: Column(
+                                                        spacing: 15,
+                                                        children: [
+                                                          Text(
+                                                            listaVeiculos[index]
+                                                                .nomeCarro!,
+                                                            style: TextStyle(
+                                                              fontSize: 15,
                                                             ),
-
-                                                            Column(
-                                                              spacing: 10,
-                                                              children: [
-                                                                Text(
-                                                                  listaVeiculos[index]
-                                                                      .nomeCarro!,
-                                                                  style:
-                                                                      TextStyle(
-                                                                        fontSize:
-                                                                            14,
-                                                                      ),
-                                                                ),
-                                                                Text(
-                                                                  listaVeiculos[index]
-                                                                      .placa!,
-                                                                  style:
-                                                                      TextStyle(
-                                                                        fontSize:
-                                                                            14,
-                                                                      ),
-                                                                ),
-                                                              ],
+                                                          ),
+                                                          Text(
+                                                            listaVeiculos[index]
+                                                                .placa!,
+                                                            style: TextStyle(
+                                                              fontSize: 15,
                                                             ),
-                                                          ],
-                                                        ),
-                                                      ],
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                     Column(
                                                       children: [

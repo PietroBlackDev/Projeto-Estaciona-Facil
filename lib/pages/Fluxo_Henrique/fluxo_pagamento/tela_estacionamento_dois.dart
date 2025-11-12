@@ -35,7 +35,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                       spacing: 30,
                       children: [
                         BotaoBasico(
-                          texto: "Saldo: ${box.read('saldo').toString()}",
+                          texto: "Saldo: ${box.read('saldo') ?? '0.00'}",
                         ),
                         Text(
                           "Selecione a placa do veículo",
@@ -190,8 +190,8 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                         BotaoBasico(
                           texto: "Avançar",
                           pagina: PagamentoUm(
-                            placa: "ABC 1A34",
-                            saldo: widget.saldo,
+                            placa: box.read('placa_veiculo'),
+                            saldo: 5.00,
                             horas: groupValue,
                           ),
                         ),

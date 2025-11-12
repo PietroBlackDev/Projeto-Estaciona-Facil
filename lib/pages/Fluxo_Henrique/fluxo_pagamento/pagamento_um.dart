@@ -1,6 +1,7 @@
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_dois.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_pagamento/pagamento_tres.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
 import 'package:flutter/material.dart';
 
 class PagamentoUm extends StatefulWidget {
@@ -24,6 +25,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
   bool _botaoCartao = false;
   String pagamento = '';
   String marcado = '';
+  double valorPago = 0.0;
 
   @override
   void initState() {
@@ -33,6 +35,13 @@ class _PagamentoUmState extends State<PagamentoUm> {
     pagamento = '';
     _botaoPix = false;
     _botaoCartao = false;
+    if (widget.horas == "3 horas") {
+      valorPago = 15.00;
+    } else if (widget.horas == "2 horas") {
+      valorPago = 10.00;
+    } else if (widget.horas == "1 hora") {
+      valorPago = 5.00;
+    }
   }
 
   @override
@@ -53,7 +62,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Descrição do carro ${widget.placa}",
+                          "Descrição do carro ${box.read('placa_veiculo')}",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -94,7 +103,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                                     ),
 
                                     Text(
-                                      widget.saldo.toStringAsFixed(2),
+                                      valorPago.toStringAsFixed(2),
                                       style: TextStyle(
                                         fontSize: 28,
                                         fontWeight: FontWeight.bold,
@@ -242,7 +251,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                           builder:
                               (context) => PagamentoTres(
                                 placa: widget.placa,
-                                saldo: widget.saldo,
+                                saldo: valorPago,
                                 horas: widget.horas,
                                 pagamento: pagamento,
                               ),
@@ -255,7 +264,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                           builder:
                               (context) => PagamentoDois(
                                 placa: widget.placa,
-                                saldo: widget.saldo,
+                                saldo: valorPago,
                                 horas: widget.horas,
                                 pagamento: pagamento,
                               ),

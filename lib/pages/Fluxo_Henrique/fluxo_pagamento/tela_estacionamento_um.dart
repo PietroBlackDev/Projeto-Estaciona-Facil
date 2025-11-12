@@ -36,7 +36,9 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
                     child: Column(
                       spacing: 30,
                       children: [
-                        BotaoBasico(texto: "Saldo: ${box.read('saldo')}"),
+                        BotaoBasico(
+                          texto: "Saldo: ${box.read('saldo') ?? '0.00'}",
+                        ),
                         Text(
                           "Selecione a placa do veículo",
                           style: TextStyle(

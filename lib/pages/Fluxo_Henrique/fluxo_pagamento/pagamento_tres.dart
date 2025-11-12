@@ -1,6 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
+import 'package:estaciona_facil/pages/shared/loading.dart';
+import 'package:estaciona_facil/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,6 +27,44 @@ class PagamentoTres extends StatefulWidget {
 }
 
 class _PagamentoTresState extends State<PagamentoTres> {
+  final dio = Dio();
+
+  String emailUsuario = box.read('email');
+
+  void pagar(String emailUsuario) async {
+    final token = box.read('token');
+    try {
+      Loading.show(context, mensagem: 'Carregando dados...');
+
+      Dio dio = Dio(
+        BaseOptions(
+          connectTimeout: Duration(seconds: 20),
+          receiveTimeout: Duration(seconds: 30),
+          validateStatus: (status) {
+            return status! < 500;
+          },
+          headers: {"Authorization": "Bearer $token"},
+        ),
+      );
+
+      final formData = FormData.fromMap({'Valor_Saldo': widget.saldo});
+
+      final response = await dio.post(
+        'http://10.0.0.94/Projeto-Estaciona-Facil-API/usuario/saldo/pagar/$emailUsuario',
+        data: formData,
+      );
+
+      if (response.statusCode == 201) {
+        print('Pagamento efetuado!');
+      }
+
+      Loading.hide();
+    } catch (e) {
+      Loading.hide();
+      print("Erro ao consultar usuário: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +82,7 @@ class _PagamentoTresState extends State<PagamentoTres> {
                       spacing: 20,
                       children: [
                         Text(
-                          "Descrição do carro ${widget.placa}",
+                          "Descrição do carro ${box.read('placa_veiculo')}",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -200,7 +242,43 @@ class _PagamentoTresState extends State<PagamentoTres> {
                             ),
                           ],
                         ),
-                        BotaoBasico(texto: "Avançar", pagina: VeiculosUm()),
+                        TextButton(
+                          onPressed: () async {
+                            pagar(emailUsuario);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => VeiculosUm(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            height: MediaQuery.of(context).size.height * 0.07,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: myTheme.colorScheme.onPrimary,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              vertical: 12,
+                              horizontal: 24,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Avançar',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: GoogleFonts.ubuntu().fontFamily,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.8,
                           height: MediaQuery.of(context).size.height * 0.222,
