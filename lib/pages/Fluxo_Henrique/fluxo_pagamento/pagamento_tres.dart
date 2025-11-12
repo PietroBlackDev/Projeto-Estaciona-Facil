@@ -82,7 +82,7 @@ class _PagamentoTresState extends State<PagamentoTres> {
                       spacing: 20,
                       children: [
                         Text(
-                          "Descrição do carro ${box.read('placa_veiculo')}",
+                          "${box.read('descricao')} ${box.read('placa_veiculo')}",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -245,11 +245,9 @@ class _PagamentoTresState extends State<PagamentoTres> {
                         TextButton(
                           onPressed: () async {
                             pagar(emailUsuario);
-                            Navigator.push(
+                            Navigator.popUntil(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) => VeiculosUm(),
-                              ),
+                              (route) => route.isFirst,
                             );
                           },
                           child: Container(

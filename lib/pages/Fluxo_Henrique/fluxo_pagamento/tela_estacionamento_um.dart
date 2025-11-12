@@ -60,7 +60,7 @@ class _TelaEstacionamentoUmState extends State<TelaEstacionamentoUm> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Descrição do Carro",
+                                box.read('descricao'),
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                               Text(

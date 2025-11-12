@@ -58,7 +58,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Descrição do Carro",
+                                box.read('descricao'),
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                               Text(
@@ -76,7 +76,7 @@ class _TelaEstacionamentoDoisState extends State<TelaEstacionamentoDois> {
                         BotaoBasico(texto: "Trocar", pagina: VeiculosUm()),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.9,
-                          height: MediaQuery.of(context).size.height * 0.28,
+                          height: MediaQuery.of(context).size.height * 0.3,
                           child: Column(
                             spacing: 10,
                             children: [

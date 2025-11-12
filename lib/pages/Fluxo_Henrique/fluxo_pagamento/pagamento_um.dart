@@ -62,7 +62,7 @@ class _PagamentoUmState extends State<PagamentoUm> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Descrição do carro ${box.read('placa_veiculo')}",
+                          "${box.read('descricao')} ${box.read('placa_veiculo')}",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,

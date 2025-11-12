@@ -83,7 +83,7 @@ class _PagamentoDoisState extends State<PagamentoDois> {
                       spacing: 20,
                       children: [
                         Text(
-                          "Descrição do carro ${widget.placa}",
+                          "${box.read('descricao')} ${box.read('placa_veiculo')}",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,

@@ -30,7 +30,7 @@ class _VeiculosUmState extends State<VeiculosUm> {
       Loading.show(context, mensagem: 'Consultando Veículos...');
 
       String url =
-          "http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/veiculos/${idVeiculo!}";
+          "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/${idVeiculo!}";
 
       Dio dio = Dio(
         BaseOptions(
@@ -149,6 +149,9 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                   itemCount: listaVeiculos.length,
                                   itemBuilder: (context, index) {
                                     return Container(
+                                      width:
+                                          MediaQuery.of(context).size.width *
+                                          0.9,
                                       padding: EdgeInsets.symmetric(
                                         vertical: 10,
                                       ),
@@ -231,6 +234,11 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                                           ),
                                                           child: TextButton(
                                                             onPressed: () {
+                                                              box.write(
+                                                                'descricao',
+                                                                listaVeiculos[index]
+                                                                    .nomeCarro!,
+                                                              );
                                                               box.write(
                                                                 'placa_veiculo',
                                                                 listaVeiculos[index]

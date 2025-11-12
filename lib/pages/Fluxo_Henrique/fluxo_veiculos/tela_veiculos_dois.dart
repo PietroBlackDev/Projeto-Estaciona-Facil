@@ -50,6 +50,12 @@ class _VeiculosDoisState extends State<VeiculosDois> {
       if (response.statusCode == 201) {
         Loading.hide();
         Navigator.pop(context, true);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.green,
+            content: Text('Veículo cadastrado com sucesso!'),
+          ),
+        );
         setState(() {});
       } else {
         Loading.hide();
