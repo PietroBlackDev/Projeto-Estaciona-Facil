@@ -19,7 +19,7 @@ class VeiculosUm extends StatefulWidget {
 }
 
 class _VeiculosUmState extends State<VeiculosUm> {
-  String idUsuario = box.read('id_usuario');
+  String idUsuario = box.read('id_usuario').toString();
 
   VeiculoModel? veiculoModel;
   List<VeiculoModel> listaVeiculos = [];
@@ -30,7 +30,7 @@ class _VeiculosUmState extends State<VeiculosUm> {
       Loading.show(context, mensagem: 'Consultando Veículos...');
 
       String url =
-          "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/${idVeiculo!}";
+          "http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/veiculos/${idVeiculo!}";
 
       Dio dio = Dio(
         BaseOptions(
@@ -59,7 +59,9 @@ class _VeiculosUmState extends State<VeiculosUm> {
       Loading.show(context, mensagem: 'Consultando Veículos...');
 
       String url =
-          "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/$idUsuario";
+          "http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/veiculos/$idUsuario";
+
+      print(idUsuario);
 
       Dio dio = Dio(
         BaseOptions(
@@ -265,7 +267,8 @@ class _VeiculosUmState extends State<VeiculosUm> {
                                               ElevatedButton(
                                                 onPressed: () {
                                                   deletaVeiculo(
-                                                    listaVeiculos[index].id!,
+                                                    listaVeiculos[index].id!
+                                                        .toString(),
                                                   );
                                                   listaVeiculos.removeAt(index);
                                                   showDialog(

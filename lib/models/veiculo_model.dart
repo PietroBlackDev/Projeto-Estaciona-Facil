@@ -1,10 +1,10 @@
 class VeiculoModel {
-  String? id;
+  int? id;
   String? nomeCarro;
   String? placa;
   String? categoria;
   String? placaPadrao;
-  String? idUsuario;
+  int? idUsuario;
 
   VeiculoModel({
     this.id,
