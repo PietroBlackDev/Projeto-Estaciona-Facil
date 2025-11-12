@@ -43,19 +43,13 @@ class _VeiculosDoisState extends State<VeiculosDois> {
       });
 
       final response = await dio.post(
-        'http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos',
+        'http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/veiculos',
         data: dados,
       );
 
       if (response.statusCode == 201) {
         Loading.hide();
         Navigator.pop(context, true);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: Colors.green,
-            content: Text('Veículo cadastrado com sucesso!'),
-          ),
-        );
         setState(() {});
       } else {
         Loading.hide();
@@ -173,6 +167,14 @@ class _VeiculosDoisState extends State<VeiculosDois> {
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
                                 cadastrarVeiculo();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    backgroundColor: Colors.green,
+                                    content: Text(
+                                      'Veículo cadastrado com sucesso!',
+                                    ),
+                                  ),
+                                );
                               }
                             },
                             child: Container(

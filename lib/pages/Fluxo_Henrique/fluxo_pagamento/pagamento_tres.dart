@@ -3,6 +3,7 @@ import 'package:estaciona_facil/components/botao_basico.dart';
 import 'package:estaciona_facil/components/widget_label.dart';
 import 'package:estaciona_facil/pages/Fluxo_Henrique/fluxo_veiculos/tela_veiculos_um.dart';
 import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/efetuar_login.dart';
+import 'package:estaciona_facil/pages/Fluxo_Manu/fluxo_login/home.dart';
 import 'package:estaciona_facil/pages/shared/loading.dart';
 import 'package:estaciona_facil/themes/theme.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +28,22 @@ class PagamentoTres extends StatefulWidget {
 }
 
 class _PagamentoTresState extends State<PagamentoTres> {
+  late String delimitador;
+  late String dados;
+  late List<String> partes;
+  late String tempoSelecionado;
+
   final dio = Dio();
 
   String emailUsuario = box.read('email');
+
+  @override
+  void initState() {
+    super.initState();
+    delimitador = ' ';
+    partes = widget.horas.split(delimitador);
+    tempoSelecionado = partes[0];
+  }
 
   void pagar(String emailUsuario) async {
     final token = box.read('token');
@@ -47,14 +61,25 @@ class _PagamentoTresState extends State<PagamentoTres> {
         ),
       );
 
-      final formData = FormData.fromMap({'Valor_Saldo': widget.saldo});
+      final formData = FormData.fromMap({
+        'id_carrro': box.read('id_veiculo'),
+        'Valor_Saldo': widget.saldo,
+        'nome_carro': box.read('descricao'),
+        'tempoSelecionado': tempoSelecionado,
+      });
 
       final response = await dio.post(
-        'http://10.0.0.94/Projeto-Estaciona-Facil-API/usuario/saldo/pagar/$emailUsuario',
+        'http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/usuario/saldo/pagar/$emailUsuario',
         data: formData,
       );
 
       if (response.statusCode == 201) {
+        setState(() {
+          box.write(
+            'saldo',
+            box.read('saldo') - double.parse(widget.saldo.toString()),
+          );
+        });
         print('Pagamento efetuado!');
       }
 
@@ -245,8 +270,16 @@ class _PagamentoTresState extends State<PagamentoTres> {
                         TextButton(
                           onPressed: () async {
                             pagar(emailUsuario);
-                            Navigator.popUntil(
-                              context,
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                backgroundColor: Colors.green,
+                                content: Text(
+                                  'Ativação realizada com Sucesso!',
+                                ),
+                              ),
+                            );
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (_) => const Home()),
                               (route) => route.isFirst,
                             );
                           },

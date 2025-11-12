@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:dio/dio.dart';
 import 'package:estaciona_facil/components/botao_basico.dart';
@@ -30,7 +31,7 @@ class _VeiculosUmState extends State<VeiculosUm> {
       Loading.show(context, mensagem: 'Consultando Veículos...');
 
       String url =
-          "http://10.0.0.94/Projeto-Estaciona-Facil-API/veiculos/${idVeiculo!}";
+          "http://10.125.121.135:8081/Projeto-Estaciona-Facil-API/veiculos/${idVeiculo!}";
 
       Dio dio = Dio(
         BaseOptions(
@@ -379,9 +380,26 @@ class _VeiculosUmState extends State<VeiculosUm> {
                         ),
                       ),
 
-                      BotaoBasico(
-                        texto: "Cadastrar Novo Veículo",
-                        pagina: VeiculosDois(),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: MediaQuery.of(context).size.height * 0.07,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            final result = await Navigator.push<bool>(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => VeiculosDois(),
+                              ),
+                            );
+
+                            if (result == true) {
+                              setState(() {
+                                consultaVeiculos();
+                              });
+                            }
+                          },
+                          child: Text('CADASTRAR VEÍCULO'),
+                        ),
                       ),
                     ],
                   ),
